@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
-    const user = null
-    // const user = useSelector((state) => state.auth.user)
+    // const user = null
+    const user = useSelector((state) => state.auth.user)
     return (
         <nav>
             <div className="logo">Logo</div>

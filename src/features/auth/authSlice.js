@@ -9,6 +9,7 @@ const initialState = {
     token: token || null,
     message: '',
     stage: 'idle',
+    profile: {},
 }
 
 export const authSlice = createSlice({
@@ -30,7 +31,8 @@ export const authSlice = createSlice({
             })
             .addCase(register.rejected, (state, action) => {
                 state.status = 'failed';
-                state.message = action.payload
+                console.log(action.payload.message)
+                state.message = action.payload.message
             })
             .addCase(login.pending, (state) => {
                 state.status = 'loading'
@@ -49,7 +51,7 @@ export const authSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(getProfile.fulfilled, (state, action) => {
-                state.userRecipes = action.payload.recipeIds;
+                state.profile = action.payload.profile;
                 state.status = 'succeeded';
                 state.message = action.payload.message;
             })
@@ -65,7 +67,7 @@ export const register = createAsyncThunk('auth/register', async (data, thunkAPI)
     try {
         return await authService.register(data)
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.response.data.message)
+        return thunkAPI.rejectWithValue(error.response.data)
     }
 })
 export const login = createAsyncThunk('auth/login', async (data, thunkAPI) => {

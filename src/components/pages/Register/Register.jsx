@@ -4,7 +4,12 @@ import { register } from '../../../features/auth/authSlice'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
-    const initialValue = { email: '', firstName: '', lastName: '', password: '' }
+    const initialValue = {
+        email: '',
+        firstName: '',
+        lastName: '',
+        password: '',
+    }
     const [data, setData] = useState(initialValue)
     const dispatch = useDispatch()
     const [isSubmitting, setIsSubmitting] = useState(false)
