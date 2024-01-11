@@ -31,7 +31,7 @@ export const authSlice = createSlice({
             })
             .addCase(register.rejected, (state, action) => {
                 state.status = 'failed';
-                console.log(action.payload.message)
+                // console.log(action.payload.message)
                 state.message = action.payload.message
             })
             .addCase(login.pending, (state) => {

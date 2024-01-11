@@ -42,12 +42,12 @@ const Register = () => {
                 <input type="text" name='email' placeholder='Email' onChange={handleOnChange} />
                 <input type="text" name='firstName' placeholder='First Name' onChange={handleOnChange} />
                 <input type="text" name='lastName' placeholder='Last Name' onChange={handleOnChange} />
+                <input type="number" name='phone' placeholder='Phone Number' onChange={handleOnChange} />
                 <input type="password" placeholder='Password' onChange={handleOnChange} />
                 {message && <p className={status}>{message}</p>}
                 <button type='submit' disabled={isSubmitting}>Sign Up</button>
             </form>
             <p>Already a user? <span><Link to='/login'>here</Link></span></p>
-
         </div>
     )
 }
