@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const Buildings = () => {
     const dispatch = useDispatch()
-    const buildings = useSelector((state) => state.user.buildings)
-    useEffect(() => { console.log('page loaded'), [] })
+    const buildings = useSelector((state) => state.auth.user.buildingIds)
+    useEffect(() => {
+        console.log(buildings)
+        console.log('page loaded')
+    }, [])
     const handleOnClick = (e) => {
         console.log(e.target.value)
         // navigate(`/${e.target._id}`)
