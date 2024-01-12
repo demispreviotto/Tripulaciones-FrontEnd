@@ -8,6 +8,7 @@ const Register = () => {
         email: '',
         firstName: '',
         lastName: '',
+        phone: '',
         password: '',
     }
     const [data, setData] = useState(initialValue)
@@ -43,7 +44,7 @@ const Register = () => {
                 <input type="text" name='firstName' placeholder='First Name' onChange={handleOnChange} />
                 <input type="text" name='lastName' placeholder='Last Name' onChange={handleOnChange} />
                 <input type="number" name='phone' placeholder='Phone Number' onChange={handleOnChange} />
-                <input type="password" placeholder='Password' onChange={handleOnChange} />
+                <input type="password" name='password' placeholder='Password' onChange={handleOnChange} />
                 {message && <p className={status}>{message}</p>}
                 <button type='submit' disabled={isSubmitting}>Sign Up</button>
             </form>

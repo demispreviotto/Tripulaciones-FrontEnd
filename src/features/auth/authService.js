@@ -7,6 +7,10 @@ const register = async (data) => {
 }
 const login = async (data) => {
     const res = await axios.post(API_URL + 'login', data)
+    if (res.data) {
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+    }
     return res.data;
 }
 const getProfile = async () => {

@@ -72,6 +72,7 @@ export const register = createAsyncThunk('auth/register', async (data, thunkAPI)
 })
 export const login = createAsyncThunk('auth/login', async (data, thunkAPI) => {
     try {
+
         return await authService.login(data);
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.message);

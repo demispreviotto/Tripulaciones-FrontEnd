@@ -42,7 +42,7 @@ const Login = () => {
             <h2>Login</h2>
             <form onSubmit={handleOnSubmit}>
                 <input type="text" name='email' placeholder='Email' onChange={handleOnChange} />
-                <input type="password" placeholder='Password' onChange={handleOnChange} />
+                <input type="password" name='password' placeholder='Password' onChange={handleOnChange} />
                 {message && <p className={status}>{message}</p>}
                 <button type='submit' disabled={isSubmitting}>Sign Up</button>
             </form>
