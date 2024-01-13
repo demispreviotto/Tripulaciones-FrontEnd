@@ -34,12 +34,32 @@ export const buildingSlice = createSlice({
                 // console.log(action.payload.message)
                 state.message = action.payload.message
             })
+            .addCase(getBuildingById.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(getBuildingById.fulfilled, (state, action) => {
+                state.building = action.payload.building
+                state.status = 'succeeded';
+                state.message = action.payload.message
+            })
+            .addCase(getBuildingById.rejected, (state, action) => {
+                state.status = 'failed';
+                // console.log(action.payload.message)
+                state.message = action.payload.message
+            })
 
     }
 })
 export const createBuilding = createAsyncThunk('building/createBuilding', async (data, thunkAPI) => {
     try {
         return await buildingService.createBuilding(data)
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data)
+    }
+})
+export const getBuildingById = createAsyncThunk('building/getBuildingById', async (data, thunkAPI) => {
+    try {
+        return await buildingService.getBuildingById(data)
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
