@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'Inter', sans-serif;
+  /* font-family: 'Space Grotesk', sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,7 +15,7 @@
   background-color: var(--clr-bg-2);
 
   --clr-bg-1: #AD182E;
-  --clr-bg-2: #F4F3EF;
+  --clr-bg-2: #F8F8F8;
   --clr-bg-3: #031634;
   --clr-bg-4: #FFF;
   --clr-bg-5: #D3E1E2;
@@ -55,7 +60,9 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  border-radius: 16px;
+  height: 40px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;

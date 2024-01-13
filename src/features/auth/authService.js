@@ -13,7 +13,7 @@ const login = async (data) => {
   }
   return res.data;
 };
-const getProfile = async () => {
+const getLoggedUser = async () => {
   const token = JSON.parse(localStorage.getItem("token"));
   const config = { headers: { Authorization: token } };
   const res = await axios.get(API_URL + "profile", config);
@@ -44,7 +44,7 @@ const update = async (data) => {
 const authService = {
   register,
   login,
-  getProfile,
+  getLoggedUser,
   logout,
   update,
 };

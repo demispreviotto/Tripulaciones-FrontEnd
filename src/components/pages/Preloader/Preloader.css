@@ -1,0 +1,14 @@
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--clr-bg-1);
+}
+
+.logo-container {
+    padding-top: 30vh;
+}
+
+.logo-container h2 {
+    color: var(--clr-bg-2);
+    text-align: center;
+}

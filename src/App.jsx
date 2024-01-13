@@ -1,28 +1,32 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/layout/Header/Header'
-import Footer from './components/layout/Footer/Footer'
+// import Header from './components/layout/Header/Header'
+// import Footer from './components/layout/Footer/Footer'
 import Home from './components/pages/Home/Home'
 import Register from './components/pages/Register/Register'
 import Login from './components/pages/Login/Login'
 import About from './components/pages/About/About'
 import Profile from './components/pages/Profile/Profile'
+import BuildingPage from './components/pages/BuildingPage/BuildingPage'
+import Preloader from './components/pages/Preloader/Preloader'
 
 function App() {
   return (
     <>
       <Router>
-        <Header />
-        <main>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </main>
-        <Footer />
+        {/* <Header /> */}
+        {/* <main> */}
+        <Routes>
+          <Route path="/" element={<Preloader />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/buildings/:_id' element={<BuildingPage />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+        {/* </main> */}
+        {/* <Footer /> */}
       </Router>
     </>
   )
