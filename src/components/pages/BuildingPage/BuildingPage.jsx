@@ -1,20 +1,23 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { getBuildingById } from '../../../features/building/buildingSlice'
 
 const BuildingPage = () => {
     const { _id } = useParams()
-    // const building = useSelector((state) => state.building)
+    const building = useSelector((state) => state.building)
+    const dispatch = useDispatch();
     useEffect(() => {
-        // console.log(`getBuildingById(${_id})`)
-    })
+        dispatch(getBuildingById(_id))
+    }, [])
     return (
         <>
-            {console.log(_id)}
             <h1>{_id}</h1>
             {/* <h1>{building.address}</h1> */}
-            {/* <p>Address: {building.address}</p> */}
-            <div>Incidencias Conponent</div>
+            <div>
+                <h2>Incidencias Conponent</h2>
+                {building}
+            </div>
             <div>Recordatorios Component</div>
         </>
     )

@@ -4,6 +4,7 @@ const API_URL = "http://localHost:8080/services/";
 const create = async (data) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const config = { headers: { Authorization: token } };
+  console.log(data)
   const res = await axios.post(API_URL + "create", data, config);
   return res.data;
 };

@@ -12,7 +12,7 @@ const Home = () => {
         if (!user) {
             navigate("/login")
         } else {
-            dispatch(getLoggedUser())
+            console.log("dispatch(getLoggedUser())")
         }
     }, [])
     return (
