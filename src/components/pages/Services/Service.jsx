@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo";
 import "./Service.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ const Service = () => {
     company: "",
     theme: "",
     contactNumber: "",
-    email: "",
+    contactEmail: "",
     rate: "",
   };
   const [data, setData] = useState(initialValue);
@@ -22,12 +22,9 @@ const Service = () => {
   const message = useSelector((state) => state.auth.message);
   const status = useSelector((state) => state.auth.status);
 
-  const handleOnChange = useCallback(
-    (e) => {
-      setData({ ...data, [e.target.name]: e.target.value });
-    },
-    [data]
-  );
+  const handleOnChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     if (status === "succeeded") {
@@ -41,7 +38,7 @@ const Service = () => {
     } else if (status === "failed") {
       setIsSubmitting(false);
     }
-  }, [status, navigate, initialValue]);
+  }, [status]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -78,7 +75,7 @@ const Service = () => {
           />
           <input
             type="email"
-            name="email"
+            name="contactEmail"
             placeholder="Correo de Contacto"
             onChange={handleOnChange}
           />
