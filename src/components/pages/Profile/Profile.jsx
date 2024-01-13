@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { update } from "../../../features/auth/authSlice";
+import { logout } from "../../../features/auth/authSlice";
 
 const Profile = () => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const message = useSelector((state) => state.auth.message);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedState, setEditedState] = useState({
@@ -45,6 +47,17 @@ const Profile = () => {
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating profile", error);
+    }
+  };
+
+  const handleLogout = () => {
+    try {
+      dispatch(logout());
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -119,6 +132,8 @@ const Profile = () => {
           ) : (
             <button onClick={handleEditClick}>Editar</button>
           )}
+          <button onClick={handleLogout}>Cerrar Sesión</button>
+          {message ? <p>{message}</p> : null}
         </>
       )}
     </>

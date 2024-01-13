@@ -61,7 +61,7 @@ export const authSlice = createSlice({
       })
       .addCase(update.fulfilled, (state, action) => {
         state.profile = action.payload.profile;
-        state.status = "succeded";
+        state.status = "succeeded";
         state.message = action.payload.message;
         localStorage.setItem("user", JSON.stringify(action.payload));
       })
@@ -69,6 +69,21 @@ export const authSlice = createSlice({
         state.status = "loading";
       })
       .addCase(update.rejected, (state, action) => {
+        state.status = "failed";
+        state.message = action.payload;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        return {
+          ...state,
+          profile: action.payload.profile,
+          status: "succeeded",
+          message: action.payload.message,
+        };
+      })
+      .addCase(logout.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(logout.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload;
       });
@@ -102,7 +117,7 @@ export const getProfile = createAsyncThunk(
     }
   }
 );
-export const logout = createAsyncThunk("auth/login", async (data) => {
+export const logout = createAsyncThunk("auth/logout", async (data) => {
   try {
     return await authService.logout();
   } catch (error) {
