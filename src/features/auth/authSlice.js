@@ -47,15 +47,15 @@ export const authSlice = createSlice({
         state.status = "failed";
         state.message = action.payload;
       })
-      .addCase(getProfile.pending, (state) => {
+      .addCase(getLoggedUser.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(getProfile.fulfilled, (state, action) => {
-        state.profile = action.payload.profile;
+      .addCase(getLoggedUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
         state.status = "succeeded";
         state.message = action.payload.message;
       })
-      .addCase(getProfile.rejected, (state, action) => {
+      .addCase(getLoggedUser.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload;
       })
@@ -92,7 +92,7 @@ export const login = createAsyncThunk("auth/login", async (data, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
-export const getProfile = createAsyncThunk(
+export const getLoggedUser = createAsyncThunk(
   "auth/getLoggedUser",
   async (thunkAPI) => {
     try {

@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react'
 import Buildings from '../../Buildings/Buildings'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLoggedUser } from '../../../features/auth/authSlice';
 const Home = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user)
 
     useEffect(() => {
-        !user && navigate("/login")
+        if (!user) {
+            navigate("/login")
+        } else {
+            dispatch(getLoggedUser())
+        }
     }, [])
     return (
         <>
@@ -16,7 +22,6 @@ const Home = () => {
             ) : (
                 <>
                     <h2>Home</h2 >
-                    <button className="btn">Go</button>
                     <Buildings />
                 </>
             )}

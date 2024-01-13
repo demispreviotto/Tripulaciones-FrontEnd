@@ -1,27 +1,29 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Buildings = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const buildings = useSelector((state) => state.auth.user.buildingIds)
     useEffect(() => {
         console.log(buildings)
         console.log('page loaded')
     }, [])
-    const handleOnClick = (e) => {
-        console.log(e.target.value)
-        // navigate(`/${e.target._id}`)
+    const handleOnClick = (building) => {
+        // console.log(building._id)
+        navigate(`/buildings/${building._id}`)
     }
     return (
         <>
             <h2>Buildings</h2>
             <div>
-                {buildings.map((building) => {
-                    <div key={building._id} onClick={handleOnClick}>
-                        <h3>{building.name}</h3>
-                        <p>{building.address} {building.name}</p>
+                {buildings.map(building => (
+                    <div key={building._id} onClick={() => handleOnClick(building)}>
+                        <h3>{building.address} {building.number}</h3>
+                        <p>{building._id}</p>
                     </div>
-                })}
+                ))}
             </div>
         </>
     )
