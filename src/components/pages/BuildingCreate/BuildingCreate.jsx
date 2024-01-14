@@ -9,16 +9,17 @@ const BuildingCreate = () => {
     const navigate = useNavigate();
     const message = useSelector((state) => state.building.message)
     const status = useSelector((state) => state.building.status)
-    const initialState = {
+    const initialValue = {
         address: '',
         number: '',
         zipCode: '',
         province: '',
         city: '',
     }
-    const [data, setData] = useState(initialState)
+    const [data, setData] = useState(initialValue)
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [active, setActive] = useState(false)
+
     const handleOnChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
     }
@@ -35,19 +36,19 @@ const BuildingCreate = () => {
         dispatch(createBuilding(data))
         // navigate("/buildings")
     }
-    useEffect(() => {
-        if (status === "succeeded") {
-            const timeoutId = setTimeout(() => {
-                navigate("/buildings");
-                setIsSubmitting(false);
-                setData(initialValue);
-            }, 3000);
+    // useEffect(() => {
+    //     if (status === "succeeded") {
+    //         const timeoutId = setTimeout(() => {
+    //             navigate("/buildings");
+    //             setIsSubmitting(false);
+    //             setData(initialValue);
+    //         }, 3000);
 
-            return () => clearTimeout(timeoutId);
-        } else if (status === "failed") {
-            setIsSubmitting(false);
-        }
-    }, [status]);
+    //         return () => clearTimeout(timeoutId);
+    //     } else if (status === "failed") {
+    //         setIsSubmitting(false);
+    //     }
+    // }, [status]);
 
 
     return (

@@ -9,7 +9,7 @@ ul li {
   list-style: none;
 }
 
-footer,
+/* footer,
 header {
   position: absolute;
   width: 100%;
@@ -17,7 +17,7 @@ header {
   transform: translate(-50%, 0);
   display: flex;
   gap: 1em;
-}
+} */
 
 footer {
   bottom: 0;

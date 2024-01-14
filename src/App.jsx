@@ -12,6 +12,7 @@ import Preloader from "./components/pages/Preloader/Preloader";
 import Service from "./components/pages/Services/Service";
 import BuildingCreate from "./components/pages/BuildingCreate/BuildingCreate";
 import Buildings from "./components/Buildings/Buildings";
+import Header from "./components/layout/Header/Header";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         {/* <main> */}
         <Routes>
           <Route path="/" element={<Preloader />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<><Header /><Home /></>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />

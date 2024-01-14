@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import buildingService from "./buildingService";
 
-const building = JSON.parse(localStorage.getItem('building'));
-const buildings = JSON.parse(localStorage.getItem('buildings'));
+// const building = JSON.parse(localStorage.getItem('building'));
+// const buildings = JSON.parse(localStorage.getItem('buildings'));
 
 
 const initialState = {
-    building: building || null,
-    buildings: buildings || null,
+    building: building || "",
+    buildings: buildings || [],
     message: '',
     stage: 'idle',
 }
@@ -38,7 +38,8 @@ export const buildingSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(getAllBuildings.fulfilled, (state, action) => {
-                state.building = action.payload.building;
+                // console.log(action.payload)
+                state.buildings = action.payload;
                 state.status = 'succeeded';
                 state.message = action.payload.message;
             })
@@ -50,7 +51,8 @@ export const buildingSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(getBuildingById.fulfilled, (state, action) => {
-                state.building = action.payload.building
+                // console.log(action.payload)
+                state.building = action.payload
                 state.status = 'succeeded';
                 state.message = action.payload.message
             })

@@ -23,7 +23,7 @@ const getAllBuildings = async () => {
 };
 
 const getBuildingById = async (_id) => {
-    const res = await axios.get(API_URL + _id, {
+    const res = await axios.get(API_URL + "getBuildingById/" + _id, {
         headers: {
             Authorization: token,
         },

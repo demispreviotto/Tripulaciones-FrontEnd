@@ -18,7 +18,7 @@ const Preloader = () => {
             }, 3000);
             // dispatch(getLoggedUser())
         }
-    })
+    }, [])
     return (
         <div className='preloader'>
             <div className="logo-container">

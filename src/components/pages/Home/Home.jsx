@@ -11,18 +11,23 @@ const Home = () => {
     useEffect(() => {
         if (!user) {
             navigate("/login")
-        } else {
-            console.log("dispatch(getLoggedUser())")
+            //     } else {
+            //         dispatch(getLoggedUser())
         }
     }, [])
     return (
         <>
             {!user ? (
-                null
+                navigate("/login")
+                // null
             ) : (
                 <>
-                    <h2>Home</h2 >
-                    <Buildings />
+                    <h2>Buenos dias,<br /> {user.firstName} {user.lastName} </h2 >
+                    <p>{new Date().toLocaleString()}</p>
+                    <div>
+                        <h3>Fincas Por Revisar</h3>
+                        <Buildings />
+                    </div>
                 </>
             )}
         </>
