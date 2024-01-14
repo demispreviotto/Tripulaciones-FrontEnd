@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getAllBuildings } from '../../features/building/buildingSlice'
 
 const Buildings = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const buildings = useSelector((state) => state.auth.user.buildingIds)
     useEffect(() => {
+        dispatch(getAllBuildings())
         console.log(buildings)
         console.log('page loaded')
     }, [])
     const handleOnClick = (building) => {
         // console.log(building._id)
-        navigate(`/buildings/${building._id}`)
+        navigate(`/buildings/id/${building._id}`)
     }
     return (
         <>

@@ -10,6 +10,8 @@ import Profile from "./components/pages/Profile/Profile";
 import BuildingPage from "./components/pages/BuildingPage/BuildingPage";
 import Preloader from "./components/pages/Preloader/Preloader";
 import Service from "./components/pages/Services/Service";
+import BuildingCreate from "./components/pages/BuildingCreate/BuildingCreate";
+import Buildings from "./components/Buildings/Buildings";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/buildings/:_id" element={<BuildingPage />} />
+          <Route path="/buildings/" element={<Buildings />} />
+          <Route path="/buildings/id/:_id" element={<BuildingPage />} />
+          <Route path="/buildings/create" element={<BuildingCreate />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
         </Routes>

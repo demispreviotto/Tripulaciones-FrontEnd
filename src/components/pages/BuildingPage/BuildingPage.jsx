@@ -16,7 +16,7 @@ const BuildingPage = () => {
             {/* <h1>{building.address}</h1> */}
             <div>
                 <h2>Incidencias Conponent</h2>
-                {building}
+                {/* {building} */}
             </div>
             <div>Recordatorios Component</div>
         </>
