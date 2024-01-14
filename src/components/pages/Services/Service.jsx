@@ -19,8 +19,8 @@ const Service = () => {
   const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const message = useSelector((state) => state.auth.message);
-  const status = useSelector((state) => state.auth.status);
+  const message = useSelector((state) => state.service.message);
+  const status = useSelector((state) => state.service.status);
 
   const handleOnChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -29,7 +29,7 @@ const Service = () => {
   useEffect(() => {
     if (status === "succeeded") {
       const timeoutId = setTimeout(() => {
-        navigate("/login");
+        // navigate("/login");
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);
