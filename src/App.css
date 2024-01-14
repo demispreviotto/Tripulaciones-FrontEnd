@@ -59,13 +59,22 @@ form {
   color: var(--clr-txt-2);
 }
 
-input {
+input,
+textarea,
+select {
   background-color: var(--clr-bg-4);
   border-radius: 16px;
-  height: 40px;
   outline: none;
   border-color: transparent;
   color: var(--clr-txt-2);
   padding: 14px 19px;
   width: 361px;
+}
+
+input {
+  height: 40px;
+}
+
+textarea {
+  font-family: 'Inter', sans-serif;
 }

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import incidenceService from "./incidenceService";
 
-const incidence = JSON.parse(localStorage.getItem('incidence'));
+const incidence = '';
 
 const initialState = {
     incidence: incidence || null,
@@ -28,6 +28,19 @@ export const incidenceSlice = createSlice({
                 state.message = action.payload.message;
             })
             .addCase(createIncidence.rejected, (state, action) => {
+                state.status = 'failed';
+                state.message = action.payload.message;
+            })
+            .addCase(createManualIncidence.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(createManualIncidence.fulfilled, (state, action) => {
+                console.log(action.payload)
+                state.incidence = action.payload.incidence;
+                state.status = 'succeeded';
+                state.message = action.payload.message;
+            })
+            .addCase(createManualIncidence.rejected, (state, action) => {
                 state.status = 'failed';
                 state.message = action.payload.message;
             })
@@ -94,6 +107,16 @@ export const createIncidence = createAsyncThunk('incidence/createIncidence', asy
     }
 });
 
+export const createManualIncidence = createAsyncThunk(
+    'incidence/createManualIncidence',
+    async (data, thunkAPI) => {
+        try {
+            return await incidenceService.createManualIncidence(data);
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
+    }
+);
 export const getAllIncidences = createAsyncThunk('incidence/getAllIncidences', async (_, thunkAPI) => {
     try {
         return await incidenceService.getAllIncidences();

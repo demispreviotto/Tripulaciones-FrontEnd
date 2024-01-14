@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAllBuildings } from '../../features/building/buildingSlice'
-import BuildingCreate from '../pages/BuildingCreate/BuildingCreate'
 
 const Buildings = () => {
     const dispatch = useDispatch()

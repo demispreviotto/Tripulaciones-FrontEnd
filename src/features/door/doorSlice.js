@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import buildingService from "./buildingService";
+import doorService from "./doorService";
 
-const building = "";
-const buildings = [];
+const door = ''
+const doors = []
+
 
 const initialState = {
-    building: building || "",
-    buildings: buildings || [],
+    door: door || "",
+    doors: doors || [],
     message: '',
     stage: 'idle',
 }
-
-export const buildingSlice = createSlice({
-    name: "building",
+export const doorSlice = createSlice({
+    name: "door",
     initialState,
     reducers: {
         reset: (state) => {
@@ -21,108 +21,108 @@ export const buildingSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(createBuilding.pending, (state) => {
+            .addCase(createDoor.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(createBuilding.fulfilled, (state, action) => {
-                state.building = action.payload.building
+            .addCase(createDoor.fulfilled, (state, action) => {
+                state.door = action.payload.door
                 state.status = 'succeeded';
                 state.message = action.payload.message
             })
-            .addCase(createBuilding.rejected, (state, action) => {
+            .addCase(createDoor.rejected, (state, action) => {
                 state.status = 'failed';
                 // console.log(action.payload.message)
                 state.message = action.payload.message
             })
-            .addCase(getAllBuildings.pending, (state) => {
+            .addCase(getAllDoors.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(getAllBuildings.fulfilled, (state, action) => {
+            .addCase(getAllDoors.fulfilled, (state, action) => {
                 // console.log(action.payload)
-                state.buildings = action.payload;
+                state.doors = action.payload;
                 state.status = 'succeeded';
                 state.message = action.payload.message;
             })
-            .addCase(getAllBuildings.rejected, (state, action) => {
+            .addCase(getAllDoors.rejected, (state, action) => {
                 state.status = 'failed';
                 state.message = action.payload.message;
             })
-            .addCase(getBuildingById.pending, (state) => {
+            .addCase(getDoorById.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(getBuildingById.fulfilled, (state, action) => {
+            .addCase(getDoorById.fulfilled, (state, action) => {
                 // console.log(action.payload)
-                state.building = action.payload
+                state.door = action.payload
                 state.status = 'succeeded';
                 state.message = action.payload.message
             })
-            .addCase(getBuildingById.rejected, (state, action) => {
+            .addCase(getDoorById.rejected, (state, action) => {
                 state.status = 'failed';
                 // console.log(action.payload.message)
                 state.message = action.payload.message
             })
-            .addCase(updateBuildingById.pending, (state) => {
+            .addCase(updateDoorById.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(updateBuildingById.fulfilled, (state, action) => {
-                state.building = action.payload.building;
+            .addCase(updateDoorById.fulfilled, (state, action) => {
+                state.door = action.payload.door;
                 state.status = 'succeeded';
                 state.message = action.payload.message;
             })
-            .addCase(updateBuildingById.rejected, (state, action) => {
+            .addCase(updateDoorById.rejected, (state, action) => {
                 state.status = 'failed';
                 state.message = action.payload.message;
             })
-            .addCase(deleteBuildingById.pending, (state) => {
+            .addCase(deleteDoorById.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(deleteBuildingById.fulfilled, (state, action) => {
-                state.building = action.payload.building;
+            .addCase(deleteDoorById.fulfilled, (state, action) => {
+                state.door = action.payload.door;
                 state.status = 'succeeded';
                 state.message = action.payload.message;
             })
-            .addCase(deleteBuildingById.rejected, (state, action) => {
+            .addCase(deleteDoorById.rejected, (state, action) => {
                 state.status = 'failed';
                 state.message = action.payload.message;
             })
     }
 })
-export const createBuilding = createAsyncThunk('building/createBuilding', async (data, thunkAPI) => {
+export const createDoor = createAsyncThunk('door/createDoor', async (data, thunkAPI) => {
     try {
-        return await buildingService.createBuilding(data)
+        return await doorService.createDoor(data)
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
 });
-export const getAllBuildings = createAsyncThunk('building/getAllBuildings', async (_, thunkAPI) => {
+export const getAllDoors = createAsyncThunk('door/getAllDoors', async (_, thunkAPI) => {
     try {
-        return await buildingService.getAllBuildings();
+        return await doorService.getAllDoors();
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
     }
 });
-export const getBuildingById = createAsyncThunk('building/getBuildingById', async (data, thunkAPI) => {
+export const getDoorById = createAsyncThunk('door/getDoorById', async (data, thunkAPI) => {
     try {
-        return await buildingService.getBuildingById(data)
+        return await doorService.getDoorById(data)
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
 });
-export const updateBuildingById = createAsyncThunk('building/updateBuildingById', async (data, thunkAPI) => {
+export const updateDoorById = createAsyncThunk('door/updateDoorById', async (data, thunkAPI) => {
     try {
-        return await buildingService.updateBuildingById(data);
+        return await doorService.updateDoorById(data);
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
     }
 });
-export const deleteBuildingById = createAsyncThunk('building/deleteBuildingById', async (data, thunkAPI) => {
+export const deleteDoorById = createAsyncThunk('door/deleteDoorById', async (data, thunkAPI) => {
     try {
-        return await buildingService.deleteBuildingById(data);
+        return await doorService.deleteDoorById(data);
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data);
     }
 });
 
 
-export const { reset } = buildingSlice.actions;
-export default buildingSlice.reducer;
+export const { reset } = doorSlice.actions;
+export default doorSlice.reducer;
