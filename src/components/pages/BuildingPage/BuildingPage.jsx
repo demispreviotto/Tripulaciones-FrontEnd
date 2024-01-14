@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getBuildingById } from '../../../features/building/buildingSlice'
+import Preloader from '../Preloader/Preloader'
 
 const BuildingPage = () => {
     const { _id } = useParams()
@@ -12,7 +13,7 @@ const BuildingPage = () => {
         dispatch(getBuildingById(_id))
     }, [])
     if (!building) {
-        return <div>Loading...</div>;
+        return <Preloader />;
     }
     return (
         <>

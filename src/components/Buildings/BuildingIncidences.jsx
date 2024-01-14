@@ -1,4 +1,5 @@
 import React from 'react'
+import Preloader from '../pages/Preloader/Preloader'
 // import { useDispatch } from 'react-redux'
 
 const BuildingIncidences = ({ buildings }) => {
@@ -6,8 +7,11 @@ const BuildingIncidences = ({ buildings }) => {
 
 
     if (!buildings) {
-        return <div>Loading...</div>;
+        return <Preloader />;
     }
+    const getPendingIncidenceCount = (incidenceIds) => {
+        return incidenceIds.filter((incidence) => incidence.status !== "Completed").length;
+    };
 
     return (
         <>
@@ -15,7 +19,8 @@ const BuildingIncidences = ({ buildings }) => {
             {buildings.map((building) => (
                 <div key={building._id}>
                     <h5>{building.address} {building.number}</h5>
-                    <p>{building.incidenceIds.length}</p>
+                    <p>Pending Incidences:{getPendingIncidenceCount(building.incidenceIds)}</p>
+                    <p>Total Incidences:{building.incidenceIds.length}</p>
                 </div>
             ))}
         </>

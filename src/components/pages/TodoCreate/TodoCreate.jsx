@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { createTodo } from '../../../features/todo/todoSlice';
 import { getAllBuildings } from '../../../features/building/buildingSlice';
+import Preloader from '../Preloader/Preloader';
 
 const TodoCreate = () => {
 
@@ -56,7 +57,7 @@ const TodoCreate = () => {
     // }, [statusCreateTodo]);
 
     if (!buildings) {
-        return <>Loading...</>
+        return <Preloader />
     }
 
     return (

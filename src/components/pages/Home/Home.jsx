@@ -6,6 +6,7 @@ import { getLoggedUser } from '../../../features/auth/authSlice';
 import BuildingTodos from '../../Buildings/BuildingTodos';
 import BuildingIncidences from '../../Buildings/BuildingIncidences';
 import { getAllBuildings } from '../../../features/building/buildingSlice';
+import Preloader from '../Preloader/Preloader';
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -22,33 +23,37 @@ const Home = () => {
     }, [])
 
     if (!buildings) {
-        return <div>Loading...</div>
+        return <Preloader />
+    }
+    if (!user) {
+        navigate("/login")
+        // return <Preloader />
     }
 
     return (
         <>
-            {!user ? (
+            {/* {!user ? (
                 navigate("/login")
                 // null
             ) : (
-                <>
-                    <h2>Buenos dias,<br /> {user.firstName} {user.lastName} </h2 >
-                    <p>{new Date().toLocaleString()}</p>
-                    <div>
-                        <h3>Fincas Por Revisar</h3>
-                        <div>
-                            <h4>Tareas</h4>
-                            <BuildingTodos buildings={buildings} />
-                        </div>
-                        <div>
-                            <h4>Incidencias</h4>
-                            <BuildingIncidences buildings={buildings} />
-                        </div>
-                        {/* <Buildings /> */}
-                    </div>
-                </>
-            )}
+                <> */}
+            <h2>Buenos dias,<br /> {user.firstName} {user.lastName} </h2 >
+            <p>{new Date().toLocaleString()}</p>
+            <div>
+                <h3>Fincas Por Revisar</h3>
+                <div>
+                    <h4>Tareas</h4>
+                    <BuildingTodos buildings={buildings} />
+                </div>
+                <div>
+                    <h4>Incidencias</h4>
+                    <BuildingIncidences buildings={buildings} />
+                </div>
+                {/* <Buildings /> */}
+            </div>
         </>
+        // )}
+        // </>
     )
 }
 
