@@ -8,7 +8,7 @@ import Login from "./components/pages/Login/Login";
 import About from "./components/pages/About/About";
 import Profile from "./components/pages/Profile/Profile";
 import BuildingPage from "./components/pages/BuildingPage/BuildingPage";
-import Service from "./components/pages/Services/Service";
+import ServiceCreate from "./components/pages/ServicesCreate/ServiceCreate";
 import BuildingCreate from "./components/pages/BuildingCreate/BuildingCreate";
 import Buildings from "./components/Buildings/Buildings";
 import Header from "./components/layout/Header/Header";
@@ -40,7 +40,7 @@ function App() {
           <Route path="/incidences/id/:_id" element={<IncidencePage />} />
           <Route path="/incidences/create" element={<IncidenceCreate />} />
           <Route path="/about" element={<About />} />
-          <Route path="/service" element={<Service />} />
+          <Route path="/service/create" element={<ServiceCreate />} />
         </Routes>
         {/* </main> */}
         {/* <Footer /> */}

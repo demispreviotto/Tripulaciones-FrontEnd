@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo";
-import "./Service.css";
+import "./ServiceCreate.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { create } from "../../../features/services/serviceSlice";
