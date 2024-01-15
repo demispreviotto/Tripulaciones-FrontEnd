@@ -12,9 +12,17 @@ const create = async (data) => {
   return res.data;
 };
 
-
 const update = async (data) => {
   const res = await axios.put(API_URL + "update", data, {
+    headers: {
+      Authorization: token,
+    },
+  });
+  return res.data;
+};
+
+const getAll = async () => {
+  const res = await axios.get(API_URL + "getAll", {
     headers: {
       Authorization: token,
     },
@@ -25,6 +33,7 @@ const update = async (data) => {
 const serviceService = {
   create,
   update,
+  getAll,
 };
 
 export default serviceService;
