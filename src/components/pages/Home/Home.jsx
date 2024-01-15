@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getLoggedUser } from "../../../features/auth/authSlice";
+// import { getLoggedUser } from "../../../features/auth/authSlice";
 import BuildingTodos from "../../Buildings/BuildingTodos";
 import BuildingIncidences from "../../Buildings/BuildingIncidences";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
@@ -22,26 +22,12 @@ const Home = () => {
         }
     }, []);
 
-    if (!buildings) {
+    if (!buildings || !user) {
         return <Preloader />;
     }
-    if (!user) {
-        return <Preloader />;
-    }
-
-    // Calculate total non-completed incidences
-    const totalNonCompletedIncidences = buildings.reduce((acc, building) => {
-        const nonCompletedIncidences = building.incidenceIds.filter(
-            (incidence) => incidence.status !== "Completada"
-        );
-        return acc + nonCompletedIncidences.length;
-    }, 0);
-    const totalNonCompletedTodos = buildings.reduce((acc, building) => {
-        const nonCompletedTodos = building.todoIds.filter(
-            (todo) => todo.status !== "Completada"
-        );
-        return acc + nonCompletedTodos.length;
-    }, 0);
+    // if (!user) {
+    //     return <Preloader />;
+    // }
 
     return (
         <>
@@ -53,11 +39,9 @@ const Home = () => {
             <div>
                 <h3>Fincas Por Revisar</h3>
                 <div>
-                    <h4>Tareas</h4><p>{totalNonCompletedTodos}</p>
                     <BuildingTodos buildings={buildings} />
                 </div>
                 <div>
-                    <h4>Incidencias</h4><p>{totalNonCompletedIncidences}</p>
                     <BuildingIncidences buildings={buildings} />
                 </div>
             </div>
