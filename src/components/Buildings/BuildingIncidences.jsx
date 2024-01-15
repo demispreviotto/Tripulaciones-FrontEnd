@@ -1,9 +1,9 @@
 import React from "react";
-import Preloader from "../pages/Preloader/Preloader";
+import Loading from "../common/Loading/Loading";
 
 const BuildingIncidences = ({ buildings }) => {
   if (!buildings) {
-    return <Preloader />;
+    return <Loading />;
   }
 
   const getNonCompletedIncidencesCount = (incidenceIds) => {
@@ -24,26 +24,37 @@ const BuildingIncidences = ({ buildings }) => {
 
   return (
     <>
-      <h4>Incidencias</h4>
-      <p>{totalNonCompletedIncidences}</p>
+      {/* <div className="container"> */}
+      {/* <div className="container-header">
+          <h4>Incidencias</h4>
+          <p>{totalNonCompletedIncidences}</p>
+        </div> */}
+      <div className="container-content">
+        {buildings.map((building) => {
+          const completedCount = getCompletedIncidencesCount(building.incidenceIds);
+          const totalCount = building.incidenceIds.length;
+          const nonCompletedCount = getNonCompletedIncidencesCount(building.incidenceIds);
+          const completionPercentage = getCompletionPercentage(completedCount, totalCount);
 
-      {buildings.map((building) => {
-        const completedCount = getCompletedIncidencesCount(building.incidenceIds);
-        const totalCount = building.incidenceIds.length;
-        const nonCompletedCount = getNonCompletedIncidencesCount(building.incidenceIds);
-        const completionPercentage = getCompletionPercentage(completedCount, totalCount);
-
-        return (
-          <div key={building._id}>
-            <h5>
-              {building.address} {building.number}
-            </h5>
-            <p>{completedCount}/{totalCount} completadas</p>
-            <p>{nonCompletedCount} pendientes</p>
-            <p>{completionPercentage}% completadas</p>
-          </div>
-        );
-      })}
+          return (
+            <div className="card" key={building._id}>
+              <h5>
+                {building.address} {building.number}
+              </h5>
+              {/* <progress id={building.id} max={100} value={completionPercentage}></progress> */}
+              <div className="progress-bar">
+                <div className="progress" style={{ width: `${completionPercentage}%` }}></div>
+              </div>
+              <div className="card-details">
+                <p>{completionPercentage}% completadas</p>
+                <p>{completedCount}/{totalCount} completadas</p>
+                {/* <p>{nonCompletedCount} pendientes</p> */}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* </div> */}
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllIncidences } from "../../../features/incidence/incidenceSlice";
-import Preloader from "../Preloader/Preloader";
 import IncidenceCreate from "../IncidenceCreate/IncidenceCreate";
+import Loading from "../../common/Loading/Loading";
 
 const Incidences = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Incidences = () => {
 
   if (!incidences[0]) {
     console.log(incidences);
-    return <Preloader />;
+    return <Loading />;
   }
   return (
     <>
@@ -22,7 +22,9 @@ const Incidences = () => {
       {/* {console.log(incidences)} */}
       {incidences.map((item) => (
         <div key={item._id}>
-          <p>{item._id}</p>
+          <p>{item.summary}</p>
+          <p>{item.status}</p>
+          <p>{item.category}</p>
         </div>
       ))}
       <IncidenceCreate />

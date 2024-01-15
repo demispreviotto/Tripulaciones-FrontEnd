@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllTodos } from '../../../features/todo/todoSlice'
-import Preloader from '../Preloader/Preloader'
+import Loading from '../../common/Loading/Loading'
 
 const Todos = () => {
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ const Todos = () => {
         dispatch(getAllTodos())
     }, [])
 
-    if (!todos) { return <Preloader /> }
+    if (!todos) { return <Loading /> }
     return (
         <>
             {console.log(todos)}

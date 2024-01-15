@@ -1,7 +1,7 @@
 .preloader {
     width: 100vw;
     height: 100vh;
-    background-color: var(--clr-bg-1);
+    background-color: var(--neutrosneutro-1-background);
 }
 
 .logo-container {
@@ -9,6 +9,6 @@
 }
 
 .logo-container h2 {
-    color: var(--clr-bg-2);
+    color: var(--primariosgranate);
     text-align: center;
 }

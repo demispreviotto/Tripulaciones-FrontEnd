@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 const IncidenceCreate = () => {
   const incidenceCategories = data.incidenceCategories;
   const incidenceStatus = data.incidenceStatus;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [active, setActive] = useState(false);
+
   const [formData, setFormData] = useState({
     summary: "",
     category: incidenceCategories[0],
@@ -43,6 +46,7 @@ const IncidenceCreate = () => {
 
     dispatch(createManualIncidence(formData));
   };
+
   useEffect(() => {
     if (
       message === "Manual incidence created successfully" ||
@@ -54,78 +58,91 @@ const IncidenceCreate = () => {
     }
   }, [message]);
 
+  const handleActive = (e) => {
+    e.preventDefault();
+    setActive(!active);
+  };
+
   return (
-    <div>
-      <h2>Crear nueva incidencia</h2>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          name="summary"
-          value={formData.summary}
-          cols="30"
-          rows="10"
-          maxLength={255}
-          placeholder="Resúmen..."
-          onChange={handleOnChange}
-        />
-        <select name="category" id="category" onChange={handleOnChange}>
-          <option value="" disabled selected>
-            Seleccionar Categoría
-          </option>
-          {incidenceCategories.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <textarea
-          name="originalMessage"
-          value={formData.originalMessage}
-          cols="30"
-          rows="10"
-          maxLength={2000}
-          placeholder="Descripción..."
-          onChange={handleOnChange}
-        />
-        <select name="status" id="status" onChange={handleOnChange}>
-          <option value="" disabled selected>
-            Seleccionar Estado
-          </option>
-          {incidenceStatus.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <select name="buildingId" id="buildingId" onChange={handleOnChange}>
-          <option value="" disabled selected>
-            Seleccionar Finca
-          </option>
-          {buildings.map((item) => (
-            <option key={item._id} value={item._id}>
-              {item.address} {item.number}
-            </option>
-          ))}
-        </select>
-        {/* <select name="doorId" id="doorId" onChange={handleOnChange}>
+    <>
+      {!active ? (
+        <button type="submit" onClick={handleActive}>
+          Crear
+        </button>
+      ) : (
+        <div>
+          <h2>Crear nueva incidencia</h2>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              name="summary"
+              value={formData.summary}
+              cols="30"
+              rows="10"
+              maxLength={255}
+              placeholder="Resúmen..."
+              onChange={handleOnChange}
+            />
+            <select name="category" id="category" onChange={handleOnChange}>
+              <option value="" disabled selected>
+                Seleccionar Categoría
+              </option>
+              {incidenceCategories.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            <textarea
+              name="originalMessage"
+              value={formData.originalMessage}
+              cols="30"
+              rows="10"
+              maxLength={2000}
+              placeholder="Descripción..."
+              onChange={handleOnChange}
+            />
+            <select name="status" id="status" onChange={handleOnChange}>
+              <option value="" disabled selected>
+                Seleccionar Estado
+              </option>
+              {incidenceStatus.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            <select name="buildingId" id="buildingId" onChange={handleOnChange}>
+              <option value="" disabled selected>
+                Seleccionar Finca
+              </option>
+              {buildings.map((item) => (
+                <option key={item._id} value={item._id}>
+                  {item.address} {item.number}
+                </option>
+              ))}
+            </select>
+            {/* <select name="doorId" id="doorId" onChange={handleOnChange}>
                     {doors.map((door) => (
-                        <option key={door._id} value={door._id}>
-                            {door.address}
-                        </option>
-                    ))
+                      <option key={door._id} value={door._id}>
+                      {door.address}
+                      </option>
+                      ))
                     }
-                </select>
-                <select name="ownerId" id="ownerId" onChange={handleOnChange}>
+                    </select>
+                    <select name="ownerId" id="ownerId" onChange={handleOnChange}>
                     {owners.map((owner) => (
-                        <option key={owner._id} value={owner._id}>
-                            {owner.address}
-                        </option>
-                    ))
+                      <option key={owner._id} value={owner._id}>
+                      {owner.address}
+                      </option>
+                      ))
                     }
-                </select> */}
-        {message && <p className={createIncidenceStatus}>{message}</p>}
-        <button type="submit">Crear Incidencia</button>
-      </form>
-    </div>
+                  </select> */}
+            <button type="submit" disabled={isSubmitting}>Crear Incidencia</button>
+            {message && <p className={createIncidenceStatus}>{message}</p>}
+          </form>
+        </div>
+      )}
+    </>
   );
 };
 

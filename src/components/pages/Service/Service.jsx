@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Preloader from "../Preloader/Preloader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAll } from "../../../features/service/serviceSlice";
+import Loading from "../../common/Loading/Loading";
 
 const Service = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Service = () => {
   }, []);
 
   if (!services) {
-    <Preloader />;
+    <Loading />;
   }
 
   return (

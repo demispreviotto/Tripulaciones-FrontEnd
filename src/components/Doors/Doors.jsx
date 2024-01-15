@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllDoors } from "../../features/Door/doorSlice";
-import Preloader from "../pages/Preloader/Preloader";
+import Loading from "../common/Loading/Loading";
 
 const Doors = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Doors = () => {
     navigate(`/puertas/id/${door._id}`);
   };
   if (!doors) {
-    return <Preloader />;
+    return <Loading />;
   }
   return (
     <>

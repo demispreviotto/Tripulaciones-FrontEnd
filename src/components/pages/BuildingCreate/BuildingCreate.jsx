@@ -15,12 +15,12 @@ const BuildingCreate = () => {
     province: "",
     city: "",
   };
-  const [data, setData] = useState(initialValue);
+  const [formData, setFormData] = useState(initialValue);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [active, setActive] = useState(false);
 
   const handleOnChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleActive = (e) => {
@@ -40,7 +40,7 @@ const BuildingCreate = () => {
   //         const timeoutId = setTimeout(() => {
   //             navigate("/buildings");
   //             setIsSubmitting(false);
-  //             setData(initialValue);
+  //             setFormData(initialValue);
   //         }, 3000);
 
   //         return () => clearTimeout(timeoutId);
@@ -57,7 +57,7 @@ const BuildingCreate = () => {
         </button>
       ) : (
         <div>
-          <h2>Crear Fincas</h2>
+          <h2>Crear Finca</h2>
           <form onSubmit={handleOnSubmit}>
             <input
               type="text"
@@ -89,10 +89,10 @@ const BuildingCreate = () => {
               placeholder="Ciudad"
               onChange={handleOnChange}
             />
-            {message && <p className={status}>{message}</p>}
             <button type="submit" disabled={isSubmitting}>
-              Crear
+              Crear Finca
             </button>
+            {message && <p className={status}>{message}</p>}
           </form>
         </div>
       )}

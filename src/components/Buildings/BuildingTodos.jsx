@@ -1,9 +1,9 @@
 import React from "react";
-import Preloader from "../pages/Preloader/Preloader";
+import Loading from "../common/Loading/Loading";
 
 const BuildingTodos = ({ buildings }) => {
   if (!buildings) {
-    return <Preloader />;
+    return <Loading />;
   }
 
   const getNonCompletedTodosCount = (todoIds) => {
@@ -24,24 +24,35 @@ const BuildingTodos = ({ buildings }) => {
 
   return (
     <>
-      <h4>Tareas</h4><p>{totalNonCompletedTodos}</p>
-      {buildings.map((building) => {
-        const completedCount = getCompletedTodosCount(building.todoIds);
-        const totalCount = building.todoIds.length;
-        // const nonCompletedCount = getNonCompletedTodosCount(building.todoIds);
-        const completionPercentage = getCompletionPercentage(completedCount, totalCount);
+      {/* // <div className="container"> */}
+      {/* <div className="container-header">
+        <h4>Tareas</h4><p>{totalNonCompletedTodos}</p>
+      </div> */}
+      <div className="container-content">
+        {buildings.map((building) => {
+          const completedCount = getCompletedTodosCount(building.todoIds);
+          const totalCount = building.todoIds.length;
+          // const nonCompletedCount = getNonCompletedTodosCount(building.todoIds);
+          const completionPercentage = getCompletionPercentage(completedCount, totalCount);
 
-        return (
-          <div key={building._id}>
-            <h5>
-              {building.address} {building.number}
-            </h5>
-            <p>{completedCount}/{totalCount} completadas</p>
-            {/* <p>{nonCompletedCount} pendientes</p> */}
-            <p>{completionPercentage}% completadas</p>
-          </div>
-        );
-      })}
+          return (
+            <div className="card" key={building._id}>
+              <h5>
+                {building.address} {building.number}
+              </h5>
+              <div className="progress-bar">
+                <div className="progress" style={{ width: `${completionPercentage}%` }}></div>
+              </div>
+              <div className="card-details">
+                <p>{completionPercentage}% completadas</p>
+                <p>{completedCount}/{totalCount} completadas</p>
+                {/* <p>{nonCompletedCount} pendientes</p> */}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* // </div> */}
     </>
   );
 };

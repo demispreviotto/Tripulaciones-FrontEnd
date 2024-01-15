@@ -6,7 +6,7 @@ const Preloader = () => {
   return (
     <div className="preloader">
       <div className="logo-container">
-        <Logo fill={"#FFF"} />
+        <Logo />
         <h2>FincUp</h2>
       </div>
       <p>Cargando...</p>

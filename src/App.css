@@ -56,17 +56,17 @@ form {
   flex-direction: column;
   margin: 0 auto;
   font-family: 'Space Grotesk', sans-serif;
-  color: var(--clr-txt-2);
+  color: var(--secundariosnegro);
 }
 
 input,
 textarea,
 select {
-  background-color: var(--clr-bg-4);
+  background-color: var(--neutrosneutro-2-cards);
   border-radius: 16px;
   outline: none;
   border-color: transparent;
-  color: var(--clr-txt-2);
+  color: var(--secundariosnegro);
   padding: 14px 19px;
   width: 361px;
 }
@@ -77,4 +77,103 @@ input {
 
 textarea {
   font-family: 'Inter', sans-serif;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 48%;
+  padding: 16px;
+}
+
+.greetings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.greetings h2 {
+  color: var(--primariosgranate);
+  font-family: var(--heading-heading-l-font-family);
+  font-size: var(--heading-heading-l-font-size);
+  font-style: var(--heading-heading-l-font-style);
+  font-weight: var(--heading-heading-l-font-weight);
+  letter-spacing: var(--heading-heading-l-letter-spacing);
+  line-height: var(--heading-heading-l-line-height);
+}
+
+.building-check {
+  position: absolute;
+  overflow-y: auto;
+  bottom: 0;
+  height: 50vh;
+}
+
+.card {
+  /* width: 100%; */
+  background-color: var(--neutrosneutro-2-cards);
+  /* border: 1px solid black; */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  gap: 10px;
+  height: 112px;
+  justify-content: center;
+  width: 361px;
+}
+
+.card h5 {
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.card .card-details {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.progress-bar {
+  width: 327px;
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+.container {
+  content: "";
+  /* padding: 0 16px; */
+}
+
+.container-header {
+  display: inline-flex;
+}
+
+.container-header p {
+  background-color: black;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  color: white;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
 }

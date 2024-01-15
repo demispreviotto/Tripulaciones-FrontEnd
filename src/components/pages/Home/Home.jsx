@@ -6,6 +6,7 @@ import BuildingTodos from "../../Buildings/BuildingTodos";
 import BuildingIncidences from "../../Buildings/BuildingIncidences";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
 import Preloader from "../Preloader/Preloader";
+import BuildingCheck from "../../Buildings/BuildingCheck";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -25,27 +26,23 @@ const Home = () => {
     if (!buildings || !user) {
         return <Preloader />;
     }
-    // if (!user) {
-    //     return <Preloader />;
-    // }
 
     return (
-        <>
-            <h2>
-                Buenos dias,
-                <br /> {user.firstName} {user.lastName}
-            </h2>
-            <p>{new Date().toLocaleString()}</p>
+        <div className="home">
+            <div className="greetings">
+                <h2>Buenos dias,<br /> {user.firstName} {user.lastName}
+                </h2>
+                <p>{new Date().toLocaleString()}</p>
+            </div>
             <div>
-                <h3>Fincas Por Revisar</h3>
-                <div>
-                    <BuildingTodos buildings={buildings} />
-                </div>
-                <div>
-                    <BuildingIncidences buildings={buildings} />
+                <h3 className="building-check-header">Fincas Por Revisar</h3>
+                <div className="building-check">
+                    {/* <BuildingTodos buildings={buildings} />
+                    <BuildingIncidences buildings={buildings} /> */}
+                    <BuildingCheck buildings={buildings} />
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

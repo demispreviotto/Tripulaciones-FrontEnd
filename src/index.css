@@ -10,24 +10,88 @@
 
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
-  color: var(--clr-txt-2);
+  color: var(--secundariosnegro);
   /* background-color: #242424; */
-  background-color: var(--clr-bg-2);
-
-  --clr-bg-main: linear-gradient(180deg, rgba(172, 26, 26, 0.16) 0%, rgba(217, 217, 217, 0) 100%);
-  --clr-bg-1: #AD182E;
-  --clr-bg-2: #F7F7F7;
-  --clr-bg-3: #031634;
-  --clr-bg-4: #FFF;
-  --clr-bg-5: #D3E1E2;
-  --clr-txt-1: #AD182E;
-  --clr-txt-2: #031634;
-  --clr-br-1: #CCCCCC;
+  background-color: var(--neutrosneutro-1-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --body-body-l-font-family: "ClashGrotesk-Regular", "Space Grotesk", Helvetica;
+  --body-body-l-font-size: 18px;
+  --body-body-l-font-style: normal;
+  --body-body-l-font-weight: 400;
+  --body-body-l-letter-spacing: 0px;
+  --body-body-l-line-height: normal;
+  --body-body-m-font-family: "ClashGrotesk-Regular", "Space Grotesk", Helvetica;
+  --body-body-m-font-size: 16px;
+  --body-body-m-font-style: normal;
+  --body-body-m-font-weight: 400;
+  --body-body-m-letter-spacing: 0px;
+  --body-body-m-line-height: normal;
+  --body-body-s-font-family: "ClashGrotesk-Light", Helvetica;
+  --body-body-s-font-size: 14px;
+  --body-body-s-font-style: normal;
+  --body-body-s-font-weight: 300;
+  --body-body-s-letter-spacing: 0px;
+  --body-body-s-line-height: normal;
+  --heading-heading-l-font-family: "ClashGrotesk-Medium", Helvetica;
+  --heading-heading-l-font-size: 36px;
+  --heading-heading-l-font-style: normal;
+  --heading-heading-l-font-weight: 500;
+  --heading-heading-l-letter-spacing: 0px;
+  --heading-heading-l-line-height: normal;
+  --heading-heading-m-font-family: "ClashGrotesk-Medium", Helvetica;
+  --heading-heading-m-font-size: 24px;
+  --heading-heading-m-font-style: normal;
+  --heading-heading-m-font-weight: 500;
+  --heading-heading-m-letter-spacing: 0px;
+  --heading-heading-m-line-height: normal;
+  --heading-heading-s-font-family: "ClashGrotesk-Medium", Helvetica;
+  --heading-heading-s-font-size: 20px;
+  --heading-heading-s-font-style: normal;
+  --heading-heading-s-font-weight: 500;
+  --heading-heading-s-letter-spacing: 0px;
+  --heading-heading-s-line-height: normal;
+  --labels-label-1-font-family: "ClashGrotesk-Medium", Helvetica;
+  --labels-label-1-font-size: 16px;
+  --labels-label-1-font-style: normal;
+  --labels-label-1-font-weight: 500;
+  --labels-label-1-letter-spacing: 0px;
+  --labels-label-1-line-height: normal;
+  --labels-label-2-font-family: "ClashGrotesk-Regular", "Space Grotesk", Helvetica;
+  --labels-label-2-font-size: 16px;
+  --labels-label-2-font-style: normal;
+  --labels-label-2-font-weight: 400;
+  --labels-label-2-letter-spacing: 0px;
+  --labels-label-2-line-height: 22px;
+  --labels-label-3-font-family: "ClashGrotesk-Medium", Helvetica;
+  --labels-label-3-font-size: 14px;
+  --labels-label-3-font-style: normal;
+  --labels-label-3-font-weight: 500;
+  --labels-label-3-letter-spacing: 0px;
+  --labels-label-3-line-height: 22px;
+  --neutrosneutro-1-background: rgba(238, 238, 238, 1);
+  --neutrosneutro-2-cards: rgba(226, 229, 231, 1);
+  --neutrosneutro-3-tipografia: rgba(113, 113, 113, 1);
+  --primariosgranate: rgba(172, 26, 47, 1);
+  --secundariosnegro: rgba(0, 0, 0, 1);
+  --shadow-card: 4px 4px 8px 0px rgba(0, 0, 0, 0.04);
+  --sub-sub-1-font-family: "ClashGrotesk-Regular", "Space Grotesk", Helvetica;
+  --sub-sub-1-font-size: 18px;
+  --sub-sub-1-font-style: normal;
+  --sub-sub-1-font-weight: 400;
+  --sub-sub-1-letter-spacing: 0px;
+  --sub-sub-1-line-height: 22px;
+  --sub-sub-2-font-family: "ClashGrotesk-Light", Helvetica;
+  --sub-sub-2-font-size: 14px;
+  --sub-sub-2-font-style: normal;
+  --sub-sub-2-font-weight: 300;
+  --sub-sub-2-letter-spacing: 0px;
+  --sub-sub-2-line-height: 22px;
+  --variable-collection-primarios-granate: rgba(172, 26, 47, 1);
 }
 
 * {
@@ -39,7 +103,7 @@
 a {
   font-weight: 500;
   /* color: #646cff; */
-  color: var(--clr-txt-1);
+  color: var(--primariosgranate);
   text-decoration: inherit;
 }
 
@@ -76,7 +140,7 @@ button {
 
 button:hover {
   /* border-color: #646cff; */
-  border-color: var(--clr-txt-1);
+  border-color: var(--primariosgranate);
 }
 
 button:focus,
