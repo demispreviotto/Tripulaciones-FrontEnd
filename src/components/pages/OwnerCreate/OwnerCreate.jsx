@@ -1,42 +1,41 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../../assets/Logo";
 import { create } from "../../../features/owner/ownerSlice";
+import { useLocation, useParams } from "react-router-dom";
 
 const OwnerCreate = () => {
-
+  const location = useLocation();
+  const buildingId = new URLSearchParams(location.search).get("finca");
   const initialValue = {
     email: "",
     firstName: "",
     lastName: "",
     phone: "",
+    buildingIds: buildingId || null,
   };
+  console.log(buildingId);
   const [data, setData] = useState(initialValue);
   const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const message = useSelector((state) => state.owner.message);
   const status = useSelector((state) => state.owner.status);
 
-  const handleOnChange = useCallback(
-    (e) => {
-      setData({ ...data, [e.target.name]: e.target.value });
-    },
-    [data]
-  );
+  const handleOnChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     if (status === "succeeded") {
-      const timeoutId = setTimeout(() => {;
+      const timeoutId = setTimeout(() => {
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);
-
       return () => clearTimeout(timeoutId);
     } else if (status === "failed") {
       setIsSubmitting(false);
     }
-  }, [status, initialValue]);
+  }, [status]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
