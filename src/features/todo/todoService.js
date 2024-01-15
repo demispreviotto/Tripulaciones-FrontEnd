@@ -14,7 +14,11 @@ const createTodo = async (data) => {
 };
 
 const getAllTodos = async () => {
-    const res = await axios.get(API_URL + "getAll");
+    const res = await axios.get(API_URL + "getAll", {
+        headers: {
+            Authorization: token,
+        },
+    });
     return res.data;
 };
 
