@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllBuildings } from "../../features/building/buildingSlice";
 import Preloader from "../pages/Preloader/Preloader";
+import BuildingCreate from "../pages/BuildingCreate/BuildingCreate";
 
 const Buildings = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const Buildings = () => {
             <p>Número de Incidencias: {building.incidenceIds.length}</p>
           </div>
         ))}
+      <BuildingCreate />
     </>
   );
 };

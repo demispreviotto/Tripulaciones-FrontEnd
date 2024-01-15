@@ -29,14 +29,14 @@ footer {
   align-items: center;
 }
 
-header {
+/* header {
   top: 0;
   border-bottom: 1px solid gray;
   padding-bottom: 0.6em;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-}
+} */
 
 nav {
   display: flex;
