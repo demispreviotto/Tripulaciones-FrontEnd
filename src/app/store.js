@@ -5,6 +5,7 @@ import door from "../features/door/doorSlice";
 import service from "../features/service/serviceSlice";
 import incidence from "../features/incidence/incidenceSlice";
 import todo from "../features/todo/todoSlice";
+import owner from "../features/owner/ownerSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     service,
     incidence,
     todo,
+    owner
   },
 });

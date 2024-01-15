@@ -43,6 +43,18 @@ export const serviceSlice = createSlice({
       .addCase(getAll.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload.message;
+      })
+      .addCase(update.fulfilled, (state, action) => {
+        state.services = action.payload;
+        state.status = "succeeded";
+        state.message = action.payload.message;
+      })
+      .addCase(update.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(update.rejected, (state, action) => {
+        state.status = "failed";
+        state.message = action.payload.message;
       });
   },
 });
@@ -64,6 +76,14 @@ export const getAll = createAsyncThunk("service/getAll", async () => {
     return await serviceService.getAll();
   } catch (error) {
     console.error(error);
+  }
+});
+
+export const update = createAsyncThunk("service/update", async () => {
+  try {
+    return await serviceService.update(data);
+  } catch (error) {
+    console.error(Error);
   }
 });
 
