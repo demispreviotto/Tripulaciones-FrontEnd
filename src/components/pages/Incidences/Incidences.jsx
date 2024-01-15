@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllIncidences } from '../../../features/incidence/IncidenceSlice';
+import { getAllIncidences } from '../../../features/incidence/incidenceSlice';
 import Preloader from '../Preloader/Preloader';
 
 const Incidences = () => {

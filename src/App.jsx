@@ -18,6 +18,7 @@ import TodoCreate from "./components/pages/TodoCreate/TodoCreate";
 import Incidences from "./components/pages/Incidences/Incidences";
 import IncidencePage from "./components/pages/IncidencePage/IncidencePage";
 import IncidenceCreate from "./components/pages/IncidenceCreate/IncidenceCreate";
+import NotFound from "./components/pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/incidences/create" element={<IncidenceCreate />} />
           <Route path="/about" element={<About />} />
           <Route path="/service/create" element={<ServiceCreate />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {/* </main> */}
         {/* <Footer /> */}
