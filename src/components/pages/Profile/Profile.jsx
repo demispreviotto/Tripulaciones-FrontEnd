@@ -25,10 +25,10 @@ const Profile = () => {
       if (savedUser) {
         dispatch(update(JSON.parse(savedUser)));
       } else {
-        navigate("/login");
+        navigate("/inicioSesion");
       }
     }
-  }, [user, dispatch, navigate]);
+  }, [user]);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -54,7 +54,7 @@ const Profile = () => {
     try {
       dispatch(logout());
       setTimeout(() => {
-        navigate("/login");
+        navigate("/inicioSesion");
       }, 3000);
     } catch (error) {
       console.error(error);
@@ -65,7 +65,7 @@ const Profile = () => {
     <>
       {!user ? null : (
         <>
-          <h1>Profile</h1>
+          <h1>Perfil</h1>
           <div>
             <h2>
               {isEditing ? (
@@ -75,6 +75,7 @@ const Profile = () => {
                   onChange={(e) =>
                     handleFieldChange("firstName", e.target.value)
                   }
+                  placeholder="Nombre"
                 />
               ) : (
                 editedState.firstName
@@ -88,6 +89,7 @@ const Profile = () => {
                   onChange={(e) =>
                     handleFieldChange("lastName", e.target.value)
                   }
+                  placeholder="Apellido"
                 />
               ) : (
                 editedState.lastName
@@ -99,6 +101,7 @@ const Profile = () => {
                   type="text"
                   value={editedState.email}
                   onChange={(e) => handleFieldChange("email", e.target.value)}
+                  placeholder="Correo"
                 />
               ) : (
                 editedState.email
@@ -110,6 +113,7 @@ const Profile = () => {
                   type="text"
                   value={editedState.phone}
                   onChange={(e) => handleFieldChange("phone", e.target.value)}
+                  placeholder="Teléfono"
                 />
               ) : (
                 editedState.phone
@@ -121,6 +125,7 @@ const Profile = () => {
                   type="text"
                   value={editedState.company}
                   onChange={(e) => handleFieldChange("company", e.target.value)}
+                  placeholder="Compañía"
                 />
               ) : (
                 editedState.company

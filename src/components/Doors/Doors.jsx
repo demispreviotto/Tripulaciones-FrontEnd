@@ -1,38 +1,37 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getAllDoors } from '../../features/Door/doorSlice'
-import Preloader from '../pages/Preloader/Preloader'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getAllDoors } from "../../features/Door/doorSlice";
+import Preloader from "../pages/Preloader/Preloader";
 
 const Doors = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const doors = useSelector((state) => state.door.doors)
-    useEffect(() => {
-        dispatch(getAllDoors())
-    }, [])
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const doors = useSelector((state) => state.door.doors);
+  useEffect(() => {
+    dispatch(getAllDoors());
+  }, []);
 
-    const handleOnClick = (door) => {
-        // console.log(Door._id)
-        navigate(`/doors/id/${door._id}`)
-    }
-    if (!doors) {
-        return <Preloader />;
-    }
-    return (
-        <>
-            {/* <h2>Doors</h2> */}
-            {/* <div> */}
-            {doors && doors.map(door => (
-                <div key={door._id} onClick={() => handleOnClick(door)}>
-                    <h3>{door.address} {door.number}</h3>
-                    <p>N of incidences: {door.incidenceIds.length}</p>
-                </div>
-            ))}
-            {/* </div> */}
-            {/* <DoorCreate /> */}
-        </>
-    )
-}
+  const handleOnClick = (door) => {
+    navigate(`/puertas/id/${door._id}`);
+  };
+  if (!doors) {
+    return <Preloader />;
+  }
+  return (
+    <>
+      {doors &&
+        doors.map((door) => (
+          <div key={door._id} onClick={() => handleOnClick(door)}>
+            <h3>
+              {door.address} {door.number}
+            </h3>
+            <p>Número de incidencias: {door.incidenceIds.length}</p>
+          </div>
+        ))}
+      {/* <DoorCreate /> */}
+    </>
+  );
+};
 
-export default Doors
+export default Doors;

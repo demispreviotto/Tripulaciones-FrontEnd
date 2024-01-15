@@ -32,7 +32,7 @@ const Register = () => {
   useEffect(() => {
     if (status === "succeeded") {
       const timeoutId = setTimeout(() => {
-        navigate("/login");
+        navigate("/inicioSesion");
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);
@@ -60,7 +60,7 @@ const Register = () => {
           <input
             type="text"
             name="email"
-            placeholder="Introduzca su correo"
+            placeholder="Correo"
             onChange={handleOnChange}
           />
           <input

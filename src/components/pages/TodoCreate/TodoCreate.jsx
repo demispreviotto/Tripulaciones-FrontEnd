@@ -63,14 +63,14 @@ const TodoCreate = () => {
     return (
         <>
             {!active ? (
-                <button type='submit' onClick={handleActive}>Create</button>
+                <button type='submit' onClick={handleActive}>Crear</button>
             ) : (
                 <div>
-                    <h2>To do Create</h2>
+                    <h2>Crear Tarea:</h2>
                     <form onSubmit={handleOnSubmit}>
-                        <input type="text" name='title' placeholder='Title' onChange={handleOnChange} />
-                        <textarea name="description" id="description" cols="30" rows="10" maxLength={255} placeholder='Todo description...' onChange={handleOnChange}></textarea>
-                        <label htmlFor="status">Status</label>
+                        <input type="text" name='title' placeholder='Título' onChange={handleOnChange} />
+                        <textarea name="description" id="description" cols="30" rows="10" maxLength={255} placeholder='Descripción...' onChange={handleOnChange}></textarea>
+                        <label htmlFor="status">Estado</label>
                         <input type="checkbox" name="completed" id="completed" onChange={handleOnChange} />
                         {/* <select name="status" id="status" onChange={handleOnChange}>
                             <option value="recived">Recived</option>
@@ -89,7 +89,7 @@ const TodoCreate = () => {
                             }
                         </select>
                         {messageTodo && <p className={statusCreateTodo}>{messageTodo}</p>}
-                        <button type='submit' disabled={isSubmitting}>Create</button>
+                        <button type='submit' disabled={isSubmitting}>Crear</button>
                     </form>
                 </div>
             )}

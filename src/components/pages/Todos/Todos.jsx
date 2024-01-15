@@ -6,7 +6,7 @@ const Todos = () => {
     const todos = useSelector((state) => state.todo.todos)
     return (
         <>
-            <h3>Todos</h3>
+            <h3>Tareas</h3>
             <div>
                 {/* {todos.map((item) => (
                     <div key={item._id}>

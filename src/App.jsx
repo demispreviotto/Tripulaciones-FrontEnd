@@ -24,20 +24,20 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<><Header /><Home /></>} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/buildings/" element={<Buildings />} />
-          <Route path="/buildings/id/:_id" element={<BuildingPage />} />
-          <Route path="/buildings/create" element={<BuildingCreate />} />
-          <Route path="/todos/" element={<Todos />} />
-          <Route path="/todos/id/:_id" element={<TodoPage />} />
-          <Route path="/todos/create" element={<TodoCreate />} />
-          <Route path="/incidences/" element={<Incidences />} />
-          <Route path="/incidences/id/:_id" element={<IncidencePage />} />
-          <Route path="/incidences/create" element={<IncidenceCreate />} />
+          <Route path="/registro" element={<Register />} />
+          <Route path="/inicioSesion" element={<Login />} />
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="/fincas" element={<Buildings />} />
+          <Route path="/fincas/id/:_id" element={<BuildingPage />} />
+          <Route path="/fincas/crear" element={<BuildingCreate />} />
+          <Route path="/tareas/" element={<Todos />} />
+          <Route path="/tareas/id/:_id" element={<TodoPage />} />
+          <Route path="/tareas/crear" element={<TodoCreate />} />
+          <Route path="/incidencias/" element={<Incidences />} />
+          <Route path="/incidencias/id/:_id" element={<IncidencePage />} />
+          <Route path="/incidencias/crear" element={<IncidenceCreate />} />
           <Route path="/about" element={<About />} />
-          <Route path="/service/create" element={<ServiceCreate />} />
+          <Route path="/servicios/crear" element={<ServiceCreate />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

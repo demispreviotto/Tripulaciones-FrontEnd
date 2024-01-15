@@ -49,13 +49,13 @@ const Login = () => {
           <input
             type="text"
             name="email"
-            placeholder="Introduzca su correo"
+            placeholder="Correo"
             onChange={handleOnChange}
           />
           <input
             type="password"
             name="password"
-            placeholder="Introduzca su contraseña"
+            placeholder="Contraseña"
             onChange={handleOnChange}
           />
           {message && <p className={status}>{message}</p>}

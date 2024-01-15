@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/inicioSesion");
     } else {
       dispatch(getAllBuildings());
       // dispatch(getLoggedUser())

@@ -3,7 +3,7 @@ import Logo from "../../../assets/Logo";
 import "./ServiceCreate.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { create } from "../../../features/services/serviceSlice";
+import { create } from "../../../features/service/serviceSlice";
 
 const Service = () => {
   const navigate = useNavigate();
