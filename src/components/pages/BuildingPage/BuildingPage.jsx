@@ -1,20 +1,28 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import Preloader from "../Preloader/Preloader";
+import DoorCreate from "../DoorCreate/DoorCreate";
 
 const BuildingPage = () => {
   const { _id } = useParams();
   const building = useSelector((state) => state.building.building);
   const status = useSelector((state) => state.building.status);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(getBuildingById(_id));
   }, []);
   if (!building) {
     return <Preloader />;
   }
+
+  const goCreateOwner = async () => {
+    navigate(`/propietarios/crear?finca=${_id}`);
+  };
+
   return (
     <>
       <h1>{`${building.address} ${building.number}`}</h1>
@@ -49,6 +57,8 @@ const BuildingPage = () => {
             </div>
           ))
         )}
+        <h3>Crear</h3>
+        <DoorCreate />
       </div>
       <div>
         <h2>Servicios</h2>
@@ -65,6 +75,7 @@ const BuildingPage = () => {
       <div>
         <h2>Componente Recordatorios</h2>
       </div>
+      <button onClick={goCreateOwner}>Agregar propietario</button>
     </>
   );
 };
