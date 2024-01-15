@@ -57,7 +57,7 @@ const BuildingPage = () => {
             </div>
           ))
         )}
-        <h3>Crear</h3>
+        {/* <h3>Crear</h3> */}
         <DoorCreate />
       </div>
       <div>

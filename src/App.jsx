@@ -26,15 +26,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Home />
-              </>
-            }
-          />
+          <Route path="/" element={<><Header /><Home /></>} />
           <Route path="/registro" element={<Register />} />
           <Route path="/inicioSesion" element={<Login />} />
           <Route path="/perfil" element={<Profile />} />

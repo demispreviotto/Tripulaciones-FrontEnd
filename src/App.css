@@ -67,8 +67,9 @@ select {
   outline: none;
   border-color: transparent;
   color: var(--secundariosnegro);
-  padding: 14px 19px;
+  padding: 0 19px;
   width: 361px;
+  height: 40px;
 }
 
 input {
@@ -76,6 +77,7 @@ input {
 }
 
 textarea {
+  padding: 14px 19px;
   font-family: 'Inter', sans-serif;
 }
 

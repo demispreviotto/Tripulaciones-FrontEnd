@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createManualIncidence } from "../../../features/incidence/incidenceSlice";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
-import data from "../../../assets/dataEs.json";
+import data from "../../../assets/data/dataEs.json";
 import { useNavigate } from "react-router-dom";
 
 const IncidenceCreate = () => {

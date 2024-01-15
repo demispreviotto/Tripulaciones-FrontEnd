@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { getLoggedUser } from "../../../features/auth/authSlice";
@@ -13,13 +13,21 @@ const Home = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
     const buildings = useSelector((state) => state.building.buildings);
-
+    const [formattedDate, setFormattedDate] = useState("");
     useEffect(() => {
         if (!user) {
             navigate("/inicioSesion");
         } else {
             dispatch(getAllBuildings());
             // dispatch(getLoggedUser())
+            const formattedDate = new Date().toLocaleDateString("es-ES", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+            });
+
+            setFormattedDate(formattedDate);
         }
     }, []);
 
@@ -32,13 +40,11 @@ const Home = () => {
             <div className="greetings">
                 <h2>Buenos dias,<br /> {user.firstName} {user.lastName}
                 </h2>
-                <p>{new Date().toLocaleString()}</p>
+                <p>{formattedDate}</p>
             </div>
             <div>
                 <h3 className="building-check-header">Fincas Por Revisar</h3>
                 <div className="building-check">
-                    {/* <BuildingTodos buildings={buildings} />
-                    <BuildingIncidences buildings={buildings} /> */}
                     <BuildingCheck buildings={buildings} />
                 </div>
             </div>

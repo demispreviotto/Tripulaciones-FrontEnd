@@ -1,10 +1,12 @@
 import React from "react";
 import Loading from "../common/Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 const BuildingTodos = ({ buildings }) => {
   if (!buildings) {
     return <Loading />;
   }
+  const navigate = useNavigate()
 
   const getNonCompletedTodosCount = (todoIds) => {
     return todoIds.filter((todo) => todo.status !== "Completada").length;
@@ -36,7 +38,7 @@ const BuildingTodos = ({ buildings }) => {
           const completionPercentage = getCompletionPercentage(completedCount, totalCount);
 
           return (
-            <div className="card" key={building._id}>
+            <div className="card" key={building._id} onClick={() => navigate(`/fincas/id/${building._id}`)}>
               <h5>
                 {building.address} {building.number}
               </h5>

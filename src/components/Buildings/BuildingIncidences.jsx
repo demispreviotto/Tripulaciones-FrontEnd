@@ -1,10 +1,12 @@
 import React from "react";
 import Loading from "../common/Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 const BuildingIncidences = ({ buildings }) => {
   if (!buildings) {
     return <Loading />;
   }
+  const navigate = useNavigate()
 
   const getNonCompletedIncidencesCount = (incidenceIds) => {
     return incidenceIds.filter((incidence) => incidence.status !== "Completada").length;
@@ -37,7 +39,7 @@ const BuildingIncidences = ({ buildings }) => {
           const completionPercentage = getCompletionPercentage(completedCount, totalCount);
 
           return (
-            <div className="card" key={building._id}>
+            <div className="card" key={building._id} onClick={() => navigate(`/fincas/id/${building._id}`)}>
               <h5>
                 {building.address} {building.number}
               </h5>
