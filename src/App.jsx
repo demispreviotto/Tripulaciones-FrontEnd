@@ -6,7 +6,7 @@ import Login from "./components/pages/Login/Login";
 import About from "./components/pages/About/About";
 import Profile from "./components/pages/Profile/Profile";
 import BuildingPage from "./components/pages/BuildingPage/BuildingPage";
-import ServiceCreate from "./components/pages/ServicesCreate/ServiceCreate";
+import ServiceCreate from "./components/pages/ServiceCreate/ServiceCreate";
 import BuildingCreate from "./components/pages/BuildingCreate/BuildingCreate";
 import Buildings from "./components/Buildings/Buildings";
 import Header from "./components/layout/Header/Header";
@@ -18,13 +18,23 @@ import IncidencePage from "./components/pages/IncidencePage/IncidencePage";
 import IncidenceCreate from "./components/pages/IncidenceCreate/IncidenceCreate";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Service from "./components/pages/Service/Service";
+import ServicePage from "./components/pages/ServicePage/ServicePage";
+import OwnerCreate from "./components/pages/OwnerCreate/OwnerCreate";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<><Header /><Home /></>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Home />
+              </>
+            }
+          />
           <Route path="/registro" element={<Register />} />
           <Route path="/inicioSesion" element={<Login />} />
           <Route path="/perfil" element={<Profile />} />
@@ -40,6 +50,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/servicios/crear" element={<ServiceCreate />} />
           <Route path="/servicios" element={<Service />} />
+          <Route path="/servicios/id/:id" element={<ServicePage />} />
+          <Route path="/propietarios/crear" element={<OwnerCreate />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

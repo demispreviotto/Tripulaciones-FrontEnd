@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Preloader from "../Preloader/Preloader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAll } from "../../../features/service/serviceSlice";
@@ -17,16 +17,21 @@ const Service = () => {
 
   return (
     <>
-      {services && services.length > 0 ? (
+      <h2>Servicios disponibles:</h2>
+      <br />
+      {services ? (
         services.map((service) => (
           <div key={service._id}>
-            <h3>
-              {service.company} {service.name}
-            </h3>
+            <h3>Compañía: {service.company}</h3>
+            <h4>Tema: {service.theme}</h4>
+            <h5>Email: {service.contactEmail}</h5>
+            <h5>Tel: {service.contactNumber}</h5>
+            <h5>Valoración: {service.rate}</h5>
+            <hr />
           </div>
         ))
       ) : (
-        <Preloader />
+        <p>No hay servicios disponibles.</p>
       )}
     </>
   );

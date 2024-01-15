@@ -1,26 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../../features/auth/authSlice";
-import { Link, useNavigate } from "react-router-dom";
-import "./Register.css";
 import Logo from "../../../assets/Logo";
+import { create } from "../../../features/owner/ownerSlice";
 
-const Register = () => {
-  const navigate = useNavigate();
+const OwnerCreate = () => {
 
   const initialValue = {
     email: "",
     firstName: "",
     lastName: "",
     phone: "",
-    password: "",
   };
   const [data, setData] = useState(initialValue);
   const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const message = useSelector((state) => state.auth.message);
-  const status = useSelector((state) => state.auth.status);
+  const message = useSelector((state) => state.owner.message);
+  const status = useSelector((state) => state.owner.status);
 
   const handleOnChange = useCallback(
     (e) => {
@@ -31,8 +27,7 @@ const Register = () => {
 
   useEffect(() => {
     if (status === "succeeded") {
-      const timeoutId = setTimeout(() => {
-        navigate("/inicioSesion");
+      const timeoutId = setTimeout(() => {;
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);
@@ -41,12 +36,12 @@ const Register = () => {
     } else if (status === "failed") {
       setIsSubmitting(false);
     }
-  }, [status, navigate, initialValue]);
+  }, [status, initialValue]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    dispatch(register(data));
+    dispatch(create(data));
   };
 
   return (
@@ -56,13 +51,8 @@ const Register = () => {
         <h2>FincUp</h2>
       </div>
       <div className="form-container">
+        <h3 className="add">Agregue un propietario:</h3>
         <form onSubmit={handleOnSubmit}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Correo"
-            onChange={handleOnChange}
-          />
           <input
             type="text"
             name="firstName"
@@ -82,25 +72,19 @@ const Register = () => {
             onChange={handleOnChange}
           />
           <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
+            type="email"
+            name="email"
+            placeholder="Correo"
             onChange={handleOnChange}
           />
           {message && <p className={status}>{message}</p>}
           <button type="submit" disabled={isSubmitting}>
-            Registrarse
+            Crear
           </button>
-          <p>
-            Ya tienes cuenta?
-            <span>
-              <Link to="/login"> Inicia sesión</Link>
-            </span>
-          </p>
         </form>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default OwnerCreate;
