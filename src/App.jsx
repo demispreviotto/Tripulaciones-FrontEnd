@@ -17,6 +17,7 @@ import Incidences from "./components/pages/Incidences/Incidences";
 import IncidencePage from "./components/pages/IncidencePage/IncidencePage";
 import IncidenceCreate from "./components/pages/IncidenceCreate/IncidenceCreate";
 import NotFound from "./components/pages/NotFound/NotFound";
+import Service from "./components/pages/Service/Service";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/incidencias/crear" element={<IncidenceCreate />} />
           <Route path="/about" element={<About />} />
           <Route path="/servicios/crear" element={<ServiceCreate />} />
+          <Route path="/servicios" element={<Service />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
