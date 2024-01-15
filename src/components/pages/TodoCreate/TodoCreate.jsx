@@ -15,11 +15,12 @@ const TodoCreate = () => {
     const initialValue = {
         title: '',
         description: '',
-        // status: 'recived',
-        complited: false,
-        buildingId: ''
+        completed: false,
+        doorId: "",
+        buildingId: "",
+        ownerId: "",
     }
-    const [data, setData] = useState(initialValue)
+    const [fromData, setFromData] = useState(initialValue)
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [active, setActive] = useState(false)
 
@@ -29,7 +30,7 @@ const TodoCreate = () => {
 
 
     const handleOnChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value })
+        setFromData({ ...fromData, [e.target.name]: e.target.value })
     }
 
     const handleActive = (e) => {
@@ -39,22 +40,22 @@ const TodoCreate = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        console.log(data)
-        // dispatch(createTodo(data))
+        console.log(fromData)
+        dispatch(createTodo(fromData))
     }
-    // useEffect(() => {
-    //     if (statusCreateTodo === "succeeded") {
-    //         const timeoutId = setTimeout(() => {
-    //             navigate("/todos");
-    //             setIsSubmitting(false);
-    //             setData(initialValue);
-    //         }, 3000);
+    useEffect(() => {
+        if (messageTodo === "Tarea creada exitosamente") {
+            const timeoutId = setTimeout(() => {
+                navigate("/tareas/");
+                setIsSubmitting(false);
+                setFromData(initialValue);
+            }, 3000);
 
-    //         return () => clearTimeout(timeoutId);
-    //     } else if (statusCreateTodo === "failed") {
-    //         setIsSubmitting(false);
-    //     }
-    // }, [statusCreateTodo]);
+            return () => clearTimeout(timeoutId);
+            // } else if (statusCreateTodo === "failed") {
+            //     setIsSubmitting(false);
+        }
+    }, [statusCreateTodo]);
 
     if (!buildings) {
         return <Preloader />
@@ -72,24 +73,16 @@ const TodoCreate = () => {
                         <textarea name="description" id="description" cols="30" rows="10" maxLength={255} placeholder='Descripción...' onChange={handleOnChange}></textarea>
                         <label htmlFor="status">Estado</label>
                         <input type="checkbox" name="completed" id="completed" onChange={handleOnChange} />
-                        {/* <select name="status" id="status" onChange={handleOnChange}>
-                            <option value="recived">Recived</option>
-                            <option value="processing">processing</option>
-                            <option value="contacted">contacted</option>
-                            <option value="awaiting">awaiting</option>
-                            <option value="done">done</option>
-                            <option value="complited">complited</option>
-                        </select> */}
                         <select name="buildingId" id="buildingId" onChange={handleOnChange}>
-                            {buildings.map((building) => (
-                                <option key={building._id} value={building._id}>
-                                    {building.address}
+                            {buildings.map((item) => (
+                                <option key={item._id} value={item._id}>
+                                    {item.address} {item.number}
                                 </option>
                             ))
                             }
                         </select>
-                        {messageTodo && <p className={statusCreateTodo}>{messageTodo}</p>}
                         <button type='submit' disabled={isSubmitting}>Crear</button>
+                        {messageTodo && <p className={statusCreateTodo}>{messageTodo}</p>}
                     </form>
                 </div>
             )}
