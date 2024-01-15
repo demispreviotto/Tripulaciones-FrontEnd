@@ -42,7 +42,7 @@ const Login = () => {
     <div className="login">
       <div className="logo-container">
         <Logo />
-        <h2>Cajón Digital</h2>
+        <h2>FincUp</h2>
       </div>
       <div className="form-container">
         <form onSubmit={handleOnSubmit}>
