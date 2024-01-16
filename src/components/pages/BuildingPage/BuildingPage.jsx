@@ -10,7 +10,8 @@ import Logo_Incidencias from "../../../assets/Logo_Incidencias";
 import Logo_Tareas from "../../../assets/Logo_Tareas";
 import Logo_Reuniones from "../../../assets/Logo_Reuniones";
 import Logo_Documentos from "../../../assets/Logo_Documentos";
-import Logo_Proveedores from "../../../assets/svg/Logo_Proveedores";
+import Logo_Proveedores from "../../../assets/Logo_Proveedores";
+import Micro from "../../../assets/Micro";
 
 const BuildingPage = () => {
   const { _id } = useParams();
@@ -30,45 +31,50 @@ const BuildingPage = () => {
     <>
       <h1>{`${building.address} ${building.number}`}</h1>
       <div>
-        <p>Incidencias: {building.incidenceIds.length}</p>
-        <p>Id: {_id}</p>
-        <p>Código postal: {building.zipCode}</p>
-        <p>Cuidad: {building.city}</p>
-        <p>Comunidad: {building.province}</p>
+        <h3>Incidencias: {building.incidenceIds.length}</h3>
+        {/* <p>Id: {_id}</p> */}
+        <h5>{building.zipCode}</h5>
       </div>
-      <div>
-        <Logo_Predicciones />
-        <h2>predicciones</h2>
-      </div>
-      <div>
-        <Logo_Incidencias />
-        <h2>Componente Incidencias</h2>
-        {building.incidenceIds.length < 1 ? (
-          <p>Sin incidencias.</p>
-        ) : (
-          building.incidenceIds.map((incidence) => (
-            <div key={incidence}>
-              {/* <h3>{incidence}</h3> */}
-              {/* <h3>{incidence}</h3> */}
-            </div>
-          ))
-        )}
-      </div>
-      <div>
-        <Logo_Tareas />
-        <h2>tareas</h2>
-      </div>
-      <div>
-        <Logo_Reuniones />
-        <h2>reuniones</h2>
-      </div>
-      <div>
-        <Logo_Documentos />
-        <h2>documentos</h2>
-      </div>
-      <div>
-        <Logo_Proveedores />
-        <h2>proveedores</h2>
+      <br />
+      <div className="cards">
+        <div>
+          <Logo_Predicciones />
+          <h3>predicciones</h3>
+        </div>
+        <div>
+          <Logo_Incidencias />
+          <h3>Componente Incidencias</h3>
+          {building.incidenceIds.length < 1 ? (
+            <p>Sin incidencias.</p>
+          ) : (
+            building.incidenceIds.map((incidence) => (
+              <div key={incidence}>
+                {/* <h3>{incidence}</h3> */}
+                {/* <h3>{incidence}</h3> */}
+              </div>
+            ))
+          )}
+        </div>
+        <div>
+          <Logo_Tareas />
+          <h3>tareas</h3>
+        </div>
+        <div>
+          <Logo_Reuniones />
+          <h3>reuniones</h3>
+        </div>
+        <div>
+          <Logo_Documentos />
+          <h3>documentos</h3>
+        </div>
+        <div>
+          <Logo_Proveedores />
+          <h3>proveedores</h3>
+        </div>
+        <div>
+          <input type="search" placeholder="Buscar" />
+          <Micro />
+        </div>
       </div>
       <div>
         <h2>Puertas</h2>
