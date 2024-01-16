@@ -53,7 +53,7 @@ const IncidenceCreate = () => {
       createIncidenceStatus === "succeeded"
     ) {
       setTimeout(() => {
-        navigate("/incidencias");
+        // navigate("/incidencias");
       }, 2000);
     }
   }, [message]);

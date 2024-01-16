@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import Preloader from "../Preloader/Preloader";
 import DoorCreate from "../DoorCreate/DoorCreate";
@@ -12,6 +12,7 @@ import Logo_Reuniones from "../../../assets/Logo_Reuniones";
 import Logo_Documentos from "../../../assets/Logo_Documentos";
 import Logo_Proveedores from "../../../assets/Logo_Proveedores";
 import Micro from "../../../assets/Micro";
+import "./BuildingPage.css";
 import Loading from "../../common/Loading/Loading";
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
@@ -37,48 +38,44 @@ const BuildingPage = () => {
   }
   return (
     <>
-      <h1>{`${building.address} ${building.number}`}</h1>
-      <div>
+      <div className="address-building">
+        <h1>{`${building.address} ${building.number}`}</h1>
         <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
         <h5>{building.zipCode}</h5>
+        <button className="button">Ver detalles</button>
       </div>
       <br />
-      <div className="cards">
-        <div>
+      <div className="card-container-building">
+        <div className="card-building">
           <Logo_Predicciones />
           <h3>predicciones</h3>
         </div>
-        <div>
+        <div className="card-building">
           <Logo_Incidencias />
-          <h3>Componente Incidencias</h3>
-          {building.incidenceIds.length < 1 ? (
-            <p>Sin incidencias.</p>
-          ) : (
-            building.incidenceIds.map((incidence) => (
-              <div key={incidence}>
-                {/* <h3>{incidence}</h3> */}
-                {/* <h3>{incidence}</h3> */}
-              </div>
-            ))
-          )}
+          <h3>incidencias</h3>
+          <div>
+            <h3>Incidencias: {building.incidenceIds.length}</h3>
+            <Link to={`/finca/${_id}/incidencias`}>Ver incidencias</Link>
+            <h5>{building.zipCode}</h5>
+          </div>
         </div>
-        <div>
+        <div className="card-building">
           <Logo_Tareas />
           <h3>tareas</h3>
         </div>
-        <div>
+        <div className="card-building">
           <Logo_Reuniones />
           <h3>reuniones</h3>
         </div>
-        <div>
+        <div className="card-building">
           <Logo_Documentos />
           <h3>documentos</h3>
         </div>
-        <div>
+        <div className="card-building">
           <Logo_Proveedores />
           <h3>proveedores</h3>
         </div>
-        <div>
+        <div className="searcher">
           <input type="search" placeholder="Buscar" />
           <Micro />
         </div>
