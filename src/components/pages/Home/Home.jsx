@@ -9,29 +9,30 @@ import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceS
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
 
+// const token = localStorage.getItem("token")
+
 const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
+    const token = useSelector((state) => state.auth.token);
     const buildings = useSelector((state) => state.building.buildings);
     const [formattedDate, setFormattedDate] = useState("");
     useEffect(() => {
-        const fetchData = async () => {
-            if (!user) {
-                navigate("/inicio-sesion");
-            } else {
-                await dispatch(getAllBuildings());
-                const formattedDate = new Date().toLocaleDateString("es-ES", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                });
-                setFormattedDate(formattedDate);
-            }
-        };
-        fetchData();
-    }, [user]);
+        if (!token) {
+            navigate("/inicio-sesion");
+        } else {
+            dispatch(getAllBuildings());
+            dispatch(fetchAndCreateIncidences());
+            const formattedDate = new Date().toLocaleDateString("es-ES", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+            });
+            setFormattedDate(formattedDate);
+        }
+    }, []);
 
     if (!buildings || !user) {
         return <Preloader />;

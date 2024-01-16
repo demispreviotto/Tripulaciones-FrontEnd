@@ -12,6 +12,7 @@ import Logo_Reuniones from "../../../assets/Logo_Reuniones";
 import Logo_Documentos from "../../../assets/Logo_Documentos";
 import Logo_Proveedores from "../../../assets/Logo_Proveedores";
 import Micro from "../../../assets/Micro";
+import Loading from "../../common/Loading/Loading";
 
 const BuildingPage = () => {
   const { _id } = useParams();
@@ -23,16 +24,18 @@ const BuildingPage = () => {
   useEffect(() => {
     dispatch(getBuildingById(_id));
   }, []);
-  if (!building) {
-    return <Preloader />;
-  }
 
+  // useEffect(() => {
+  // }, [building])
+
+  if (!building) {
+    return <Loading />;
+  }
   return (
     <>
       <h1>{`${building.address} ${building.number}`}</h1>
       <div>
-        <h3>Incidencias: {building.incidenceIds.length}</h3>
-        {/* <p>Id: {_id}</p> */}
+        <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
         <h5>{building.zipCode}</h5>
       </div>
       <br />
