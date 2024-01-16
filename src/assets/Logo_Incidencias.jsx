@@ -12,28 +12,28 @@ const Logo_Incidencias = () => {
       <path
         d="M10.75 15.2265V12.6895"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M19.9949 3.87988V10.3799C17.5349 11.8199 14.2849 12.6899 10.7449 12.6899C7.20488 12.6899 3.96488 11.8199 1.50488 10.3799V3.87988H19.9949Z"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
       <path
         d="M14.25 3.61115L13.2501 1.2998H8.2501L7.25 3.61115"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
       <path
         d="M1.5293 13.1932L1.7183 18.7002H19.7813L19.9703 13.1932"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
     </svg>
   );

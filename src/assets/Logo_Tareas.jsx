@@ -12,16 +12,16 @@ const Logo_Tareas = () => {
       <path
         d="M5.88281 13.0865H14.6178"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M19.5 18.3265H1V1.67346H7.96326L10.2249 4.45239H19.5V18.3265Z"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
     </svg>
   );
