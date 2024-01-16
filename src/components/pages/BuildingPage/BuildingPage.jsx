@@ -44,35 +44,35 @@ const BuildingPage = () => {
       <div className="card-container-building">
         <div className="card-building">
           <Logo_Predicciones />
-          <h3>predicciones</h3>
+          <h5>Predicciones</h5>
         </div>
         <div className="card-building">
           <Logo_Incidencias />
-          <h3>incidencias</h3>
-          <div>
-            <h3>Incidencias: {building.incidenceIds.length}</h3>
+          <h5>Incidencias</h5>
+          {/* <div>
+            <h5>Incidencias: {building.incidenceIds.length}</h5>
             <Link to={`/finca/${_id}/incidencias`}>Ver incidencias</Link>
             <h5>{building.zipCode}</h5>
-          </div>
+          </div> */}
         </div>
         <div className="card-building">
           <Logo_Tareas />
-          <h3>tareas</h3>
+          <h5>Tareas</h5>
         </div>
         <div className="card-building">
           <Logo_Reuniones />
-          <h3>reuniones</h3>
+          <h5>Reuniones</h5>
         </div>
         <div className="card-building">
           <Logo_Documentos />
-          <h3>documentos</h3>
+          <h5>Documentos</h5>
         </div>
         <div className="card-building">
           <Logo_Proveedores />
-          <h3>proveedores</h3>
+          <h5>Proveedores</h5>
         </div>
-        <div className="searcher">
-          <input type="search" placeholder="Buscar" />
+        <div className="search-bar">
+          <input type="search" placeholder="Buscar" className="placeholder"/>
           <Micro />
         </div>
       </div>
