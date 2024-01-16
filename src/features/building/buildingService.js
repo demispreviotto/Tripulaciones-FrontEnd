@@ -14,11 +14,13 @@ const createBuilding = async (data) => {
 };
 
 const getAllBuildings = async () => {
-  const res = await axios.get(API_URL + "getAllBuildings", {
-    headers: {
-      Authorization: token,
-    },
-  });
+  const res = await axios.get(API_URL + "getAllBuildings",
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
   return res.data;
 };
 
