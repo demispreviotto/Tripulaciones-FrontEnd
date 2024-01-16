@@ -5,7 +5,7 @@ const API_URL = "http://localHost:8080/doors/";
 const token = JSON.parse(localStorage.getItem("token"));
 
 const createDoor = async (data) => {
-  const res = await axios.post(API_URL + "createDoor", data, {
+  const res = await axios.post(API_URL + "create", data, {
     headers: {
       Authorization: token,
     },

@@ -89,7 +89,7 @@ const BuildingPage = () => {
             </div>
           ))
         )}
-        <OwnerCreate buildingId={_id}/>
+        <OwnerCreate buildingId={_id} />
       </div>
     </>
   );

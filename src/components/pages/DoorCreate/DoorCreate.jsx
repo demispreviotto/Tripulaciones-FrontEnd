@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDoors } from "../../../features/door/doorSlice";
+import { createDoor, getAllDoors } from "../../../features/door/doorSlice";
 import { getOwners } from "../../../features/building/buildingSlice";
 import data from "../../../assets/data/dataEs.json";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,10 +8,11 @@ import "./DoorCreate.css";
 import Loading from "../../common/Loading/Loading";
 
 const DoorCreate = ({ building }) => {
-  const buildingId = useParams();
+  const { _id } = useParams();
+  const buildingId = _id;
   const [formData, setFormData] = useState({
     buildingId: buildingId,
-    ownerId: "", // pasar id
+    ownerIds: [],
     name: "",
   });
 
@@ -24,6 +25,22 @@ const DoorCreate = ({ building }) => {
     dispatch(getOwners(buildingId));
     dispatch(getAllDoors());
   }, [dispatch, buildingId]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleOwnerSelect = (e) => {
+    const selectedOwnerId = e.target.value;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      ownerIds: [selectedOwnerId],
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,8 +59,18 @@ const DoorCreate = ({ building }) => {
   return (
     <div>
       <form className="door-form" onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Puerta" />
-        <select name="ownerId" id="ownerId">
+        <input
+          type="text"
+          name="name"
+          placeholder="Puerta"
+          onChange={handleInputChange}
+        />
+        <select
+          name="ownerId"
+          id="ownerId"
+          value={formData.ownerIds}
+          onChange={handleOwnerSelect}
+        >
           <option value="" selected disabled>
             Selecciona Propietario
           </option>
@@ -53,9 +80,9 @@ const DoorCreate = ({ building }) => {
             </option>
           ))}
         </select>
-        {message && <p className={status}>{message}</p>}
         <button type="submit">+</button>
       </form>
+      {message && <p className={status}>{message}</p>}
     </div>
   );
 };
