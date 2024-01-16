@@ -34,19 +34,19 @@ const BuildingPage = () => {
   }
   return (
     <>
-      <div className="address">
+      <div className="address-building">
         <h1>{`${building.address} ${building.number}`}</h1>
         <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
         <h5>{building.zipCode}</h5>
         <button className="button">Ver detalles</button>
       </div>
       <br />
-      <div className="card-container">
-        <div className="card">
+      <div className="card-container-building">
+        <div className="card-building">
           <Logo_Predicciones />
           <h3>predicciones</h3>
         </div>
-        <div className="card">
+        <div className="card-building">
           <Logo_Incidencias />
           <h3>incidencias</h3>
           <div>
@@ -55,19 +55,19 @@ const BuildingPage = () => {
             <h5>{building.zipCode}</h5>
           </div>
         </div>
-        <div className="card">
+        <div className="card-building">
           <Logo_Tareas />
           <h3>tareas</h3>
         </div>
-        <div className="card">
+        <div className="card-building">
           <Logo_Reuniones />
           <h3>reuniones</h3>
         </div>
-        <div className="card">
+        <div className="card-building">
           <Logo_Documentos />
           <h3>documentos</h3>
         </div>
-        <div className="card">
+        <div className="card-building">
           <Logo_Proveedores />
           <h3>proveedores</h3>
         </div>

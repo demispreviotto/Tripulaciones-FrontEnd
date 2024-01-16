@@ -1,11 +1,11 @@
-.card-container {
+.card-container-building {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.card {
+.card-building {
   width: calc(33.33% - 20px);
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.card h3 {
+.card-building h3 {
   margin-top: 10px;
 }
 
@@ -24,6 +24,6 @@
     margin-top: 10px;
 }
 
-.address {
+.address-building {
     margin-bottom: 40vh;
 }
