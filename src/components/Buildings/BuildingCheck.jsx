@@ -3,7 +3,7 @@ import BuildingIncidences from "./BuildingIncidences";
 import BuildingTodos from "./BuildingTodos";
 
 const BuildingCheck = ({ buildings }) => {
-  const [active, setActive] = useState(true);
+  const [activeTab, setActiveTab] = useState("todos");
 
   const getNonCompletedTodosCount = (todoIds) => {
     return todoIds.filter((todo) => todo.status !== "Completada").length;
@@ -23,17 +23,18 @@ const BuildingCheck = ({ buildings }) => {
     <>
       <div className="container">
         <nav>
-          <div className="container-header" onClick={() => setActive(!active)}>
+          <div className={`container-header ${activeTab === "todos" ? "active" : ""}`}
+            onClick={() => setActiveTab("todos")}>
             <h4>Tareas</h4>
             <p>{totalNonCompletedTodos}</p>
           </div>
-          <div className="container-header" onClick={() => setActive(!active)}>
+          <div className={`container-header ${activeTab === "incidences" ? "active" : ""}`}
+            onClick={() => setActiveTab("incidences")}>
             <h4>Incidencias</h4>
             <p>{totalNonCompletedIncidences}</p>
           </div>
-          {/* <p >Incidentes</p> */}
         </nav>
-        {active ? (
+        {activeTab === 'todos' ? (
           <BuildingTodos buildings={buildings} />
         ) : (
           <BuildingIncidences buildings={buildings} />
