@@ -17,7 +17,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      return initialState;
+      return {
+        ...initialState,
+        user: null,
+        token: null,
+      };
     },
   },
   extraReducers: (builder) => {
