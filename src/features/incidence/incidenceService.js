@@ -4,6 +4,20 @@ const API_URL = "http://localHost:8080/incidences/";
 
 const token = JSON.parse(localStorage.getItem("token"));
 
+const fetchAndCreateIncidences = async () => {
+    try {
+        const res = await axios.post(API_URL + 'fetchAndCreateIncidences', null, {
+            headers: {
+                Authorization: token,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
 const createIncidence = async (data) => {
     const res = await axios.post(API_URL + 'createIncidence', data, {
         headers: {
@@ -58,7 +72,8 @@ const deleteIncidence = async (_id) => {
 };
 
 const incidenceService = {
-    createIncidence,
+    fetchAndCreateIncidences,
+    // createIncidence,
     createManualIncidence,
     getAllIncidences,
     getIncidenceById,

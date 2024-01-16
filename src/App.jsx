@@ -20,8 +20,8 @@ import NotFound from "./components/pages/NotFound/NotFound";
 import Service from "./components/pages/Service/Service";
 import ServicePage from "./components/pages/ServicePage/ServicePage";
 import OwnerCreate from "./components/pages/OwnerCreate/OwnerCreate";
-
 function App() {
+
   return (
     <>
       <Router>
