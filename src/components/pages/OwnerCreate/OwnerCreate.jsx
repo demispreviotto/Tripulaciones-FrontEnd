@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../../assets/Logo";
-import { create } from "../../../features/owner/ownerSlice";
+import { createOwner } from "../../../features/owner/ownerSlice";
 import { useLocation, useParams } from "react-router-dom";
+import "./OwnerCreate.css";
 
-const OwnerCreate = () => {
-  const location = useLocation();
-  const buildingId = new URLSearchParams(location.search).get("finca");
+const OwnerCreate = ({buildingId}) => {
   const initialValue = {
     email: "",
     firstName: "",
@@ -14,12 +13,12 @@ const OwnerCreate = () => {
     phone: "",
     buildingIds: buildingId || null,
   };
-  console.log(buildingId);
   const [data, setData] = useState(initialValue);
   const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const message = useSelector((state) => state.owner.message);
   const status = useSelector((state) => state.owner.status);
+  const [active, setActive] = useState(false);
 
   const handleOnChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -40,17 +39,28 @@ const OwnerCreate = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    dispatch(create(data));
+    const updatedData = {
+      ...data,
+      buildingIds: buildingId,
+    };
+    dispatch(createOwner(updatedData));
+    console.log(updatedData);
+    console.log(buildingId)
+  };
+
+  const handleActive = (e) => {
+    e.preventDefault();
+    setActive(!active);
   };
 
   return (
-    <div className="register">
-      <div className="logo-container">
-        <Logo />
-        <h2>FincUp</h2>
-      </div>
-      <div className="form-container">
-        <h3 className="add">Agregue un propietario:</h3>
+    <div className="form-container">
+      <h3 className="add">Agregue un propietario:</h3>
+      {!active ? (
+        <button type="submit" onClick={handleActive}>
+          Crear
+        </button>
+      ) : (
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"
@@ -77,11 +87,12 @@ const OwnerCreate = () => {
             onChange={handleOnChange}
           />
           {message && <p className={status}>{message}</p>}
+
           <button type="submit" disabled={isSubmitting}>
             Crear
           </button>
         </form>
-      </div>
+      )}
     </div>
   );
 };

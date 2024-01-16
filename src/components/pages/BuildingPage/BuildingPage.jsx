@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import Preloader from "../Preloader/Preloader";
 import DoorCreate from "../DoorCreate/DoorCreate";
+import OwnerCreate from "../OwnerCreate/OwnerCreate";
 
 const BuildingPage = () => {
   const { _id } = useParams();
@@ -58,7 +59,7 @@ const BuildingPage = () => {
           ))
         )}
         {/* <h3>Crear</h3> */}
-        <DoorCreate />
+        <DoorCreate building={building} />
       </div>
       <div>
         <h2>Servicios</h2>
@@ -75,7 +76,21 @@ const BuildingPage = () => {
       <div>
         <h2>Componente Recordatorios</h2>
       </div>
-      <button onClick={goCreateOwner}>Agregar propietario</button>
+      <div>
+        <h2>Propietarios</h2>
+        {building.ownerIds.length === 0 ? (
+          <p>Sin propietarios.</p>
+        ) : (
+          building.ownerIds.map((owner) => (
+            <div key={owner}>
+              <p>
+                propietario: {owner.firstName} {owner.lastName}
+              </p>
+            </div>
+          ))
+        )}
+        <OwnerCreate buildingId={_id}/>
+      </div>
     </>
   );
 };
