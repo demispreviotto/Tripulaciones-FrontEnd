@@ -32,7 +32,7 @@ const Register = () => {
   useEffect(() => {
     if (status === "succeeded") {
       const timeoutId = setTimeout(() => {
-        navigate("/inicioSesion");
+        navigate("/inicio-sesion");
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);
@@ -94,7 +94,7 @@ const Register = () => {
           <p>
             Ya tienes cuenta?
             <span>
-              <Link to="/login"> Inicia sesión</Link>
+              <Link to="/inicio-sesion"> Inicia sesión</Link>
             </span>
           </p>
         </form>

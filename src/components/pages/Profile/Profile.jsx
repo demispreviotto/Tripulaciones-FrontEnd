@@ -25,7 +25,7 @@ const Profile = () => {
       if (savedUser) {
         dispatch(update(JSON.parse(savedUser)));
       } else {
-        navigate("/inicioSesion");
+        navigate("/inicio-sesion");
       }
     }
   }, [user]);
@@ -54,7 +54,7 @@ const Profile = () => {
     try {
       dispatch(logout());
       setTimeout(() => {
-        navigate("/inicioSesion");
+        navigate("/inicio-sesion");
       }, 3000);
     } catch (error) {
       console.error(error);

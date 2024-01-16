@@ -1,62 +1,88 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { createManualIncidence } from "../../../features/incidence/incidenceSlice";
-// import { getAllBuildings } from "../../../features/building/buildingSlice";
+import { createDoor, getAllDoors } from "../../../features/door/doorSlice";
+import { getOwners } from "../../../features/building/buildingSlice";
 import data from "../../../assets/data/dataEs.json";
 import { useNavigate, useParams } from "react-router-dom";
-import "./DoorCreate.css"
+import "./DoorCreate.css";
+import Loading from "../../common/Loading/Loading";
 
-const DoorCreate = () => {
-  const buildingId = useParams();
+const DoorCreate = ({ building }) => {
+  const { _id } = useParams();
+  const buildingId = _id;
   const [formData, setFormData] = useState({
     buildingId: buildingId,
-    ownerId: "", // pasar id
+    ownerIds: [],
     name: "",
   });
 
   const dispatch = useDispatch();
   const owners = useSelector((state) => state.owner.owners);
-  const message = useSelector((state) => state.owner.message);
+  const message = useSelector((state) => state.door.message);
+  const status = useSelector((state) => state.door.status);
 
   useEffect(() => {
-    // dispatch(getAll())
-  }, []);
+    dispatch(getOwners(buildingId));
+    dispatch(getAllDoors());
+  }, [dispatch, buildingId]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleOwnerSelect = (e) => {
+    const selectedOwnerId = e.target.value;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      ownerIds: [selectedOwnerId],
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
     console.log(message);
-    console.log(createIncidenceStatus);
-    // dispatch(createManualIncidence(formData));
+    dispatch(createDoor(formData));
   };
 
-  useEffect(() => {
-    if (
-      message === "Manual incidence created successfully"
-      //   createIncidenceStatus === "succeeded"
-    ) {
-      setTimeout(() => {
-        navigate("/incidencias");
-      }, 2000);
-    }
-  }, [message]);
+  if (!owners) {
+    return <Loading />;
+  }
+  if (!building) {
+    return <Loading />;
+  }
 
   return (
     <div>
-      {/* <h2>Crear nueva incidencia</h2> */}
       <form className="door-form" onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Puerta" />
-        <select name="ownerId" id="ownerId">
-          <option value="" selected disabled>Selecciona Propietario</option>
-          {owners.map((owner) => (
+        <input
+          type="text"
+          name="name"
+          placeholder="Puerta"
+          onChange={handleInputChange}
+        />
+        <select
+          name="ownerId"
+          id="ownerId"
+          value={formData.ownerIds}
+          onChange={handleOwnerSelect}
+        >
+          <option value="" selected disabled>
+            Selecciona Propietario
+          </option>
+          {building.ownerIds.map((owner) => (
             <option key={owner._id} value={owner._id}>
-              {owner.firstName}
+              {owner.firstName} {owner.lastName}
             </option>
           ))}
         </select>
-        {message && <p className={createIncidenceStatus}>{message}</p>}
         <button type="submit">+</button>
       </form>
+      {message && <p className={status}>{message}</p>}
     </div>
   );
 };

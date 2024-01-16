@@ -47,7 +47,7 @@ const BuildingTodos = ({ buildings }) => {
               </div>
               <div className="card-details">
                 <p>{completionPercentage}% completadas</p>
-                <p>{completedCount}/{totalCount} completadas</p>
+                <p>{completedCount}/{totalCount}</p>
                 {/* <p>{nonCompletedCount} pendientes</p> */}
               </div>
             </div>

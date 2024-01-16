@@ -4,6 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import Preloader from "../Preloader/Preloader";
 import DoorCreate from "../DoorCreate/DoorCreate";
+import OwnerCreate from "../OwnerCreate/OwnerCreate";
+import Logo_Predicciones from "../../../assets/Logo_Predicciones";
+import Logo_Incidencias from "../../../assets/Logo_Incidencias";
+import Logo_Tareas from "../../../assets/Logo_Tareas";
+import Logo_Reuniones from "../../../assets/Logo_Reuniones";
+import Logo_Documentos from "../../../assets/Logo_Documentos";
+import Logo_Proveedores from "../../../assets/Logo_Proveedores";
+import Micro from "../../../assets/Micro";
 
 const BuildingPage = () => {
   const { _id } = useParams();
@@ -19,32 +27,54 @@ const BuildingPage = () => {
     return <Preloader />;
   }
 
-  const goCreateOwner = async () => {
-    navigate(`/propietarios/crear?finca=${_id}`);
-  };
-
   return (
     <>
       <h1>{`${building.address} ${building.number}`}</h1>
       <div>
-        <p>Incidencias: {building.incidenceIds.length}</p>
-        <p>Id: {_id}</p>
-        <p>Código postal: {building.zipCode}</p>
-        <p>Cuidad: {building.city}</p>
-        <p>Comunidad: {building.province}</p>
+        <h3>Incidencias: {building.incidenceIds.length}</h3>
+        {/* <p>Id: {_id}</p> */}
+        <h5>{building.zipCode}</h5>
       </div>
-      <div>
-        <h2>Componente Incidencias</h2>
-        {building.incidenceIds.length < 1 ? (
-          <p>Sin incidencias.</p>
-        ) : (
-          building.incidenceIds.map((incidence) => (
-            <div key={incidence}>
-              <h3>{incidence}</h3>
-              <h3>{incidence}</h3>
-            </div>
-          ))
-        )}
+      <br />
+      <div className="cards">
+        <div>
+          <Logo_Predicciones />
+          <h3>predicciones</h3>
+        </div>
+        <div>
+          <Logo_Incidencias />
+          <h3>Componente Incidencias</h3>
+          {building.incidenceIds.length < 1 ? (
+            <p>Sin incidencias.</p>
+          ) : (
+            building.incidenceIds.map((incidence) => (
+              <div key={incidence}>
+                {/* <h3>{incidence}</h3> */}
+                {/* <h3>{incidence}</h3> */}
+              </div>
+            ))
+          )}
+        </div>
+        <div>
+          <Logo_Tareas />
+          <h3>tareas</h3>
+        </div>
+        <div>
+          <Logo_Reuniones />
+          <h3>reuniones</h3>
+        </div>
+        <div>
+          <Logo_Documentos />
+          <h3>documentos</h3>
+        </div>
+        <div>
+          <Logo_Proveedores />
+          <h3>proveedores</h3>
+        </div>
+        <div>
+          <input type="search" placeholder="Buscar" />
+          <Micro />
+        </div>
       </div>
       <div>
         <h2>Puertas</h2>
@@ -58,7 +88,7 @@ const BuildingPage = () => {
           ))
         )}
         {/* <h3>Crear</h3> */}
-        <DoorCreate />
+        <DoorCreate building={building} />
       </div>
       <div>
         <h2>Servicios</h2>
@@ -75,7 +105,21 @@ const BuildingPage = () => {
       <div>
         <h2>Componente Recordatorios</h2>
       </div>
-      <button onClick={goCreateOwner}>Agregar propietario</button>
+      <div>
+        <h2>Propietarios</h2>
+        {building.ownerIds.length === 0 ? (
+          <p>Sin propietarios.</p>
+        ) : (
+          building.ownerIds.map((owner) => (
+            <div key={owner}>
+              <p>
+                propietario: {owner.firstName} {owner.lastName}
+              </p>
+            </div>
+          ))
+        )}
+        <OwnerCreate buildingId={_id} />
+      </div>
     </>
   );
 };

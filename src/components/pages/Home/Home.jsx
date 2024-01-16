@@ -16,22 +16,22 @@ const Home = () => {
     const buildings = useSelector((state) => state.building.buildings);
     const [formattedDate, setFormattedDate] = useState("");
     useEffect(() => {
-        if (!user) {
-            navigate("/inicioSesion");
-        } else {
-            dispatch(getAllBuildings());
-            dispatch(fetchAndCreateIncidences());
-            // dispatch(getLoggedUser())
-            const formattedDate = new Date().toLocaleDateString("es-ES", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-            });
-
-            setFormattedDate(formattedDate);
-        }
-    }, []);
+        const fetchData = async () => {
+            if (!user) {
+                navigate("/inicio-sesion");
+            } else {
+                await dispatch(getAllBuildings());
+                const formattedDate = new Date().toLocaleDateString("es-ES", {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                });
+                setFormattedDate(formattedDate);
+            }
+        };
+        fetchData();
+    }, [user]);
 
     if (!buildings || !user) {
         return <Preloader />;
@@ -40,7 +40,9 @@ const Home = () => {
     return (
         <div className="home">
             <div className="greetings">
-                <h2>Buenos dias,<br /> {user.firstName} {user.lastName}
+                <h2>
+                    Buenos dias,
+                    <br /> {user.firstName} {user.lastName}
                 </h2>
                 <p>{formattedDate}</p>
             </div>
