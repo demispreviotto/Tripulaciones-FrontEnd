@@ -15,9 +15,9 @@ const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    dispatch(reset());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(reset());
+  // }, []);
 
   const handleOnChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -27,15 +27,17 @@ const Login = () => {
     e.preventDefault();
     setIsSubmitting(true);
     dispatch(login(data));
+    // dispatch(reset());
   };
 
   useEffect(() => {
     if (user) {
       const timeoutId = setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
       return () => clearTimeout(timeoutId);
     }
+    // }, [user]);
   }, [user]);
 
   return (

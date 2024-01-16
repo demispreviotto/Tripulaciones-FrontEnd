@@ -112,6 +112,16 @@ textarea {
   height: 50vh;
 }
 
+.building-check-header {
+  color: var(--secundariosnegro);
+  font-family: var(--heading-heading-m-font-family);
+  font-size: var(--heading-heading-m-font-size);
+  font-style: var(--heading-heading-m-font-style);
+  font-weight: var(--heading-heading-m-font-weight);
+  letter-spacing: var(--heading-heading-m-letter-spacing);
+  line-height: var(--heading-heading-m-line-height);
+}
+
 .card {
   /* width: 100%; */
   background-color: var(--neutrosneutro-2-cards);
@@ -163,6 +173,12 @@ textarea {
 
 .container-header {
   display: inline-flex;
+  height: 37px;
+  width: 180px;
+}
+
+.container-header .active {
+  border-bottom: 1px solid black;
 }
 
 .container-header p {

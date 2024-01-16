@@ -79,7 +79,10 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state, action) => {
         return {
           ...state,
-          profile: action.payload.profile,
+          profile: null,
+          user: null,
+          token: null,
+          // profile: action.payload.profile,
           status: "succeeded",
           message: action.payload.message,
         };

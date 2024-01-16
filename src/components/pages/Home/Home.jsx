@@ -9,7 +9,7 @@ import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceS
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
 
-// const token = localStorage.getItem("token")
+const tokenLocal = JSON.parse(localStorage.getItem("token"));
 
 const Home = () => {
     const navigate = useNavigate();
@@ -19,11 +19,11 @@ const Home = () => {
     const buildings = useSelector((state) => state.building.buildings);
     const [formattedDate, setFormattedDate] = useState("");
     useEffect(() => {
-        if (!token) {
+        if (!user) {
             navigate("/inicio-sesion");
         } else {
-            dispatch(getAllBuildings());
-            dispatch(fetchAndCreateIncidences());
+            // dispatch(getAllBuildings());
+            // dispatch(fetchAndCreateIncidences());
             const formattedDate = new Date().toLocaleDateString("es-ES", {
                 weekday: "long",
                 day: "numeric",
@@ -33,8 +33,13 @@ const Home = () => {
             setFormattedDate(formattedDate);
         }
     }, []);
+    useEffect(() => {
+        if (token === tokenLocal) {
+            dispatch(getAllBuildings());
+        }
+    }, [])
 
-    if (!buildings || !user) {
+    if (!buildings || !user || !token) {
         return <Preloader />;
     }
 
@@ -48,7 +53,7 @@ const Home = () => {
                 <p>{formattedDate}</p>
             </div>
             <div>
-                <h3 className="building-check-header">Fincas Por Revisar</h3>
+                <h3 className="building-check-header">Fincas por revisar hoy</h3>
                 <div className="building-check">
                     <BuildingCheck buildings={buildings} />
                 </div>

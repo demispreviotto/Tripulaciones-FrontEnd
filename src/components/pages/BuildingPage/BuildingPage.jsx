@@ -14,7 +14,9 @@ import Logo_Proveedores from "../../../assets/Logo_Proveedores";
 import Micro from "../../../assets/Micro";
 import Loading from "../../common/Loading/Loading";
 
+const tokenLocal = JSON.parse(localStorage.getItem("token"));
 const BuildingPage = () => {
+  const token = useSelector((state) => state.auth.token)
   const { _id } = useParams();
   const building = useSelector((state) => state.building.building);
   const status = useSelector((state) => state.building.status);
@@ -22,7 +24,9 @@ const BuildingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getBuildingById(_id));
+    if (token === tokenLocal) {
+      dispatch(getBuildingById(_id));
+    }
   }, []);
 
   // useEffect(() => {
