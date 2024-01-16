@@ -1,0 +1,18 @@
+/* header {
+} */
+
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    /* padding: 0 .5em; */
+    /* border-bottom: 1px solid gray; */
+    /* padding-bottom: 0.6em; */
+    /* flex-direction: column; */
+    flex-wrap: nowrap;
+    /* align-items: center; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}

@@ -1,0 +1,35 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    height: 100vh;
+}
+
+.login .logo-container {
+    padding-top: 15vh;
+    padding-bottom: 20vh;
+}
+
+.login .logo-container h2 {
+    color: var(--primariosgranate);
+}
+
+form {
+    gap: 16px;
+}
+
+p {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: center;
+    white-space: nowrap
+}
+
+p span a {
+    font-weight: 500;
+    color: #000000
+}

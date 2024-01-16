@@ -1,0 +1,14 @@
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--neutrosneutro-1-background);
+}
+
+.logo-container {
+    padding-top: 30vh;
+}
+
+.logo-container h2 {
+    color: var(--primariosgranate);
+    text-align: center;
+}
