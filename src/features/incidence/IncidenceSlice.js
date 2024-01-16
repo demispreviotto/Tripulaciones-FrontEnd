@@ -18,18 +18,18 @@ export const incidenceSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(createIncidence.pending, (state) => {
-                state.status = 'loading';
-            })
-            .addCase(createIncidence.fulfilled, (state, action) => {
-                state.incidence = action.payload.incidence;
-                state.status = 'succeeded';
-                state.message = action.payload.message;
-            })
-            .addCase(createIncidence.rejected, (state, action) => {
-                state.status = 'failed';
-                state.message = action.payload.message;
-            })
+            // .addCase(createIncidence.pending, (state) => {
+            //     state.status = 'loading';
+            // })
+            // .addCase(createIncidence.fulfilled, (state, action) => {
+            //     state.incidence = action.payload.incidence;
+            //     state.status = 'succeeded';
+            //     state.message = action.payload.message;
+            // })
+            // .addCase(createIncidence.rejected, (state, action) => {
+            //     state.status = 'failed';
+            //     state.message = action.payload.message;
+            // })
             .addCase(createManualIncidence.pending, (state) => {
                 state.status = 'loading';
             })
@@ -99,13 +99,23 @@ export const {
     reset,
 } = incidenceSlice.actions;
 
-export const createIncidence = createAsyncThunk('incidence/createIncidence', async (data, thunkAPI) => {
-    try {
-        return await incidenceService.createIncidence(data);
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.response.data);
+export const fetchAndCreateIncidences = createAsyncThunk(
+    'incidence/fetchAndCreateIncidences',
+    async (_, thunkAPI) => {
+        try {
+            return await incidenceService.fetchAndCreateIncidences();
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
     }
-});
+);
+// export const createIncidence = createAsyncThunk('incidence/createIncidence', async (data, thunkAPI) => {
+//     try {
+//         return await incidenceService.createIncidence(data);
+//     } catch (error) {
+//         return thunkAPI.rejectWithValue(error.response.data);
+//     }
+// });
 
 export const createManualIncidence = createAsyncThunk(
     'incidence/createManualIncidence',
