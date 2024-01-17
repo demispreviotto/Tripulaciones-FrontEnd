@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { getLoggedUser } from "../../../features/auth/authSlice";
-// import BuildingTodos from "../../Buildings/BuildingTodos";
-// import BuildingIncidences from "../../Buildings/BuildingIncidences";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
 import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceSlice";
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
-import "./Home.css"
+import "./Home.scss"
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
 
