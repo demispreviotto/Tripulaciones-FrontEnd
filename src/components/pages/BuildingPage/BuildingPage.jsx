@@ -20,7 +20,7 @@ const BuildingPage = () => {
   const building = useSelector((state) => state.building.building);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  console.log(building)
   useEffect(() => {
     if (token === tokenLocal) {
       dispatch(getBuildingById(_id));
@@ -63,10 +63,12 @@ const BuildingPage = () => {
             <div className="card" onClick={handleOnClickIncidences}>
               <Logo_Incidencias />
               <h5>Incidencias</h5>
+              {building.incidenceIds.length > 0 && <p className="balloon">{building.incidenceIds.length}</p>}
             </div>
             <div className="card">
               <Logo_Tareas />
               <h5>Tareas</h5>
+              {building.todoIds.length > 0 && <p className="balloon">{building.todoIds.length}</p>}
             </div>
             <div className="card">
               <Logo_Reuniones />

@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "../common/Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import BuildingMore from "./BuildingMore";
 
 const BuildingIncidences = ({ buildings }) => {
   if (!buildings) {
@@ -26,37 +27,36 @@ const BuildingIncidences = ({ buildings }) => {
 
   return (
     <>
-      {/* <div className="container"> */}
-      {/* <div className="container-header">
-          <h4>Incidencias</h4>
-          <p>{totalNonCompletedIncidences}</p>
-        </div> */}
       <div className="container-content">
-        {buildings.map((building) => {
-          const completedCount = getCompletedIncidencesCount(building.incidenceIds);
-          const totalCount = building.incidenceIds.length;
-          const nonCompletedCount = getNonCompletedIncidencesCount(building.incidenceIds);
-          const completionPercentage = getCompletionPercentage(completedCount, totalCount);
+        {totalNonCompletedIncidences > 0 ? (
+          buildings.map((building) => {
 
-          return (
-            <div className="card" key={building._id} onClick={() => navigate(`/fincas/id/${building._id}`)}>
-              <h5>
-                {building.address} {building.number}
-              </h5>
-              {/* <progress id={building.id} max={100} value={completionPercentage}></progress> */}
-              <div className="progress-bar">
-                <div className="progress" style={{ width: `${completionPercentage}%` }}></div>
-              </div>
-              <div className="card-details">
-                <p>{completionPercentage}% completadas</p>
-                <p>{completedCount}/{totalCount}</p>
-                {/* <p>{nonCompletedCount} pendientes</p> */}
-              </div>
-            </div>
-          );
-        })}
+            if (getNonCompletedIncidencesCount(building.incidenceIds) > 0) {
+              const completedCount = getCompletedIncidencesCount(building.incidenceIds);
+              const totalCount = building.incidenceIds.length;
+              const completionPercentage = getCompletionPercentage(completedCount, totalCount);
+
+              return (
+                <div className="card" key={building._id} onClick={() => navigate(`/fincas/id/${building._id}`)}>
+                  <h5>
+                    {building.address} {building.number}
+                  </h5>
+                  <div className="progress-bar">
+                    <div className="progress" style={{ width: `${completionPercentage}%` }}></div>
+                  </div>
+                  <div className="card-details">
+                    <p>{completionPercentage}% completadas</p>
+                    <p>{completedCount}/{totalCount}</p>
+                  </div>
+                </div>
+              );
+            }
+          })
+        ) : (
+          <p>No hay incidencias pendientes</p>
+        )}
+        <BuildingMore />
       </div>
-      {/* </div> */}
     </>
   );
 };

@@ -21,7 +21,7 @@ const Home = () => {
     if (!user) {
       navigate("/inicio-sesion");
     } else {
-      // dispatch(getAllBuildings());
+      dispatch(getAllBuildings());
       // dispatch(fetchAndCreateIncidences());
       const formattedDate = new Date().toLocaleDateString("es-ES", {
         weekday: "long",
@@ -32,19 +32,19 @@ const Home = () => {
       setFormattedDate(formattedDate);
     }
   }, []);
-  useEffect(() => {
-    if (token === tokenLocal) {
-      dispatch(getAllBuildings());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (token === tokenLocal) {
+  //     dispatch(getAllBuildings());
+  //   }
+  // }, []);
 
   if (!buildings || !user || !token) {
     return <Preloader />;
   }
 
-  const handleGoBuildings = () => {
-    navigate("/fincas");
-  };
+  // const handleGoBuildings = () => {
+  //   navigate("/fincas");
+  // };
 
   return (
     <div className="home">
@@ -60,9 +60,9 @@ const Home = () => {
         <div className="building-check">
           <BuildingCheck buildings={buildings} />
         </div>
-        <div className="see-all-buildings" onClick={handleGoBuildings}>
-          Ver todas las fincas <Logo_VerFincas />
-        </div>
+        {/* <div className="see-all-buildings" onClick={handleGoBuildings}>
+            Ver todas las fincas <Logo_VerFincas />
+          </div> */}
       </div>
     </div>
   );
