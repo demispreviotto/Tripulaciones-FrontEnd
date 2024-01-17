@@ -12,8 +12,8 @@ const Logo_VerFincas = () => {
       <path
         d="M1.75 2L8.75 9L1.75 16"
         stroke="black"
-        stroke-width="1.5"
-        stroke-linecap="square"
+        strokeWidth="1.5"
+        strokeLinecap="square"
       />
     </svg>
   );

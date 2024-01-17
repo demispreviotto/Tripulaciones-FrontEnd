@@ -9,7 +9,7 @@ const Logo_fincup = () => {
         viewBox="0 0 563.07 327"
       >
         <defs>
-          <style>{`.cls-1{fill:#ac1a2f;stroke-width:0px;}`}</style>
+          <style>{`.cls-1{fill:#ac1a2f;strokeWidth:0px;}`}</style>
         </defs>
         <rect
           className="cls-1"
