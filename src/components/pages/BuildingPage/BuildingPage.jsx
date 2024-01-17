@@ -17,10 +17,9 @@ import Loading from "../../common/Loading/Loading";
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
 const BuildingPage = () => {
-  const token = useSelector((state) => state.auth.token)
+  const token = useSelector((state) => state.auth.token);
   const { _id } = useParams();
   const building = useSelector((state) => state.building.building);
-  const status = useSelector((state) => state.building.status);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,13 +35,20 @@ const BuildingPage = () => {
   if (!building) {
     return <Loading />;
   }
+
+  const handleOnClick = () => {
+    navigate(`/fincas/id/${_id}/detalles`);
+  };
+
   return (
     <>
       <div className="address-building">
         <h1>{`${building.address} ${building.number}`}</h1>
         <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
         <h5>{building.zipCode}</h5>
-        <button className="button">Ver detalles</button>
+        <button className="button" onClick={handleOnClick}>
+          Ver detalles
+        </button>
       </div>
       <br />
       <div className="card-container-building">
@@ -76,53 +82,9 @@ const BuildingPage = () => {
           <h5>Proveedores</h5>
         </div>
         <div className="search-bar">
-          <input type="search" placeholder="Buscar" className="placeholder"/>
+          <input type="search" placeholder="Buscar" className="placeholder" />
           <Micro />
         </div>
-      </div>
-      <div>
-        <h2>Puertas</h2>
-        {building.doorIds.length === 0 ? (
-          <p>Sin puertas.</p>
-        ) : (
-          building.doorIds.map((door) => (
-            <div key={door}>
-              <p>{door}</p>
-            </div>
-          ))
-        )}
-        {/* <h3>Crear</h3> */}
-        <DoorCreate building={building} />
-      </div>
-      <div>
-        <h2>Servicios</h2>
-        {building.serviceIds.length === 0 ? (
-          <p>Sin servicios.</p>
-        ) : (
-          building.serviceIds.map((service) => (
-            <div key={service}>
-              <h3>{service}</h3>
-            </div>
-          ))
-        )}
-      </div>
-      <div>
-        <h2>Componente Recordatorios</h2>
-      </div>
-      <div>
-        <h2>Propietarios</h2>
-        {building.ownerIds.length === 0 ? (
-          <p>Sin propietarios.</p>
-        ) : (
-          building.ownerIds.map((owner) => (
-            <div key={owner}>
-              <p>
-                propietario: {owner.firstName} {owner.lastName}
-              </p>
-            </div>
-          ))
-        )}
-        <OwnerCreate buildingId={_id} />
       </div>
     </>
   );

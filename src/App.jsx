@@ -20,6 +20,7 @@ import NotFound from "./components/pages/NotFound/NotFound";
 import Service from "./components/pages/Service/Service";
 import ServicePage from "./components/pages/ServicePage/ServicePage";
 import OwnerCreate from "./components/pages/OwnerCreate/OwnerCreate";
+import DetailPage from "./components/pages/DetailPage/DetailPage";
 function App() {
 
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/servicios" element={<Service />} />
           <Route path="/servicios/id/:id" element={<ServicePage />} />
           <Route path="/propietarios/crear" element={<OwnerCreate />} />
+          <Route path="/fincas/id/:_id/detalles" element={<DetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
