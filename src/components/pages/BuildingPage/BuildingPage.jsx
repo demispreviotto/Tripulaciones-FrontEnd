@@ -9,7 +9,7 @@ import Logo_Reuniones from "../../../assets/Logo_Reuniones";
 import Logo_Documentos from "../../../assets/Logo_Documentos";
 import Logo_Proveedores from "../../../assets/Logo_Proveedores";
 import Micro from "../../../assets/Micro";
-import LogoHeader from "../../../assets/LogoHeader";
+import Logo_GoBack from "../../../assets/Logo_GoBack";
 import "./BuildingPage.scss";
 import Loading from "../../common/Loading/Loading";
 
@@ -38,7 +38,7 @@ const BuildingPage = () => {
   return (
     <>
       <header>
-        <LogoHeader />
+        <Logo_GoBack />
       </header>
       <div className="building-page">
         <div className="address-building">

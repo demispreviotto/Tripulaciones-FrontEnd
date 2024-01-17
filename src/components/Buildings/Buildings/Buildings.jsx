@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
 import BuildingCreate from "../../pages/BuildingCreate/BuildingCreate";
 import Loading from "../../common/Loading/Loading";
-import LogoHeader from "../../../assets/LogoHeader";
+import Logo_GoBack from "../../../assets/Logo_GoBack";
 import Busqueda from "../../../assets/Busqueda";
 import Mas from "../../../assets/Mas";
 import "./Buildings.scss";
@@ -27,7 +27,7 @@ const Buildings = () => {
   return (
     <>
       <header>
-        <LogoHeader />
+        <Logo_GoBack />
         <div className="header-div">
           <Busqueda />
           <Mas />
