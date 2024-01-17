@@ -20,7 +20,6 @@ const BuildingPage = () => {
   const building = useSelector((state) => state.building.building);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(building)
   useEffect(() => {
     if (token === tokenLocal) {
       dispatch(getBuildingById(_id));
