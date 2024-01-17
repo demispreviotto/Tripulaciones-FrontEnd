@@ -12,8 +12,8 @@ const LogoHeader = () => {
       <path
         d="M14 26L2 14.001L14 2"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
     </svg>
   );
