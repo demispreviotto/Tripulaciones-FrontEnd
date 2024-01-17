@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Hamburguer from "../../../assets/Hamburguer";
 import Calendar from "../../../assets/Calendar";
-import "./Header.css"
+import "./Header.scss"
 import { logout } from "../../../features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
