@@ -8,7 +8,7 @@ import Profile from "./components/pages/Profile/Profile";
 import BuildingPage from "./components/pages/BuildingPage/BuildingPage";
 import ServiceCreate from "./components/pages/ServiceCreate/ServiceCreate";
 import BuildingCreate from "./components/pages/BuildingCreate/BuildingCreate";
-import Buildings from "./components/Buildings/Buildings";
+import Buildings from "./components/Buildings/Buildings/Buildings";
 import Header from "./components/layout/Header/Header";
 import Todos from "./components/pages/Todos/Todos";
 import TodoPage from "./components/pages/TodoPage/TodoPage";

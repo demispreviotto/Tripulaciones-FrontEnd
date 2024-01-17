@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  margin: 16px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.header-div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
