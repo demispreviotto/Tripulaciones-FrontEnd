@@ -31,8 +31,12 @@ const BuildingPage = () => {
     return <Loading />;
   }
 
-  const handleOnClick = () => {
+  const handleOnClickDetails = () => {
     navigate(`/fincas/id/${_id}/detalles`);
+  };
+
+  const handleOnClickIncidences = () => {
+    navigate(`/fincas/id/${_id}/incidencias`);
   };
 
   return (
@@ -42,11 +46,13 @@ const BuildingPage = () => {
       </header>
       <div className="building-page">
         <div className="address-building">
-          <h1>{`${building.address} ${building.number}`}, {building.zipCode}</h1>
-          <h3>H30459839 <br /> {building.doorIds.length} puertas</h3>
-          <button onClick={handleOnClick}>
-            Ver detalles
-          </button>
+          <h1>
+            {`${building.address} ${building.number}`}, {building.zipCode}
+          </h1>
+          <h3>
+            H30459839 <br /> {building.doorIds.length} puertas
+          </h3>
+          <button onClick={handleOnClickDetails}>Ver detalles</button>
         </div>
         <div className="card-container-building">
           <div className="card-content">
@@ -54,14 +60,9 @@ const BuildingPage = () => {
               <Logo_Predicciones />
               <h5>Predicciones</h5>
             </div>
-            <div className="card">
+            <div className="card" onClick={handleOnClickIncidences}>
               <Logo_Incidencias />
               <h5>Incidencias</h5>
-              {/* <div>
-            <h5>Incidencias: {building.incidenceIds.length}</h5>
-            <Link to={`/finca/${_id}/incidencias`}>Ver incidencias</Link>
-            <h5>{building.zipCode}</h5>
-          </div> */}
             </div>
             <div className="card">
               <Logo_Tareas />
