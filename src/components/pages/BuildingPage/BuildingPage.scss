@@ -1,11 +1,7 @@
 .building-header {
   display: flex;
-  width: 393px;
   height: 40px;
-  padding: 0px 16px;
   align-items: center;
-  gap: 270px;
-  flex-shrink: 0;
 }
 
 .address-building {
@@ -22,6 +18,7 @@
     font-weight: 500;
     line-height: normal;
   }
+
   h3 {
     color: var(--Secundarios-Negro, #000);
     font-size: 18px;
@@ -29,6 +26,7 @@
     font-weight: 400;
     line-height: 22px;
   }
+
   button {
     display: flex;
     padding: 8px;
@@ -47,12 +45,10 @@
 
 .card-container-building {
   display: flex;
-  width: 393px;
-  padding: 0px 16px;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
-  row-gap: 8px;
+  width: 360px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   flex-wrap: wrap;
   position: absolute;
   bottom: 0;
@@ -70,6 +66,7 @@
     flex-shrink: 0;
     border-radius: 16px;
     background: var(--neutros-neutro-2-cards, #e2e5e7);
+
     h5 {
       color: var(--Secundarios-Negro, #000);
       font-family: Clash Grotesk;
