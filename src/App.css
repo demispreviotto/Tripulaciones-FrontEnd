@@ -99,13 +99,7 @@ textarea {
   text-transform: capitalize;
 }
 
-.building-check-container {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  bottom: 0;
-}
+
 
 .building-check-header {
   color: var(--secundariosnegro);
