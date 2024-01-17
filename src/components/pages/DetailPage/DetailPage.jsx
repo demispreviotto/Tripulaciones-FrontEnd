@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import OwnerCreate from "../OwnerCreate/OwnerCreate";
 import DoorCreate from "../DoorCreate/DoorCreate";
+import "./DetailPage.css"
 
 const DetailPage = ({ buildingId }) => {
   const tokenLocal = JSON.parse(localStorage.getItem("token"));
