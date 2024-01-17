@@ -39,55 +39,57 @@ const BuildingPage = () => {
   };
 
   return (
-    <div className="building-page">
-      {/* <div className="building-header">
+    <>
+      <header>
         <LogoHeader />
-      </div> */}
-      <div className="address-building">
-        <h1>{`${building.address} ${building.number}`}</h1>
-        <h3>{building.zipCode}</h3>
-        <button onClick={handleOnClick}>
-          Ver detalles
-        </button>
-      </div>
-      <div className="card-container-building">
-        <div className="card-content">
-          <div className="card-building">
-            <Logo_Predicciones />
-            <h5>Predicciones</h5>
-          </div>
-          <div className="card-building">
-            <Logo_Incidencias />
-            <h5>Incidencias</h5>
-            {/* <div>
+      </header>
+      <div className="building-page">
+        <div className="address-building">
+          <h1>{`${building.address} ${building.number}`}</h1>
+          <h3>{building.zipCode}</h3>
+          <button onClick={handleOnClick}>
+            Ver detalles
+          </button>
+        </div>
+        <div className="card-container-building">
+          <div className="card-content">
+            <div className="card">
+              <Logo_Predicciones />
+              <h5>Predicciones</h5>
+            </div>
+            <div className="card">
+              <Logo_Incidencias />
+              <h5>Incidencias</h5>
+              {/* <div>
             <h5>Incidencias: {building.incidenceIds.length}</h5>
             <Link to={`/finca/${_id}/incidencias`}>Ver incidencias</Link>
             <h5>{building.zipCode}</h5>
           </div> */}
+            </div>
+            <div className="card">
+              <Logo_Tareas />
+              <h5>Tareas</h5>
+            </div>
+            <div className="card">
+              <Logo_Reuniones />
+              <h5>Reuniones</h5>
+            </div>
+            <div className="card">
+              <Logo_Documentos />
+              <h5>Documentos</h5>
+            </div>
+            <div className="card">
+              <Logo_Proveedores />
+              <h5>Proveedores</h5>
+            </div>
           </div>
-          <div className="card-building">
-            <Logo_Tareas />
-            <h5>Tareas</h5>
+          <div className="search-bar">
+            <input type="search" placeholder="Buscar" />
+            <Micro />
           </div>
-          <div className="card-building">
-            <Logo_Reuniones />
-            <h5>Reuniones</h5>
-          </div>
-          <div className="card-building">
-            <Logo_Documentos />
-            <h5>Documentos</h5>
-          </div>
-          <div className="card-building">
-            <Logo_Proveedores />
-            <h5>Proveedores</h5>
-          </div>
-        </div>
-        <div className="search-bar">
-          <input type="search" placeholder="Buscar" />
-          <Micro />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

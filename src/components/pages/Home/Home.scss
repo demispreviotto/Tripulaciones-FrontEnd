@@ -1,161 +1,162 @@
 @import "../../../variables";
 
-
-.progress-bar {
-    width: 327px;
-    height: 4px;
-    background-color: white;
-    border-radius: 2px;
-    overflow: hidden;
-
-    .progress {
-        height: 100%;
-        width: 0;
-        background-color: black;
-        transition: width 0.3s ease-in-out;
-    }
-}
-
-.container {
-    content: "";
-}
-
-.container-header {
-    display: inline-flex;
-    height: 37px;
-    width: 180px;
-    border-bottom: 1px solid gray;
-    align-items: center;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 8px;
-
-    &.active {
-        border-bottom: 1px solid black;
-
-        p {
-            background-color: black;
-            color: white;
-        }
-    }
-
-    p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 0.5px solid black;
-        background-color: white;
-        color: black;
-        height: 20px;
-        width: 20px;
-        font-family: $labels-label-2-font-family;
-        border-radius: 50%;
-        font-weight: 500;
-        line-height: 22px;
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    h4 {
-        color: $secundariosnegro;
-        font-family: $labels-label-2-font-family;
-        font-size: $labels-label-2-font-size;
-        font-style: $labels-label-2-font-style;
-        font-weight: $labels-label-2-font-weight;
-        letter-spacing: $labels-label-2-letter-spacing;
-        line-height: $labels-label-2-line-height;
-        white-space: nowrap;
-    }
-}
-
-.container-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 8px;
-    overflow-y: auto;
-    height: 420px;
-    // position: absolute;
-    // bottom: 0;
-}
-
 .home {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0 16px;
-}
 
-.greetings {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    // margin-bottom: 200px;
-}
+    .progress-bar {
+        width: 327px;
+        height: 4px;
+        background-color: white;
+        border-radius: 2px;
+        overflow: hidden;
 
-.greetings h2 {
-    color: $primariosgranate;
-    font-family: $heading-heading-l-font-family;
-    font-size: $heading-heading-l-font-size;
-    font-style: $heading-heading-l-font-style;
-    font-weight: $heading-heading-l-font-weight;
-    letter-spacing: $heading-heading-l-letter-spacing;
-    line-height: $heading-heading-l-line-height;
-    width: 361px;
-    /* margin-bottom: 24px; */
-}
-
-.greetings p {
-    color: $secundariosnegro;
-    font-family: $body-body-l-font-family;
-    font-size: $body-body-l-font-size;
-    font-style: $body-body-l-font-style;
-    font-weight: $body-body-l-font-weight;
-    letter-spacing: $body-body-l-letter-spacing;
-    line-height: $body-body-l-line-height;
-    text-transform: capitalize;
-}
-
-.building-check-container {
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-
-    .building-check-header {
-        color: $secundariosnegro;
-        font-family: $heading-heading-m-font-family;
-        font-size: $heading-heading-m-font-size;
-        font-style: $heading-heading-m-font-style;
-        font-weight: $heading-heading-m-font-weight;
-        letter-spacing: $heading-heading-m-letter-spacing;
-        line-height: $heading-heading-m-line-height;
-    }
-}
-
-.card {
-    background-color: $neutrosneutro-2-cards;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 10px;
-    height: 112px;
-    justify-content: center;
-    width: 361px;
-
-    h5 {
-        font-size: 20px;
-        font-weight: 500;
-        left: 0;
-        letter-spacing: 0;
-        line-height: 22px;
+        .progress {
+            height: 100%;
+            width: 0;
+            background-color: black;
+            transition: width 0.3s ease-in-out;
+        }
     }
 
-    .card-details {
+    .container {
+        content: "";
+    }
+
+    .container-header {
         display: inline-flex;
-        flex-direction: row;
-        justify-content: space-between;
+        height: 37px;
+        width: 180px;
+        border-bottom: 1px solid gray;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 8px;
+
+        &.active {
+            border-bottom: 1px solid black;
+
+            p {
+                background-color: black;
+                color: white;
+            }
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.5px solid black;
+            background-color: white;
+            color: black;
+            height: 20px;
+            width: 20px;
+            font-family: $labels-label-2-font-family;
+            border-radius: 50%;
+            font-weight: 500;
+            line-height: 22px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        h4 {
+            color: $secundariosnegro;
+            font-family: $labels-label-2-font-family;
+            font-size: $labels-label-2-font-size;
+            font-style: $labels-label-2-font-style;
+            font-weight: $labels-label-2-font-weight;
+            letter-spacing: $labels-label-2-letter-spacing;
+            line-height: $labels-label-2-line-height;
+            white-space: nowrap;
+        }
     }
+
+    .container-content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 8px;
+        overflow-y: auto;
+        height: 420px;
+        // position: absolute;
+        // bottom: 0;
+    }
+
+
+    .greetings {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // margin-bottom: 200px;
+    }
+
+    .greetings h2 {
+        color: $primariosgranate;
+        font-family: $heading-heading-l-font-family;
+        font-size: $heading-heading-l-font-size;
+        font-style: $heading-heading-l-font-style;
+        font-weight: $heading-heading-l-font-weight;
+        letter-spacing: $heading-heading-l-letter-spacing;
+        line-height: $heading-heading-l-line-height;
+        width: 361px;
+        /* margin-bottom: 24px; */
+    }
+
+    .greetings p {
+        color: $secundariosnegro;
+        font-family: $body-body-l-font-family;
+        font-size: $body-body-l-font-size;
+        font-style: $body-body-l-font-style;
+        font-weight: $body-body-l-font-weight;
+        letter-spacing: $body-body-l-letter-spacing;
+        line-height: $body-body-l-line-height;
+        text-transform: capitalize;
+    }
+
+    .building-check-container {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+
+        .building-check-header {
+            color: $secundariosnegro;
+            font-family: $heading-heading-m-font-family;
+            font-size: $heading-heading-m-font-size;
+            font-style: $heading-heading-m-font-style;
+            font-weight: $heading-heading-m-font-weight;
+            letter-spacing: $heading-heading-m-letter-spacing;
+            line-height: $heading-heading-m-line-height;
+        }
+    }
+
+    .card {
+        background-color: $neutrosneutro-2-cards;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        gap: 10px;
+        height: 112px;
+        justify-content: center;
+        width: 361px;
+
+        h5 {
+            font-size: 20px;
+            font-weight: 500;
+            left: 0;
+            letter-spacing: 0;
+            line-height: 22px;
+        }
+
+        .card-details {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
 }
