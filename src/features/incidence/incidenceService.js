@@ -6,11 +6,8 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 const fetchAndCreateIncidences = async () => {
     try {
-        const res = await axios.post(API_URL + 'fetchAndCreateIncidences', null, {
-            headers: {
-                Authorization: token,
-            },
-        });
+        const res = await axios.post(API_URL + 'fetchAndCreateIncidences');
+        console.log(res)
         return res.data;
     } catch (error) {
         console.error(error);

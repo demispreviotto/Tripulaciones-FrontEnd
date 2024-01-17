@@ -6,6 +6,7 @@ const initialState = {
   incidences: [],
   message: "",
   status: "idle",
+  newIncidences: [],
 };
 
 export const incidenceSlice = createSlice({
@@ -90,7 +91,20 @@ export const incidenceSlice = createSlice({
       .addCase(deleteIncidence.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload.message;
-      });
+      })
+      .addCase(fetchAndCreateIncidences.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchAndCreateIncidences.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.newIncidences = action.payload;
+        state.status = "succeeded";
+        state.message = action.payload.message;
+      })
+      .addCase(fetchAndCreateIncidences.rejected, (state, action) => {
+        state.status = "failed";
+        state.message = action.payload.message;
+      })
   },
 });
 
