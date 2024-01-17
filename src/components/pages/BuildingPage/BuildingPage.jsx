@@ -27,9 +27,6 @@ const BuildingPage = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  // }, [building])
-
   if (!building) {
     return <Loading />;
   }
@@ -45,8 +42,8 @@ const BuildingPage = () => {
       </header>
       <div className="building-page">
         <div className="address-building">
-          <h1>{`${building.address} ${building.number}`}</h1>
-          <h3>{building.zipCode}</h3>
+          <h1>{`${building.address} ${building.number}`}, {building.zipCode}</h1>
+          <h3>H30459839 <br /> {building.doorIds.length} puertas</h3>
           <button onClick={handleOnClick}>
             Ver detalles
           </button>
