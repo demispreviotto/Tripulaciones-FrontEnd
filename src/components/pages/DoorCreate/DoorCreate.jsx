@@ -74,7 +74,7 @@ const DoorCreate = ({ building }) => {
           <option value="" selected disabled>
             Selecciona Propietario
           </option>
-          {building.ownerIds.map((owner) => (
+          {building?.ownerIds?.map((owner) => (
             <option key={owner._id} value={owner._id}>
               {owner.firstName} {owner.lastName}
             </option>
