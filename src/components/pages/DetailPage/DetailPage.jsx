@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
 import OwnerCreate from "../OwnerCreate/OwnerCreate";
 import DoorCreate from "../DoorCreate/DoorCreate";
-import "./DetailPage.css"
+import "./DetailPage.scss";
 
 const DetailPage = ({ buildingId }) => {
   const tokenLocal = JSON.parse(localStorage.getItem("token"));
@@ -28,9 +28,9 @@ const DetailPage = ({ buildingId }) => {
   return (
     <>
       <div className="address-building">
-        <h1>{`${building.address} ${building.number}`}</h1>
-        <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
-        <h5>{building.zipCode}</h5>
+        <h1>{`${building.address} ${building.number}, ${building.zipCode}`}</h1>
+        <h3>575 mensajes optimizados</h3>
+        <h5></h5>
       </div>
       <div>
         <h2>Puertas</h2>
