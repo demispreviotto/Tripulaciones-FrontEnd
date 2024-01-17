@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
-import Preloader from "../Preloader/Preloader";
-import DoorCreate from "../DoorCreate/DoorCreate";
-import OwnerCreate from "../OwnerCreate/OwnerCreate";
 import Logo_Predicciones from "../../../assets/Logo_Predicciones";
 import Logo_Incidencias from "../../../assets/Logo_Incidencias";
 import Logo_Tareas from "../../../assets/Logo_Tareas";
@@ -12,7 +9,8 @@ import Logo_Reuniones from "../../../assets/Logo_Reuniones";
 import Logo_Documentos from "../../../assets/Logo_Documentos";
 import Logo_Proveedores from "../../../assets/Logo_Proveedores";
 import Micro from "../../../assets/Micro";
-import "./BuildingPage.css";
+import LogoHeader from "../../../assets/LogoHeader";
+import "./BuildingPage.scss";
 import Loading from "../../common/Loading/Loading";
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
@@ -42,15 +40,16 @@ const BuildingPage = () => {
 
   return (
     <>
+    <header className="building-header">
+      <LogoHeader />
+    </header>
       <div className="address-building">
         <h1>{`${building.address} ${building.number}`}</h1>
-        <h3>Incidencias: {building?.incidenceIds?.length || 0}</h3>
-        <h5>{building.zipCode}</h5>
-        <button className="button" onClick={handleOnClick}>
+        <h3>{building.zipCode}</h3>
+        <button onClick={handleOnClick}>
           Ver detalles
         </button>
       </div>
-      <br />
       <div className="card-container-building">
         <div className="card-building">
           <Logo_Predicciones />
