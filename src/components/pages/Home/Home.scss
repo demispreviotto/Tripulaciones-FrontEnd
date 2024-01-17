@@ -140,23 +140,22 @@
     display: flex;
     flex-direction: column;
     padding: 16px;
-
     gap: 10px;
     height: 112px;
     justify-content: center;
     width: 361px;
-}
 
-.card h5 {
-    font-size: 20px;
-    font-weight: 500;
-    left: 0;
-    letter-spacing: 0;
-    line-height: 22px;
-}
+    h5 {
+        font-size: 20px;
+        font-weight: 500;
+        left: 0;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
 
-.card .card-details {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between
+    .card-details {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
