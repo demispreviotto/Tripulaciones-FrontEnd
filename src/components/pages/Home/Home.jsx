@@ -8,6 +8,7 @@ import { getAllBuildings } from "../../../features/building/buildingSlice";
 import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceSlice";
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
+import "./Home.css"
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
 
@@ -52,7 +53,7 @@ const Home = () => {
                 </h2>
                 <p>{formattedDate}</p>
             </div>
-            <div>
+            <div className="building-check-container">
                 <h3 className="building-check-header">Fincas por revisar hoy</h3>
                 <div className="building-check">
                     <BuildingCheck buildings={buildings} />
