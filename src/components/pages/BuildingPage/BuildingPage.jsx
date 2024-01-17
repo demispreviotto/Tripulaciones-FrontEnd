@@ -40,9 +40,9 @@ const BuildingPage = () => {
 
   return (
     <>
-    <header className="building-header">
+    <div className="building-header">
       <LogoHeader />
-    </header>
+    </div>
       <div className="address-building">
         <h1>{`${building.address} ${building.number}`}</h1>
         <h3>{building.zipCode}</h3>
