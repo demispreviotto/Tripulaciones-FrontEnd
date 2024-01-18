@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import incidenceService from "./incidenceService";
 
 const initialState = {
-  incidence: "",
+  incidence: '',
   incidences: [],
   message: "",
   status: "idle",
@@ -48,7 +48,7 @@ export const incidenceSlice = createSlice({
         state.status = "loading";
       })
       .addCase(getIncidenceById.fulfilled, (state, action) => {
-        state.incidence = action.payload.incidence;
+        state.incidence = action.payload;
         state.status = "succeeded";
         state.message = action.payload.message;
       })

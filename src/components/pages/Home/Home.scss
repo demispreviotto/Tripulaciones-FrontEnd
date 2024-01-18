@@ -88,31 +88,30 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // margin-bottom: 200px;
+
+    h2 {
+      color: $primariosgranate;
+      font-family: $heading-heading-l-font-family;
+      font-size: $heading-heading-l-font-size;
+      font-style: $heading-heading-l-font-style;
+      font-weight: $heading-heading-l-font-weight;
+      letter-spacing: $heading-heading-l-letter-spacing;
+      line-height: $heading-heading-l-line-height;
+      width: 361px;
+    }
+
+    p {
+      color: $secundariosnegro;
+      font-family: $body-body-l-font-family;
+      font-size: $body-body-l-font-size;
+      font-style: $body-body-l-font-style;
+      font-weight: $body-body-l-font-weight;
+      letter-spacing: $body-body-l-letter-spacing;
+      line-height: $body-body-l-line-height;
+      text-transform: capitalize;
+    }
   }
 
-  .greetings h2 {
-    color: $primariosgranate;
-    font-family: $heading-heading-l-font-family;
-    font-size: $heading-heading-l-font-size;
-    font-style: $heading-heading-l-font-style;
-    font-weight: $heading-heading-l-font-weight;
-    letter-spacing: $heading-heading-l-letter-spacing;
-    line-height: $heading-heading-l-line-height;
-    width: 361px;
-    /* margin-bottom: 24px; */
-  }
-
-  .greetings p {
-    color: $secundariosnegro;
-    font-family: $body-body-l-font-family;
-    font-size: $body-body-l-font-size;
-    font-style: $body-body-l-font-style;
-    font-weight: $body-body-l-font-weight;
-    letter-spacing: $body-body-l-letter-spacing;
-    line-height: $body-body-l-line-height;
-    text-transform: capitalize;
-  }
 
   .building-check-container {
     height: 60vh;
@@ -157,6 +156,7 @@
       justify-content: space-between;
     }
   }
+
   .see-all-buildings {
     display: flex;
     justify-content: center;

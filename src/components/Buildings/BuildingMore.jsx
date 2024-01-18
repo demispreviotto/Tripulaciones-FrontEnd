@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import Icon_Arrow from "../../assets/Icon_Arrow";
 
-const BuildingMore = () => {
+const BuildingMore = ({ url, text }) => {
     const navigate = useNavigate()
     const handleGoBuildings = () => {
-        navigate("/fincas");
+        navigate(url || "/fincas");
     };
 
     return (
         <div className="see-all-buildings" onClick={handleGoBuildings}>
-            Ver todas las fincas <Icon_Arrow />
+            {text || "Ver todas las fincas"} <Icon_Arrow />
         </div>
 
     )

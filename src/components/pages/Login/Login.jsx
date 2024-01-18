@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import Logo_FincUp from "../../../assets/Logo_FincUp";
+import Logo_FincUp from "../../../assets/Logo_fincup";
+import FincUp from "../../../assets/svg/Logo_fincup.png";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,11 +25,11 @@ const Login = () => {
       navigate("/");
     }
   };
-
   return (
     <div className="login">
       <div className="logo-container">
-        <Logo_FincUp />
+        <img style={{ height: "height: 160px;" }} src={FincUp} alt="logo" />
+        <h2 style={{ color: "#AC1A2F" }}>FincUp</h2>
       </div>
       <div className="form-container">
         <form onSubmit={handleOnSubmit}>

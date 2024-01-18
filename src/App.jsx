@@ -38,6 +38,7 @@ function App() {
           <Route path="/tareas/id/:_id" element={<TodoPage />} />
           <Route path="/tareas/crear" element={<TodoCreate />} />
           <Route path="/fincas/id/:_id/incidencias" element={<Incidences />} />
+          <Route path="/incidencias/finca/:id" element={<Incidences />} />
           <Route path="/incidencias/" element={<IncidencePage />} />
           <Route path="/incidencias/id/:_id" element={<IncidencePage />} />
           <Route path="/incidencias/crear" element={<IncidenceCreate />} />

@@ -1,32 +1,14 @@
 import React, { useState } from "react";
 
 const IncidencesPending = ({ incidences }) => {
+
   // hacer map que traiga incidencias sin completar/completar
-  const [activeTab, setActiveTab] = useState("incidences");
-
-  const getNonCompletedIncidencesCount = (incidenceIds) => {
-    return incidenceIds.filter((incidence) => incidence.status !== "Completada")
-      .length;
-  };
-
-  const getCompletedIncidencesCount = (incidenceIds) => {
-    return incidenceIds.filter((incidence) => incidence.status === "Completada")
-      .length;
-  };
-
-  const getCompletionPercentage = (completedCount, totalCount) => {
-    return totalCount !== 0
-      ? Math.round((completedCount / totalCount) * 100)
-      : 0;
-  };
-
-  const totalNonCompletedIncidences = buildings.reduce((acc, building) => {
-    return acc + getNonCompletedIncidencesCount(building.incidenceIds);
-  }, 0);
+  const totalNonCompletedIncidences = incidences.filter((incidence) => incidence.status !== "received")
 
   return (
     <>
-      <div className="container-content">
+      {console.log(totalNonCompletedIncidences)}
+      {/* <div className="container-content">
         {totalNonCompletedIncidences > 0 ? (
           buildings.map((building) => {
             if (getNonCompletedTodosCount(building.incidenceIds) > 0) {
@@ -68,7 +50,7 @@ const IncidencesPending = ({ incidences }) => {
           <p>No hay tareas pendientes</p>
         )}
         <BuildingMore url={"/fincas"} />
-      </div>
+      </div> */}
     </>
   );
 };
