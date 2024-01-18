@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import Logo from "../../../assets/Logo";
+import Logo_FincUp from "../../../assets/Logo_FincUp";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -43,8 +43,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="logo-container">
-        <Logo />
-        <h2>FincUp</h2>
+        <Logo_FincUp />
       </div>
       <div className="form-container">
         <form onSubmit={handleOnSubmit}>
