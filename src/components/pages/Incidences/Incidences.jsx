@@ -4,7 +4,7 @@ import { getAllIncidences } from "../../../features/incidence/incidenceSlice";
 import IncidenceCreate from "../IncidenceCreate/IncidenceCreate";
 import { useParams } from "react-router-dom";
 import { getBuildingById } from "../../../features/building/buildingSlice";
-import Logo_GoBack from "../../../assets/Logo_GoBack";
+import Icon_GoBack from "../../../assets/Icon_GoBack";
 import "./Incidences.scss";
 
 const Incidences = () => {
@@ -20,7 +20,7 @@ const Incidences = () => {
   return (
     <>
       <header>
-        <Logo_GoBack />
+        <Icon_GoBack />
       </header>
       <div className="title-incidence-container">
         <div className="incidences">

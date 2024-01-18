@@ -1,6 +1,6 @@
 import React from "react";
 
-const Busqueda = () => {
+const Icon_Search = () => {
 
   return (
     <svg
@@ -21,4 +21,4 @@ const Busqueda = () => {
   );
 };
 
-export default Busqueda;
+export default Icon_Search;

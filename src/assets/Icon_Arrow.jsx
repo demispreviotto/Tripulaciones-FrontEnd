@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo_VerFincas = () => {
+const Icon_Arrow = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,4 +19,4 @@ const Logo_VerFincas = () => {
   );
 };
 
-export default Logo_VerFincas;
+export default Icon_Arrow;

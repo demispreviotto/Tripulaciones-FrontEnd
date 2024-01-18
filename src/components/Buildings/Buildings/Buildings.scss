@@ -30,6 +30,8 @@
   gap: 16px;
   left: 50%;
   transform: translateX(-50%);
+  overflow: auto;
+  height: 60vh;
 
   .cards-container {
     display: flex;

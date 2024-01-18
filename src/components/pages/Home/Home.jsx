@@ -6,7 +6,7 @@ import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceS
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
 import "./Home.scss";
-import Logo_VerFincas from "../../../assets/Logo_VerFincas";
+import Icon_Arrow from "../../../assets/Icon_Arrow";
 
 const tokenLocal = JSON.parse(localStorage.getItem("token"));
 
@@ -61,7 +61,7 @@ const Home = () => {
           <BuildingCheck buildings={buildings} />
         </div>
         {/* <div className="see-all-buildings" onClick={handleGoBuildings}>
-            Ver todas las fincas <Logo_VerFincas />
+            Ver todas las fincas <Icon_Arrow />
           </div> */}
       </div>
     </div>

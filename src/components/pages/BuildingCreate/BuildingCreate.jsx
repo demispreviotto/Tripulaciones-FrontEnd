@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createBuilding } from "../../../features/building/buildingSlice";
+import Icon_GoBack from "../../../assets/Icon_GoBack";
+import Logo_fincup from "../../../assets/Logo_fincup";
+import "./BuildingCreate.scss";
 
 const BuildingCreate = () => {
   const dispatch = useDispatch();
@@ -17,85 +20,72 @@ const BuildingCreate = () => {
   };
   const [formData, setFormData] = useState(initialValue);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [active, setActive] = useState(false);
 
   const handleOnChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleActive = (e) => {
-    e.preventDefault();
-    setActive(!active);
-  };
-
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
-    // handleActive()
-    dispatch(createBuilding(data));
-    // navigate("/buildings")
+    dispatch(createBuilding(formData));
+    if (message === "Finca creada exitosamente") {
+      setTimeout(() => {
+        navigate("/fincas");
+      }, 0o500);
+    }
   };
-  // useEffect(() => {
-  //     if (status === "succeeded") {
-  //         const timeoutId = setTimeout(() => {
-  //             navigate("/buildings");
-  //             setIsSubmitting(false);
-  //             setFormData(initialValue);
-  //         }, 3000);
-
-  //         return () => clearTimeout(timeoutId);
-  //     } else if (status === "failed") {
-  //         setIsSubmitting(false);
-  //     }
-  // }, [status]);
 
   return (
     <>
-      {!active ? (
-        <button type="submit" onClick={handleActive}>
-          Crear
-        </button>
-      ) : (
-        <div>
-          <h2>Crear Finca</h2>
-          <form onSubmit={handleOnSubmit}>
-            <input
-              type="text"
-              name="address"
-              placeholder="Dirección"
-              onChange={handleOnChange}
-            />
-            <input
-              type="number"
-              name="number"
-              placeholder="Número"
-              onChange={handleOnChange}
-            />
-            <input
-              type="number"
-              name="zipCode"
-              placeholder="Código postal"
-              onChange={handleOnChange}
-            />
-            <input
-              type="text"
-              name="province"
-              placeholder="Comunidad"
-              onChange={handleOnChange}
-            />
-            <input
-              type="text"
-              name="city"
-              placeholder="Ciudad"
-              onChange={handleOnChange}
-            />
-            <button type="submit" disabled={isSubmitting}>
-              Crear Finca
-            </button>
-            {message && <p className={status}>{message}</p>}
-          </form>
-        </div>
-      )}
+      <header>
+        <Icon_GoBack />
+      </header>
+      <div className="create-buildings">
+        <h2>Crear Finca</h2>
+        <Logo_fincup />
+        <form onSubmit={handleOnSubmit}>
+          <input
+            type="text"
+            name="address"
+            placeholder="Introduzca la dirección"
+            onChange={handleOnChange}
+          />
+          <input
+            type="number"
+            name="number"
+            placeholder="Introduzca el Número"
+            onChange={handleOnChange}
+          />
+          <input
+            type="number"
+            name="cru"
+            placeholder="Introduzca el IDUFIR o el CRU"
+            onChange={handleOnChange}
+          />
+          <input
+            type="number"
+            name="zipCode"
+            placeholder="Introduzca el código postal"
+            onChange={handleOnChange}
+          />
+          <input
+            type="text"
+            name="province"
+            placeholder="Introduzca la comunidad"
+            onChange={handleOnChange}
+          />
+          <input
+            type="text"
+            name="city"
+            placeholder="Introduca la ciudad"
+            onChange={handleOnChange}
+          />
+          <button type="submit" disabled={isSubmitting}>
+            Crear Finca
+          </button>
+          {message && <p className={status}>{message}</p>}
+        </form>
+      </div>
     </>
   );
 };

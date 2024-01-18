@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
-import Logo from "../../../assets/Logo";
+import Logo_fincup from "../../../assets/Logo_fincup";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -52,8 +52,7 @@ const Register = () => {
   return (
     <div className="register">
       <div className="logo-container">
-        <Logo />
-        <h2>FincUp</h2>
+      <Logo_fincup />
       </div>
       <div className="form-container">
         <form onSubmit={handleOnSubmit}>

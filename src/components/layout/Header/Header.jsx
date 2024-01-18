@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Hamburguer from "../../../assets/Hamburguer";
-import Calendar from "../../../assets/Calendar";
+import Icon_Hamburguer from "../../../assets/Icon_Hamburguer";
+import Icon_Calendar from "../../../assets/Icon_Calendar";
 import "./Header.scss"
 import { logout } from "../../../features/auth/authSlice";
 import { useDispatch } from "react-redux";
@@ -20,9 +20,9 @@ const Header = () => {
     <header>
       {/* <div> */}
       <span onClick={handleOnClick}>
-        <Hamburguer />
+        <Icon_Hamburguer />
       </span>
-      <Calendar />
+      <Icon_Calendar />
       {/* </div> */}
     </header>
   );

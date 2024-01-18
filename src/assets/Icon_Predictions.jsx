@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo_Predicciones = () => {
+const Icon_Predictions = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,4 +18,4 @@ const Logo_Predicciones = () => {
   );
 };
 
-export default Logo_Predicciones;
+export default Icon_Predictions;

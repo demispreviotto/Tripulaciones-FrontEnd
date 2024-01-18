@@ -1,6 +1,6 @@
 import React from "react";
 
-const Mas = () => {
+const Icon_Plus = () => {
   return (
     <svg
       width="25"
@@ -22,4 +22,4 @@ const Mas = () => {
   );
 };
 
-export default Mas;
+export default Icon_Plus;

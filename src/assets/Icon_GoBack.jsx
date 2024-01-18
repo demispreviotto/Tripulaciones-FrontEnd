@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const LogoHeader = () => {
+const Icon_GoBack = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -26,4 +26,4 @@ const LogoHeader = () => {
   );
 };
 
-export default LogoHeader;
+export default Icon_GoBack;

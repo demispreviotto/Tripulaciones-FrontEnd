@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo_Reuniones = () => {
+const Icon_Meetings = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -39,4 +39,4 @@ const Logo_Reuniones = () => {
   );
 };
 
-export default Logo_Reuniones;
+export default Icon_Meetings;

@@ -5,7 +5,7 @@ import { getBuildingById } from "../../../features/building/buildingSlice";
 import OwnerCreate from "../OwnerCreate/OwnerCreate";
 import DoorCreate from "../DoorCreate/DoorCreate";
 import "./DetailPage.scss";
-import Logo_GoBack from "../../../assets/Logo_GoBack";
+import Icon_GoBack from "../../../assets/Icon_GoBack";
 
 const DetailPage = ({ buildingId }) => {
   const tokenLocal = JSON.parse(localStorage.getItem("token"));
@@ -29,7 +29,7 @@ const DetailPage = ({ buildingId }) => {
   return (
     <>
       <div className="building-header">
-        <Logo_GoBack />
+        <Icon_GoBack />
       </div>
       <div className="address-detail">
         <h1>{`${building.address} ${building.number}, ${building.zipCode}`}</h1>

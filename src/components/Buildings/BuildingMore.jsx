@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-import Logo_VerFincas from "../../assets/Logo_VerFincas";
+import Icon_Arrow from "../../assets/Icon_Arrow";
 
 const BuildingMore = () => {
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ const BuildingMore = () => {
 
     return (
         <div className="see-all-buildings" onClick={handleGoBuildings}>
-            Ver todas las fincas <Logo_VerFincas />
+            Ver todas las fincas <Icon_Arrow />
         </div>
 
     )

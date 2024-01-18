@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
 import BuildingCreate from "../../pages/BuildingCreate/BuildingCreate";
 import Loading from "../../common/Loading/Loading";
-import Logo_GoBack from "../../../assets/Logo_GoBack";
-import Busqueda from "../../../assets/Busqueda";
-import Mas from "../../../assets/Mas";
+import Icon_GoBack from "../../../assets/Icon_GoBack";
+import Icon_Search from "../../../assets/Icon_Search";
+import Icon_Plus from "../../../assets/Icon_Plus";
 import "./Buildings.scss";
 
 const Buildings = () => {
@@ -24,13 +24,22 @@ const Buildings = () => {
   if (!buildings) {
     return <Loading />;
   }
+
+  const handleClickPlusIcon = () => {
+    setTimeout(() => {
+      navigate("/fincas/crear");
+    }, 0o500);
+  };
+
   return (
     <>
       <header>
-        <Logo_GoBack />
+        <Icon_GoBack />
         <div className="header-div">
-          <Busqueda />
-          <Mas />
+          <Icon_Search />
+          <p onClick={handleClickPlusIcon}>
+            <Icon_Plus />
+          </p>
         </div>
       </header>
       <div className="buildings-title">
@@ -57,7 +66,7 @@ const Buildings = () => {
             </div>
           ))}
       </div>
-      <BuildingCreate />
+      {/* <BuildingCreate /> */}
     </>
   );
 };

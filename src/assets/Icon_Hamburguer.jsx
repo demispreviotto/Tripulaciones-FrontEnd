@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hamburguer = ({ height, width, fill }) => {
+const Icon_Hamburguer = ({ height, width, fill }) => {
     return (
         <svg stroke="currentColor"
             fill={fill || "currentColor"}
@@ -16,4 +16,4 @@ const Hamburguer = ({ height, width, fill }) => {
     )
 }
 
-export default Hamburguer
+export default Icon_Hamburguer

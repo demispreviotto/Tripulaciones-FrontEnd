@@ -1,0 +1,18 @@
+@import "../../../variables";
+
+.create-buildings {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 24px;
+  h2 {
+    margin-top: 16px;
+    color: $secundariosnegro;
+    font-family: "Clash Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}

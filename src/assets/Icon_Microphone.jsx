@@ -1,6 +1,6 @@
 import React from "react";
 
-const Micro = ({ width, height, fill }) => {
+const Icon_Microphone = ({ width, height, fill }) => {
   return (
     <svg
       width={width || "17"}
@@ -52,4 +52,4 @@ const Micro = ({ width, height, fill }) => {
   );
 };
 
-export default Micro;
+export default Icon_Microphone;
