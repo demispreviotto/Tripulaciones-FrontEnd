@@ -42,7 +42,7 @@ const BuildingCreate = () => {
       </header>
       <div className="create-buildings">
         <h2>Crear Finca</h2>
-        <Logo_fincup />
+        {/* <Logo_fincup /> */}
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"

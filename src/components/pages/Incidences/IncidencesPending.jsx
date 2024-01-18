@@ -1,20 +1,17 @@
-import React from "react";
-import Loading from "../common/Loading/Loading";
-import { useNavigate } from "react-router-dom";
-import BuildingMore from "./BuildingMore";
+import React, { useState } from "react";
 
-const BuildingTodos = ({ buildings }) => {
-  if (!buildings) {
-    return <Loading />;
-  }
-  const navigate = useNavigate();
+const IncidencesPending = ({ incidences }) => {
+  // hacer map que traiga incidencias sin completar/completar
+  const [activeTab, setActiveTab] = useState("incidences");
 
-  const getNonCompletedTodosCount = (todoIds) => {
-    return todoIds.filter((todo) => todo.status !== "Completada").length;
+  const getNonCompletedIncidencesCount = (incidenceIds) => {
+    return incidenceIds.filter((incidence) => incidence.status !== "Completada")
+      .length;
   };
 
-  const getCompletedTodosCount = (todoIds) => {
-    return todoIds.filter((todo) => todo.completed).length;
+  const getCompletedIncidencesCount = (incidenceIds) => {
+    return incidenceIds.filter((incidence) => incidence.status === "Completada")
+      .length;
   };
 
   const getCompletionPercentage = (completedCount, totalCount) => {
@@ -23,18 +20,20 @@ const BuildingTodos = ({ buildings }) => {
       : 0;
   };
 
-  const totalNonCompletedTodos = buildings.reduce((acc, building) => {
-    return acc + getNonCompletedTodosCount(building.todoIds);
+  const totalNonCompletedIncidences = buildings.reduce((acc, building) => {
+    return acc + getNonCompletedIncidencesCount(building.incidenceIds);
   }, 0);
 
   return (
     <>
       <div className="container-content">
-        {totalNonCompletedTodos > 0 ? (
+        {totalNonCompletedIncidences > 0 ? (
           buildings.map((building) => {
-            if (getNonCompletedTodosCount(building.todoIds) > 0) {
-              const completedCount = getCompletedTodosCount(building.todoIds);
-              const totalCount = building.todoIds.length;
+            if (getNonCompletedTodosCount(building.incidenceIds) > 0) {
+              const completedCount = getCompletedTodosCount(
+                building.incidenceIds
+              );
+              const totalCount = building.incidenceIds.length;
               const completionPercentage = getCompletionPercentage(
                 completedCount,
                 totalCount
@@ -74,4 +73,4 @@ const BuildingTodos = ({ buildings }) => {
   );
 };
 
-export default BuildingTodos;
+export default IncidencesPending;

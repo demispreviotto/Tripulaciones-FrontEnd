@@ -55,7 +55,7 @@ const BuildingIncidences = ({ buildings }) => {
         ) : (
           <p>No hay incidencias pendientes</p>
         )}
-        <BuildingMore />
+        <BuildingMore url={"/fincas"}/>
       </div>
     </>
   );
