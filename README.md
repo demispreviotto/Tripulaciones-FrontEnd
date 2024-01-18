@@ -6,8 +6,7 @@ This project consists on generating an app/web to solve an specific problem, the
 
 ## Summary of the project
 
-summary...
-In the front of the project we created different pages in order to organize the work of the administrator
+In the Frontend of the project we created different pages in order to organize the work of the administrator, he can log in or register, he can have a detailed view of the tasks he must do as well as eht incidences and in both of them is specified in which building have that work. He can see all the buildings he manage and can have more details of an specific building. If he wants, he can click on incidences to see all the incidences that building have, or if he is going to manage a new building he can create it by clicking in the plus icon. The building have a button that allows him/her to see all the details of that building, such as the doors, owners, services, reminders etc. We used redux to manage all the states and allow us to bring specific information bringed from the components.
 
 ## Technologies used in the project
 
