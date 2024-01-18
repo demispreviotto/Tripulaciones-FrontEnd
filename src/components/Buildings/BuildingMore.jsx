@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import Icon_Arrow from "../../assets/Icon_Arrow";
 
-const BuildingMore = () => {
+const BuildingMore = ({url}) => {
     const navigate = useNavigate()
     const handleGoBuildings = () => {
-        navigate("/fincas");
+        navigate({url});
     };
 
     return (
