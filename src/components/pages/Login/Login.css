@@ -15,6 +15,10 @@
     color: var(--primariosgranate);
 }
 
+/* .logo-container img {
+    height: 160px;
+} */
+
 form {
     gap: 16px;
 }

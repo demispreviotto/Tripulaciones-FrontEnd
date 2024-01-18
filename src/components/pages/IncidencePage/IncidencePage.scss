@@ -1,0 +1,16 @@
+.status-bar {
+    width: 327px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+    transform: rotate(90deg) translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+
+    .progress {
+        height: 100%;
+        width: 0;
+        background-color: black;
+        transition: width 0.3s ease-in-out;
+    }
+}

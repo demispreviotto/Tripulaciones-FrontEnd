@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="logo-container">
-        <img style={{ height: "height: 160px;" }} src={FincUp} alt="logo" />
+        <Logo_FincUp />
         <h2 style={{ color: "#AC1A2F" }}>FincUp</h2>
       </div>
       <div className="form-container">
