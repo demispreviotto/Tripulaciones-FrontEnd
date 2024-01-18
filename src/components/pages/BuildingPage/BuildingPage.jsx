@@ -13,17 +13,14 @@ import Icon_GoBack from "../../../assets/Icon_GoBack";
 import "./BuildingPage.scss";
 import Loading from "../../common/Loading/Loading";
 
-const tokenLocal = JSON.parse(localStorage.getItem("token"));
 const BuildingPage = () => {
-  const token = useSelector((state) => state.auth.token);
   const { _id } = useParams();
   const building = useSelector((state) => state.building.building);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (token === tokenLocal) {
-      dispatch(getBuildingById(_id));
-    }
+    dispatch(getBuildingById(_id));
   }, []);
 
   if (!building) {

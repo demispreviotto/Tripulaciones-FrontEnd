@@ -8,37 +8,22 @@ import Logo from "../../../assets/Logo";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const message = useSelector((state) => state.auth.message);
-  const status = useSelector((state) => state.auth.status);
-  const user = useSelector((state) => state.auth.user);
 
   const [data, setData] = useState({ email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // useEffect(() => {
-  //   dispatch(reset());
-  // }, []);
 
   const handleOnChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    dispatch(login(data));
-    // dispatch(reset());
-  };
-
-  useEffect(() => {
-    if (user) {
-      const timeoutId = setTimeout(() => {
-        navigate("/");
-      }, 2000);
-      return () => clearTimeout(timeoutId);
+    const loginResponse = await dispatch(login(data));
+    if (loginResponse.payload?.user) {
+      navigate("/");
     }
-    // }, [user]);
-  }, [user]);
+  };
 
   return (
     <div className="login">
@@ -60,7 +45,6 @@ const Login = () => {
             placeholder="Contraseña"
             onChange={handleOnChange}
           />
-          {message && <p className={status}>{message}</p>}
           <button type="submit" disabled={isSubmitting}>
             Iniciar Sesión
           </button>

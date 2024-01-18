@@ -2,9 +2,8 @@ import axios from "axios";
 
 const API_URL = "http://localHost:8080/buildings/";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
 const createBuilding = async (data) => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.post(API_URL + "createBuilding", data, {
     headers: {
       Authorization: token,
@@ -14,6 +13,7 @@ const createBuilding = async (data) => {
 };
 
 const getAllBuildings = async () => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.get(API_URL + "getAllBuildings",
     {
       headers: {
@@ -25,6 +25,7 @@ const getAllBuildings = async () => {
 };
 
 const getBuildingById = async (_id) => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.get(API_URL + "getBuildingById/" + _id, {
     headers: {
       Authorization: token,
@@ -34,6 +35,7 @@ const getBuildingById = async (_id) => {
 };
 
 const updateBuildingById = async (data) => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.put(API_URL + "updateBuilding/" + data._id, data, {
     headers: {
       Authorization: token,
@@ -43,6 +45,7 @@ const updateBuildingById = async (data) => {
 };
 
 const deleteBuildingById = async (_id) => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.delete(API_URL + "deleteBuildingById/" + _id, {
     headers: {
       Authorization: token,
@@ -52,6 +55,7 @@ const deleteBuildingById = async (_id) => {
 };
 
 const getOwners = async (_id) => {
+  const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.get(API_URL + "getOwners/" + _id, {
     headers: {
       Authorization: token,

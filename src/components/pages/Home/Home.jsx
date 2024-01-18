@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
-import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceSlice";
+// import { fetchAndCreateIncidences } from "../../../features/incidence/incidenceSlice";
 import Preloader from "../Preloader/Preloader";
 import BuildingCheck from "../../Buildings/BuildingCheck";
 import "./Home.scss";
-import Icon_Arrow from "../../../assets/Icon_Arrow";
-
-const tokenLocal = JSON.parse(localStorage.getItem("token"));
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,12 +14,12 @@ const Home = () => {
   const token = useSelector((state) => state.auth.token);
   const buildings = useSelector((state) => state.building.buildings);
   const [formattedDate, setFormattedDate] = useState("");
+
   useEffect(() => {
     if (!user) {
       navigate("/inicio-sesion");
     } else {
       dispatch(getAllBuildings());
-      // dispatch(fetchAndCreateIncidences());
       const formattedDate = new Date().toLocaleDateString("es-ES", {
         weekday: "long",
         day: "numeric",
@@ -32,19 +29,10 @@ const Home = () => {
       setFormattedDate(formattedDate);
     }
   }, []);
-  // useEffect(() => {
-  //   if (token === tokenLocal) {
-  //     dispatch(getAllBuildings());
-  //   }
-  // }, []);
 
   if (!buildings || !user || !token) {
     return <Preloader />;
   }
-
-  // const handleGoBuildings = () => {
-  //   navigate("/fincas");
-  // };
 
   return (
     <div className="home">
@@ -60,9 +48,6 @@ const Home = () => {
         <div className="building-check">
           <BuildingCheck buildings={buildings} />
         </div>
-        {/* <div className="see-all-buildings" onClick={handleGoBuildings}>
-            Ver todas las fincas <Icon_Arrow />
-          </div> */}
       </div>
     </div>
   );
