@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createBuilding } from "../../../features/building/buildingSlice";
 import Icon_GoBack from "../../../assets/Icon_GoBack";
-import Logo_fincup from "../../../assets/Logo_fincup";
 import "./BuildingCreate.scss";
 
 const BuildingCreate = () => {
@@ -42,7 +41,6 @@ const BuildingCreate = () => {
       </header>
       <div className="create-buildings">
         <h2>Crear Finca</h2>
-        {/* <Logo_fincup /> */}
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"

@@ -29,7 +29,6 @@ const Doors = () => {
             <p>Número de incidencias: {door.incidenceIds.length}</p>
           </div>
         ))}
-      {/* <DoorCreate /> */}
     </>
   );
 };

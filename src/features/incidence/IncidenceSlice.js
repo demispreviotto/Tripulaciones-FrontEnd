@@ -23,7 +23,7 @@ export const incidenceSlice = createSlice({
         state.status = "loading";
       })
       .addCase(createManualIncidence.fulfilled, (state, action) => {
-        console.log('action.payload');
+        console.log("action.payload");
         console.log(action.payload);
         state.incidence = action.payload.incidence;
         state.status = "succeeded";
@@ -85,7 +85,7 @@ export const incidenceSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchAndCreateIncidences.fulfilled, (state, action) => {
-        console.log(action.payload)
+        console.log(action.payload);
         state.newIncidences = action.payload;
         state.status = "succeeded";
         state.message = action.payload.message;
@@ -93,7 +93,7 @@ export const incidenceSlice = createSlice({
       .addCase(fetchAndCreateIncidences.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload.message;
-      })
+      });
   },
 });
 

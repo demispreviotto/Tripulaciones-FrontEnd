@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const IncidencesClosed = () => {
-  return (
-    <div>IncidencesClosed</div>
-  )
-}
+  return <div>IncidencesClosed</div>;
+};
 
-export default IncidencesClosed
+export default IncidencesClosed;

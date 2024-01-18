@@ -26,13 +26,9 @@ const IncidenceCreate = () => {
   const buildings = useSelector((state) => state.building.buildings);
   const message = useSelector((state) => state.incidence.message);
   const createIncidenceStatus = useSelector((state) => state.incidence.status);
-  // const doors = useSelector((state) => state.door.doors)
-  // const owners = useSelector((state) => state.owner.owners)
 
   useEffect(() => {
     dispatch(getAllBuildings());
-    // dispatch(getAllDoors())
-    // dispatch(getAllOwners())
   }, []);
   const handleOnChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,9 +48,7 @@ const IncidenceCreate = () => {
       message === "Manual incidence created successfully" ||
       createIncidenceStatus === "succeeded"
     ) {
-      setTimeout(() => {
-        // navigate("/incidencias");
-      }, 2000);
+      setTimeout(() => {}, 2000);
     }
   }, [message]);
 
@@ -121,23 +115,9 @@ const IncidenceCreate = () => {
                 </option>
               ))}
             </select>
-            {/* <select name="doorId" id="doorId" onChange={handleOnChange}>
-                    {doors.map((door) => (
-                      <option key={door._id} value={door._id}>
-                      {door.address}
-                      </option>
-                      ))
-                    }
-                    </select>
-                    <select name="ownerId" id="ownerId" onChange={handleOnChange}>
-                    {owners.map((owner) => (
-                      <option key={owner._id} value={owner._id}>
-                      {owner.address}
-                      </option>
-                      ))
-                    }
-                  </select> */}
-            <button type="submit" disabled={isSubmitting}>Crear Incidencia</button>
+            <button type="submit" disabled={isSubmitting}>
+              Crear Incidencia
+            </button>
             {message && <p className={createIncidenceStatus}>{message}</p>}
           </form>
         </div>

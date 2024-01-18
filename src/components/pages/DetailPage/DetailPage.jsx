@@ -46,7 +46,6 @@ const DetailPage = ({ buildingId }) => {
             </div>
           ))
         )}
-        {/* <h3>Crear</h3> */}
         <DoorCreate building={building} />
       </div>
       <div>

@@ -18,12 +18,20 @@ const Incidences = () => {
     dispatch(getBuildingById(_id));
   }, []);
 
-  if (!building) { return <Loading /> }
+  if (!building) {
+    return <Loading />;
+  }
 
-  const incidences = building.incidenceIds
-  const totalPendingIncidences = incidences.filter((incidence) => incidence.status !== "completed")
-  const totalNonCompletedIncidences = incidences.filter((incidence) => incidence.status !== "completed").length
-  const totalCompletedIncidences = incidences.filter((incidence) => incidence.status === "completed").length
+  const incidences = building.incidenceIds;
+  const totalPendingIncidences = incidences.filter(
+    (incidence) => incidence.status !== "completed"
+  );
+  const totalNonCompletedIncidences = incidences.filter(
+    (incidence) => incidence.status !== "completed"
+  ).length;
+  const totalCompletedIncidences = incidences.filter(
+    (incidence) => incidence.status === "completed"
+  ).length;
 
   return (
     <>
@@ -45,12 +53,19 @@ const Incidences = () => {
           <div className="building-check">
             <div className="container">
               <nav>
-                <div className={`container-header ${activeTab === "pending" ? "active" : ""}`}
-                  onClick={() => setActiveTab("pending")}>
+                <div
+                  className={`container-header ${
+                    activeTab === "pending" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveTab("pending")}
+                >
                   <h4>Pendientes</h4>
                   <p>{totalNonCompletedIncidences}</p>
                 </div>
-                <div className={`container-header ${activeTab === "closed" ? "active" : ""}`}
+                <div
+                  className={`container-header ${
+                    activeTab === "closed" ? "active" : ""
+                  }`}
                   onClick={() => setActiveTab("closed")}
                 >
                   <h4>Cerradas</h4>
@@ -59,21 +74,21 @@ const Incidences = () => {
               </nav>
               {activeTab === "pending" ? (
                 <div className="container-content">
-                  {/* map map incidences where status != completed */}
                   {totalNonCompletedIncidences > 0 ? (
                     building.incidenceIds.map((incidence) => {
-                      // { console.log(incidence) }
                       if (incidence.status !== "completed") {
-                        const formattedDate = new Date(incidence.createdAt).toLocaleDateString()
+                        const formattedDate = new Date(
+                          incidence.createdAt
+                        ).toLocaleDateString();
                         return (
                           <div
                             className="card"
                             key={incidence._id}
-                            onClick={() => navigate(`/incidencias/id/${incidence._id}`)}
+                            onClick={() =>
+                              navigate(`/incidencias/id/${incidence._id}`)
+                            }
                           >
-                            <h5>
-                              {incidence.summary.slice(0, 20)}...
-                            </h5>
+                            <h5>{incidence.summary.slice(0, 20)}...</h5>
                             <div className="card-details">
                               <p>{incidence.status}</p>
                               <p>{formattedDate}</p>
@@ -85,7 +100,10 @@ const Incidences = () => {
                   ) : (
                     <p>No hay incidencias pendientes</p>
                   )}
-                  <BuildingMore text={'Ver todas las incidencias'} url={"/incidencias/"} />
+                  <BuildingMore
+                    text={"Ver todas las incidencias"}
+                    url={"/incidencias/"}
+                  />
                 </div>
               ) : (
                 <div className="container-content">
@@ -96,7 +114,9 @@ const Incidences = () => {
                           <div
                             className="card"
                             key={incidence._id}
-                            onClick={() => navigate(`/incidencias/id/${incidence._id}`)}
+                            onClick={() =>
+                              navigate(`/incidencias/id/${incidence._id}`)
+                            }
                           >
                             <h5>{incidence.sumary}</h5>
                             <div className="card-details">

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOwner } from "../../../features/owner/ownerSlice";
-import { useLocation, useParams } from "react-router-dom";
 import "./OwnerCreate.css";
 
-const OwnerCreate = ({buildingId}) => {
+const OwnerCreate = ({ buildingId }) => {
   const initialValue = {
     email: "",
     firstName: "",
@@ -44,7 +43,7 @@ const OwnerCreate = ({buildingId}) => {
     };
     dispatch(createOwner(updatedData));
     console.log(updatedData);
-    console.log(buildingId)
+    console.log(buildingId);
   };
 
   const handleActive = (e) => {

@@ -23,18 +23,26 @@ const BuildingCheck = ({ buildings }) => {
     <>
       <div className="container">
         <nav>
-          <div className={`container-header ${activeTab === "todos" ? "active" : ""}`}
-            onClick={() => setActiveTab("todos")}>
+          <div
+            className={`container-header ${
+              activeTab === "todos" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("todos")}
+          >
             <h4>Tareas</h4>
             <p>{totalNonCompletedTodos}</p>
           </div>
-          <div className={`container-header ${activeTab === "incidences" ? "active" : ""}`}
-            onClick={() => setActiveTab("incidences")}>
+          <div
+            className={`container-header ${
+              activeTab === "incidences" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("incidences")}
+          >
             <h4>Incidencias</h4>
             <p>{totalNonCompletedIncidences}</p>
           </div>
         </nav>
-        {activeTab === 'todos' ? (
+        {activeTab === "todos" ? (
           <BuildingTodos buildings={buildings} />
         ) : (
           <BuildingIncidences buildings={buildings} />

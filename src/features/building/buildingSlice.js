@@ -32,14 +32,12 @@ export const buildingSlice = createSlice({
       })
       .addCase(createBuilding.rejected, (state, action) => {
         state.status = "failed";
-        // console.log(action.payload.message)
         state.message = action.payload.message;
       })
       .addCase(getAllBuildings.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getAllBuildings.fulfilled, (state, action) => {
-        // console.log(action.payload)
         state.buildings = action.payload;
         state.status = "succeeded";
         state.message = action.payload.message;
@@ -52,14 +50,12 @@ export const buildingSlice = createSlice({
         state.status = "loading";
       })
       .addCase(getBuildingById.fulfilled, (state, action) => {
-        // console.log(action.payload)
         state.building = action.payload;
         state.status = "succeeded";
         state.message = action.payload.message;
       })
       .addCase(getBuildingById.rejected, (state, action) => {
         state.status = "failed";
-        // console.log(action.payload.message)
         state.message = action.payload.message;
       })
       .addCase(updateBuildingById.pending, (state) => {

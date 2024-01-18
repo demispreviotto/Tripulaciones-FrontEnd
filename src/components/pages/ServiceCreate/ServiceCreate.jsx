@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./ServiceCreate.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { create } from "../../../features/service/serviceSlice";
 import Logo_FincUp from "../../../assets/Logo_fincup";
 
 const Service = () => {
-  const navigate = useNavigate();
-
   const initialValue = {
     company: "",
     theme: "",
@@ -29,7 +26,6 @@ const Service = () => {
   useEffect(() => {
     if (status === "succeeded") {
       const timeoutId = setTimeout(() => {
-        // navigate("/login");
         setIsSubmitting(false);
         setData(initialValue);
       }, 3000);

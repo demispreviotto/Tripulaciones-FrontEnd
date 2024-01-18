@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDoor, getAllDoors } from "../../../features/door/doorSlice";
 import { getOwners } from "../../../features/building/buildingSlice";
-import data from "../../../assets/data/dataEs.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./DoorCreate.css";
 import Loading from "../../common/Loading/Loading";
 

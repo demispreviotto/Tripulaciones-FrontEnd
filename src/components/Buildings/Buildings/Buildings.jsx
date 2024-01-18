@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllBuildings } from "../../../features/building/buildingSlice";
-import BuildingCreate from "../../pages/BuildingCreate/BuildingCreate";
 import Loading from "../../common/Loading/Loading";
 import Icon_GoBack from "../../../assets/Icon_GoBack";
 import Icon_Search from "../../../assets/Icon_Search";
@@ -66,7 +65,6 @@ const Buildings = () => {
             </div>
           ))}
       </div>
-      {/* <BuildingCreate /> */}
     </>
   );
 };

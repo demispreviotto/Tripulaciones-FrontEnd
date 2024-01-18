@@ -59,12 +59,16 @@ const BuildingPage = () => {
             <div className="card" onClick={handleOnClickIncidences}>
               <Icon_Incidences />
               <h5>Incidencias</h5>
-              {building.incidenceIds.length > 0 && <p className="balloon">{building.incidenceIds.length}</p>}
+              {building.incidenceIds.length > 0 && (
+                <p className="balloon">{building.incidenceIds.length}</p>
+              )}
             </div>
             <div className="card">
               <Icon_Todos />
               <h5>Tareas</h5>
-              {building.todoIds.length > 0 && <p className="balloon">{building.todoIds.length}</p>}
+              {building.todoIds.length > 0 && (
+                <p className="balloon">{building.todoIds.length}</p>
+              )}
             </div>
             <div className="card">
               <Icon_Meetings />

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../../features/auth/authSlice";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import Logo_FincUp from "../../../assets/Logo_fincup";
-import FincUp from "../../../assets/svg/Logo_fincup.png";
+import Logo_FincUp from "../../../assets/svg/Logo_fincup.png";
 
 const Login = () => {
   const dispatch = useDispatch();
