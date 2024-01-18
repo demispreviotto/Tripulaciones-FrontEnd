@@ -1,13 +1,12 @@
 import React from "react";
 import "./Preloader.css";
-import Logo from "../../../assets/Logo";
+import Logo_FincUp from "../../../assets/Logo_fincup";
 
 const Preloader = () => {
   return (
     <div className="preloader">
       <div className="logo-container">
-        <Logo />
-        <h2>FincUp</h2>
+        <Logo_FincUp />
       </div>
       <p>Cargando...</p>
     </div>

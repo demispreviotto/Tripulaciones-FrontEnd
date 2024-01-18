@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Logo from "../../../assets/Logo";
 import { createOwner } from "../../../features/owner/ownerSlice";
 import { useLocation, useParams } from "react-router-dom";
 import "./OwnerCreate.css";

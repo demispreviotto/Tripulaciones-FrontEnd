@@ -1,12 +1,11 @@
 import React from 'react'
-import Logo from '../../../assets/Logo'
+import Logo_FincUp from '../../../assets/Logo_fincup'
 
 const Loading = () => {
     return (
         <div className="">
             <div className="logo-container">
-                <Logo />
-                <h2>FincUp</h2>
+                <Logo_FincUp />
             </div>
             <p>Cargando...</p>
         </div>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../../../assets/Logo";
 import "./ServiceCreate.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { create } from "../../../features/service/serviceSlice";
+import Logo_FincUp from "../../../assets/Logo_fincup";
 
 const Service = () => {
   const navigate = useNavigate();
@@ -49,8 +49,7 @@ const Service = () => {
   return (
     <div className="service">
       <div className="logo-container">
-        <Logo />
-        <h2>Cajon Digital</h2>
+        <Logo_FincUp />
       </div>
       <div className="form-container">
         <h3 className="add">Agregue un servicio:</h3>
