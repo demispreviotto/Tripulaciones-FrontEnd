@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localHost:8080/owners/";
+const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/owners/";
 
 const token = JSON.parse(localStorage.getItem("token"));
 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../../features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import Logo_FincUp from "../../../assets/svg/Logo_fincup.png";
+import Logo_FincUp from "../../../assets/Logo_fincup";
 
 const Login = () => {
   const dispatch = useDispatch();

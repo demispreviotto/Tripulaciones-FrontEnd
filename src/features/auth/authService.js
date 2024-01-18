@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localHost:8080/users/";
+const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/users/";
 
 const register = async (data) => {
   const res = await axios.post(API_URL + "register", data);

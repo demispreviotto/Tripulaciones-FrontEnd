@@ -2,7 +2,7 @@ import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home/Home";
 import Register from "./components/pages/Register/Register";
-import Login from "./components/pages/Login/Login";
+import Login from "./components/pages/Login/Login"
 // import About from "./components/pages/About/About";
 // import Profile from "./components/pages/Profile/Profile";
 import BuildingPage from "./components/pages/BuildingPage/BuildingPage";
@@ -39,7 +39,7 @@ function App() {
           {/* <Route path="/tareas/crear" element={<TodoCreate />} /> */}
           <Route path="/fincas/id/:_id/incidencias" element={<Incidences />} />
           <Route path="/incidencias/" element={<IncidencePage />} />
-          <Route path="/incidencias/id/:_id" element={<IncidencePage />} />
+          {/* <Route path="/incidencias/id/:_id" element={<IncidencePage />} /> */}
           <Route path="/incidencias/crear" element={<IncidenceCreate />} />
           {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/servicios/crear" element={<ServiceCreate />} /> */}

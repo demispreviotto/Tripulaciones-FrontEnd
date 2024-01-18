@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localHost:8080/incidences/";
+const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/incidences/";
 
 const fetchAndCreateIncidences = async () => {
   try {

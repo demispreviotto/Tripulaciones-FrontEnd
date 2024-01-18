@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localHost:8080/doors/";
+const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/doors/";
 
 const createDoor = async (data) => {
   const token = JSON.parse(localStorage.getItem("token"));
