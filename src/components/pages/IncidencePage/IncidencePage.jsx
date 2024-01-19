@@ -28,9 +28,19 @@ const IncidencePage = () => {
     (incidenceStatus.indexOf(incidence.status) / (incidenceStatus.length - 1)) *
     100;
 
+  const handleConversations = (e) => {
+    e.preventDefault();
+    console.log("Ver conversaciones");
+  };
   const handleAsign = (e) => {
     e.preventDefault();
     console.log("Asignar Servicio");
+  };
+  const currentStatusIndex = incidenceStatus.findIndex(
+    (status) => status === incidence.status
+  );
+  const shouldHighlightStatus = (currentIndex, targetIndex) => {
+    return currentIndex <= targetIndex;
   };
 
   return (
@@ -38,46 +48,54 @@ const IncidencePage = () => {
       <header>
         <Icon_GoBack />
       </header>
-      <div className="incidences">
+      <div className="incidences-page">
         <div className="greetings">
-          <div className="incidences">
+          <div className="incidences-title">
             <h2>{incidence.summary}</h2>
+            <p className="created-date">{createdDate}</p>
           </div>
           <div className="messages">
-            <h4>{service || "Servicio no asignado"}</h4>
+            <p>{service || "Servicio no asignado"}</p>
           </div>
-          <div>Ver Conversaciones</div>
+          <button onClick={handleConversations}>Ver Conversaciones</button>
         </div>
-      </div>
-      {service ? (
-        <div className="card">
-          <p>{incidence.category}</p>
-          <p>{incidence.status}</p>
+        {/* </div> */}
+        {service ? (
+          <div className="card">
+            <p>{incidence.category}</p>
+            <p>{incidence.status}</p>
+          </div>
+        ) : (
+          <div className="card" type="button" onClick={handleAsign}>
+            Mmm.. <br /> parece que no hay servicios asignados <br /> <u>Toca para asignar Servicio</u>
+          </div>
+        )}
+        <div className="status-container">
+          <h4>Estado de la incidencia</h4>
+          <div className="status-content">
+            <div className="status-bar">
+              <div
+                className="progress"
+                style={{ height: `${progressPercentage}%` }}
+              ></div>
+              <div className="dot"></div>
+            </div>
+            <div className="status-stage">
+              {incidenceStatus.map((status, index) => (
+                <div key={index}>
+                  <p className={shouldHighlightStatus(
+                    index,
+                    currentStatusIndex
+                  ) ? "highlighted-status" : ""}
+                  >{status}</p>
+                  {status === incidence.status
+                    && <p> {updatedDate} {updatedTime}
+                    </p>}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      ) : (
-        <button type="button" onClick={handleAsign}>
-          Asignar Servicio
-        </button>
-      )}
-      <div className="status-container">
-        <div className="status-bar">
-          <div
-            className="progress"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
-        </div>
-        {incidenceStatus.map((status) => (
-          <p key={status}>{status}</p>
-        ))}
-        <p>
-          {createdDate} {createdTime}
-        </p>
-        <p>
-          {updatedDate} {updatedTime}
-        </p>
-        <p>
-          {incidence.buildingId?.address} {incidence.buildingId?.number}
-        </p>
       </div>
     </div>
   );

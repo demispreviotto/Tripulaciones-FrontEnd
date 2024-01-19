@@ -40,7 +40,7 @@ function App() {
           {/* <Route path="/tareas/crear" element={<TodoCreate />} /> */}
           <Route path="/fincas/id/:_id/incidencias" element={<Incidences />} />
           <Route path="/incidencias/" element={<IncidencePage />} />
-          {/* <Route path="/incidencias/id/:_id" element={<IncidencePage />} /> */}
+          <Route path="/incidencias/id/:_id" element={<IncidencePage />} />
           <Route path="/incidencias/crear" element={<IncidenceCreate />} />
           {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/servicios/crear" element={<ServiceCreate />} /> */}

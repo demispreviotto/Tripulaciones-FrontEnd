@@ -10,7 +10,7 @@ const BuildingTodos = ({ buildings }) => {
   const navigate = useNavigate();
 
   const getNonCompletedTodosCount = (todoIds) => {
-    return todoIds.filter((todo) => todo.status !== "Completada").length;
+    return todoIds.filter((todo) => !todo.completed).length;
   };
 
   const getCompletedTodosCount = (todoIds) => {

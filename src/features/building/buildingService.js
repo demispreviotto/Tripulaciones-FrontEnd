@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/buildings/";
+// const API_URL = "https://tripulaciones-backend-dev-qfjx.2.us-1.fl0.io/buildings/";
+const API_URL = "http://localhost:8080/buildings/";
 
 const createBuilding = async (data) => {
   const token = JSON.parse(localStorage.getItem("token"));
