@@ -59,7 +59,6 @@ const IncidencePage = () => {
           </div>
           <button onClick={handleConversations}>Ver Conversaciones</button>
         </div>
-        {/* </div> */}
         {service ? (
           <div className="card">
             <p>{incidence.category}</p>

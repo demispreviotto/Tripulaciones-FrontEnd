@@ -33,7 +33,6 @@
             color: $secundariosnegro;
             font-family: $heading-heading-m-font-family;
             font-size: 12px;
-            // font-size: $heading-heading-m-font-size;
             font-style: $heading-heading-m-font-style;
             font-weight: $heading-heading-m-font-weight;
             letter-spacing: $heading-heading-m-letter-spacing;
@@ -62,24 +61,16 @@
         bottom: 0;
         justify-content: center;
         gap: 30px;
-
-        // margin: 5vh;
         margin: 3vh 5vh 5vh 5vh;
 
         .status-bar {
-            // width: 327px;
-            // height: 4px;
             width: 4px;
             height: 100%;
             background-color: white;
             border-radius: 2px;
             overflow: hidden;
-            // transform: rotate(90deg) translate(-50%, -50%);
-            // transform: translate(-50%, -50%);
 
             .progress {
-                // height: 100%;
-                // width: 0;
                 height: 4px;
                 width: 100%;
                 background-color: $primariosgranate;
